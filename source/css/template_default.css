@@ -1,0 +1,840 @@
+/***
+ * Hoja de Estilos customizable para el Template
+ * ************************************************ *
+ * NOTA IMPORTANTE: Realizar una copia de
+ * seguridad de esta hoja de estilos antes
+ * de actualizar el template 
+ * ************************************************ *
+ * 1- Introducir la/s fipografía/s desde google Fonts si se requiere.
+ * 2- Modificar los parámetros :root según necesidades
+ * 3- Estilos personalizados.
+ * ** Se pueden crear/editar todos los estilos necesarios antes de las etiquetas @media para el diseño responsive.
+ * ** Las etiquetas @media se utilizan para dar un estilo particular a elementos concretos según la resolución de la pantalla.
+ * ************************************************ *
+ ***********/
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Ruda:400,700,900&display=swap');
+:root
+{
+    --or-menu-container-color: #FFF; /* Color del fondo del menu */
+    --or-menu-text-color: #6E6E6E; /* Color del texto del menu */
+    --or-menu-lang-bgcolor: #4DC1D9; /* Color del fondo del menú de idioma */
+    --or-menu-lang-txtcolor: #FFF; /* Color del boton de idioma on hover */
+    --or-menu-lang-bgcolor-hover: #028EBC; /* Color del boton de idioma on hover */
+    --or-menu-lang-txtcolor-hover: #FFF; /* Color del boton de idioma on hover */
+    --or-menu-text-bgcolor: transparent; /* Color del fondo del menú de links */
+    --or-menu-text-txtcolor: #6E6E6E; /* Color del texto del menú de links */
+    --or-menu-text-bgcolor-hover: transparent; /* Color del boton de links on hover */
+    --or-menu-text-txtcolor-hover: #2F2F2F; /* Color del boton de links on hover */
+    --or-menu-textdisplay-bgcolor: #FFF; /* Color del fondo del menú de links */
+    --or-menu-textdisplay-txtcolor: #6E6E6E; /* Color del fondo del menú de links */
+    --or-menu-extra-txt: #FFF; /* Color del text del boton extras */
+    --or-menu-extra-bg: #2F2F2F; /* Color del fondo del boton extras */
+    --or-menu-height: 85px; /* Altura de la barra de menú */
+    --or-web-text-color: #2F2F2F;
+    --or-web-bg-color: #FFF;
+    --or-web-corp-color: #3ABCD6;
+    --or-web-corp-altcolor: #FFF;
+    --or-font-icon-menu: 70px;
+    --or-font-mlink: 40px;
+    --or-font-h1-big: 85px;
+    --or-font-h1: 85px;
+    --or-font-h2: 40px;
+    --or-font-h3: 30px;
+    --or-font-h4: 25px;
+    --or-font-h5: 22px;
+    --or-font-h6: 20px;
+    --or-font-p-big: 18px;
+    --or-font-p: 16px;
+    --or-font-p-min: 14px;
+    --or-befont-big: 18px;
+    --or-befont: 16px;
+    --or-befont-min: 14px;
+    --or-main-font: 'Lato', sans-serif;
+    --or-alt-font: 'Ruda', sans-serif;
+    --or-width: 1200px;               /** Ancho fijo por defecto (puede variar según la resolución) **/
+    --or-fixed-margin: 140px;         /** Margen fijo cuando no queremos ancho fijo **/
+    --or-modal-bgcolor: rgba(200,200,200,1); /** Background de los modals **/
+    --or-modal-txtcolor: #333; /** Color de texto de los modals  **/
+    --or-modal-altbgcolor: #028EBC; /** Background alternativo de los modals **/
+    --or-modal-alttxtcolor: #fff; /** Color de texto alternativo de los modals **/
+    --or-be-bgcolor: rgba(95,203,211,0.6); /** Background color del cajetín **/
+    --or-be-hometop: 590px;           /** Posición fija del cajetín en la home  **/
+    --or-be-cornerradius: 10px;       /** Curvatura de las esquinas del cajetín **/
+    --or-be-cornerradius-min: 2px;       /** Curvatura de las esquinas de los inputs del cajetín **/
+    --or-be-txtinput: #333; /** Color del texto que aparece en los inputs del cajetin (standard. Original: #25272A;) **/
+    --or-be-bginput: #FFF;  /** Color de fondo de los inputs del cajetín (debe contrastar con el txtinput para su legibilidad) **/
+    --or-be-specialcolor: #028EBC; /** Color de los botones que aparecen en el cajetin (standard. Original: var(--or-be-specialcolor);) **/
+    --or-be-txtspecial: #FEFEFE; /** Color que se imprime sobre el color especial cuando este está de fondo (debe poderse leer sobre el color especial) **/
+    --or-be-roomsheight: 315px; /** Alto de la caja que contiene los adultos y niños por habitación **/
+}
+
+/*** ESTILOS PERSONALIZADOS ***
+ ******************************/
+.or-nav-container .or-nav-menu-display.mod-list > li.current.active,
+.or-nav-container .or-nav-menu-display.mod-list > li:hover {    /* Enlace del contenedor*/
+   background-image: url('../../../images/logo-waves.png');
+   background-position: bottom left;
+   background-repeat: no-repeat;
+}
+.or-nav-container .or-nav-menu-display.mod-list > li:hover { opacity: 0.6; }
+.or-nav-container .or-nav-menu-display.mod-list > li a:hover { text-decoration: none; color: var(--or-menu-text-txtcolor-hover); }
+.or-nav-container .or-nav-menu-display.mod-list > li.current.active a {    /* Enlace del contenedor*/
+    color: var(--or-menu-text-txtcolor-hover);
+}
+h1, h2, h3 { font-family: var(--or-alt-font); }
+h1 {
+    color:  var(--or-menu-lang-txtcolor);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 100px;
+    text-shadow: 0px 3px 6px rgba(0,0,0,0.4);
+    text-align: center;
+}
+h1 > small {
+   font-weight: 400;
+   font-size: 68%;
+}
+
+.home_header {
+    height: 830px;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 150px;
+}
+.home_header .or_blockwidth {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    margin-bottom: 35px;
+    flex-direction: column;
+}
+.home_header.start .or_blockwidth { align-items: flex-start; }
+.home_header.start .or_blockwidth h1 { text-align: left; margin-top: 200px; margin-bottom: 0; }
+
+.home_header div[class^="oricon-"], .home_header div[class*=" oricon-"] {
+    font-size: 100px;
+    color: var(--or-menu-lang-txtcolor);
+    transform: rotate(180deg);
+    margin-left: -61px;
+    position: absolute;
+    top: 760px;
+    right: 60px;
+    cursor: pointer;
+}
+.or_navExtraBorras { display: none; }
+.or_home_class .or_navExtraBorras
+{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 98%;
+    padding: 42px 1%;
+    margin-top: -172px;
+    height: 88px;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+}
+.or_home_class .or-nav-menu.or-nav-extras { display: none; }
+.or_navExtraBorras div > p
+{
+    color: #fff;
+    margin: 0;
+}
+.or_navExtraBorras div > p > strong { color: var(--or-web-corp-color); }
+.or_navExtraBorras div.titulo { font-size: 22px; }
+
+.or_navExtraBorras .or_blockwidth {
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-extra-content {
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+.nav-extra-icon {
+    padding-right: 7px;
+}
+
+
+.bg_fotoazul, .bg_fotonegro
+{
+   padding: 120px 0;
+   color: var(--or-web-corp-altcolor);
+   background-position: center;
+   background-size: cover
+}
+.bg_fotoazul h2, .bg_fotonegro h2
+{
+   color: var(--or-web-corp-altcolor);
+}
+
+/** VENTAJAS EXCLUSIVAS **/
+#or-modalExtras.or-fullCover .or-modal-container .or-modal-header {
+    height: 70px;
+    opacity:0.8;
+}
+#or-modalExtras.or-fullCover .or-modal-container .or-modal-body { padding: 0px 50px 90px; }
+
+#or-modalExtras .or-modal-body .or_blockwidth {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#or-modalExtras .or-modal-body .or_blockwidth .titulo {
+   width: 100%;
+   font-size: 22px;
+   font-weight: 600;
+   padding-bottom: 40px;
+}
+#or-modalExtras .or-modal-body .or_blockwidth .titulo:after {
+    display: block;
+    content: " ";
+    width: 50px;
+    background-color: #FFF;
+    height: 2px;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+#or-modalExtras .or-modal-body .nav-extra-content {
+    flex-direction: column;
+    align-items: flex-start;
+}
+#or-modalExtras .or-modal-body .nav-extra-content {  width: 30%; }
+#or-modalExtras .or-modal-body .nav-extra-content .nav-extra-icon { padding-right: 0; opacity: 0.5; }
+#or-modalExtras .or-modal-body .nav-extra-content .nav-extra-text { padding-top: 10px; }
+#or-modalExtras .or-modal-body .nav-extra-content .nav-extra-text > p > strong { color: var(--or-web-corp-color); }
+
+/*************************/
+
+.or_cuadro_blanco {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    background-color: #fff;
+    border-radius: 6px;
+    width: 330px;
+    z-index: 0;
+}
+.or_cuadro_blanco.right {
+    margin-left: -15%;
+}
+.or_cuadro_blanco.left {
+    margin-right: -15%;
+}
+.or_cuadro_blanco h3{
+   font-family: var(--or-alt-font);
+}
+.or_cuadro_blanco a.btn {
+    text-align: center;
+    padding: 0;
+    background-color: var(--or-modal-altbgcolor);
+    color: var(--or-web-corp-altcolor);
+    border-radius: var(--or-be-cornerradius-min);
+    font-weight: 700;
+    height: 47px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 286px;
+    text-decoration: none;
+}
+.or_cuadro_blanco a.btn:hover
+{
+   background-color: var(--or-web-corp-color);
+   color: var(--or-web-corp-altcolor);
+}
+
+
+/******************************/
+.home_bloques_vacaciones
+{
+   display: flex;
+   flex-wrap: wrap;
+}
+.home_bloques_vacaciones > div {
+    width: 40%;
+    padding: 40px 5% 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.home_bloques_vacaciones > div.vacaciones_playa {
+   background-image: url('../../../images/vacaciones_playa.png');
+   background-position: bottom right;
+}
+.home_bloques_vacaciones > div.vacaciones_montanya {
+   background-image: url('../../../images/vacaciones_montanya.png');
+   background-position: bottom left;
+}
+.home_bloques_vacaciones > div.vacaciones_buceo {
+   background-image: url('../../../images/vacaciones-de-buceo.png');
+   background-position: bottom left;
+}
+.home_bloques_vacaciones > div.vacaciones_cicloturismo {
+   background-image: url('../../../images/vacaciones_cicloturismo.png');
+   background-position: bottom right;
+}
+.home_bloques_vacaciones h4 {
+    font-size: var(--or-font-p);
+    color: var(--or-web-corp-color);
+    margin: 0;
+    font-weight: 900;
+}
+.home_bloques_vacaciones p {
+    margin: 0;
+}
+.or_behome .or-float #buscador_reserva
+{
+   border-top-left-radius: 0px;
+   border-top-right-radius: 0px;
+}
+.fondo_gris
+{
+   background-color: #F5F5F5;
+}
+.fondo_azul
+{
+   background-color: #028EBC;
+   color: #FFF;
+}
+.fondo_azul h2 { color: #FFF; }
+.fondo_azul_o80
+{
+   background-color: rgba(2,142,188,0.8);
+}
+.fondo_azul_claro { background-color: #3ABCD6; color: #FFF; }
+
+.orserv-list {
+    display: flex;
+    justify-content: center;
+    width: 1024px;
+    margin: 0 auto;
+}
+.orserv-list > div {
+    flex-grow: 1;
+    padding: 30px 2%;
+    width: 248px;
+}
+.orserv-list > div > strong,
+.orserv-list > div > strong > a { color: #2F2F2F; text-decoration: none; }
+.orserv-list a { color: #FFF; text-decoration: none; font-weight: 600; }
+.orserv-item:after {
+    content: " ";
+    border-bottom: 5px solid #98dcf5;
+    display: block;
+    width: 11%;
+    margin-left: 5%;
+    margin-top: 20px;
+    min-width: 112px;
+    border-radius: 8px;
+}
+.color_blanco, .color_blanco a { color:#fff; text-decoration: none; }
+.opacity_none { opacity: 1; }
+.opacity0 { opacity: 0; }
+.opacity1 { opacity: 0.1; }
+.opacity2 { opacity: 0.2; }
+.opacity3 { opacity: 0.3; }
+.opacity4 { opacity: 0.4; }
+.opacity5 { opacity: 0.5; }
+.opacity6 { opacity: 0.6; }
+.opacity7 { opacity: 0.7; }
+.opacity8 { opacity: 0.8; }
+.opacity9 { opacity: 0.9; }
+.box_shadow { box-shadow: 2px 3px 6px rgba(0,0,0,0.4); }
+/******************************/
+.bg_imgtext {
+    display: flex;
+    width: 400px;
+    height: 330px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--or-be-cornerradius-min);
+}
+.bg_jazz{ background-image: url('../../../images/borras/res-saxo.jpg'); }
+.bg_guitar{ background-image: url('../../../images/borras/res-guitarra.jpg'); }
+.bg_imgtext p {
+    padding: 10px 0;
+    background-color: rgba(2,142,188,0.85);
+    color: #FFF;
+    line-height: 120%;
+    width: 65%;
+    margin: 0 auto;
+}
+
+.orimg_effect.fondo_mallorca {
+    border-radius: 6px;
+    margin: 10px;
+}
+.orimg_effect.fondo_mallorca .orimg_effect_texto .orimg_effect_title
+{
+    align-items: flex-end;
+    font-size: var(--or-font-h6);
+    justify-content: flex-start;
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+.orimg_effect.fondo_mallorca .orimg_effect_texto .orimg_effect_title {
+    text-align: center;
+    justify-content: center;
+}
+/*.orimg_effect.fondo_mallorca.hover .orimg_effect_texto { background-color: rgba(46,154,186,0.7); }*/
+.border_radius{ border-radius: 10px; }
+.bg_cover { background-size: cover; background-position: center; }
+
+ .orimg_effect.hover .orimg_effect_texto .orimg_effect_title,
+ .orimg_effect.hoverOut .orimg_effect_texto .orimg_effect_title { animation-name: imgEffectTitlePlayas;  -webkit-animation-name: imgEffectTitlePlayas; }
+ 
+
+
+ @-webkit-keyframes imgEffectTitlePlayas {
+   from { height: 300px; align-items: center; text-align: center; position: absolute; justify-content: center; }
+   to { height: auto; align-items: flex-end; text-align: left; position: inherit; justify-content: flex-start; }
+ }
+ /* Standard syntax */
+ @keyframes imgEffectTitlePlayas {
+   from { height: 300px; align-items: center; text-align: center; position: absolute; justify-content: center; }
+   to { height: auto; align-items: flex-end; text-align: left; position: inherit; justify-content: flex-start; }
+ }
+.orimg_effect.fondo_mallorca.hover .orimg_effect_texto .orimg_effect_title,
+.orimg_effect.fondo_mallorca.hover .orimg_effect_texto .orimg_effect_hidden,
+.orimg_effect.fondo_mallorca.hoverOut .orimg_effect_texto .orimg_effect_title,
+.orimg_effect.fondo_mallorca.hoverOut .orimg_effect_texto .orimg_effect_hidden {
+    text-align: center;
+}
+
+.orimg_effect.full_sized .orimg_effect_texto .orimg_effect_hidden { display: block; }
+   .orimg_effect.full_sized h3{
+      font-family: var(--or-alt-font);
+   }
+   .orimg_effect.full_sized a.btn {
+       text-align: center;
+       padding: 0;
+       background-color: var(--or-modal-altbgcolor);
+       color: var(--or-web-corp-altcolor);
+       border-radius: var(--or-be-cornerradius-min);
+       font-weight: 700;
+       height: 47px;
+       align-items: center;
+       display: flex;
+       justify-content: center;
+       margin-top: 20px;
+       width: 286px;
+       text-decoration: none;
+   }
+   .orimg_effect.full_sized a.btn:hover
+   {
+      background-color: var(--or-web-corp-color);
+      color: var(--or-web-corp-altcolor);
+   }
+/** RESPONSIVE STYLES **/
+@media (max-width: 767px)   /* Only MOBILE             -----------*/
+{
+        
+   :root	/* Introduce en :root las variables de sólo mobile */
+   {
+       --or-font-icon-menu: 40px;
+       --or-font-mlink: 20px;
+       --or-font-h1-big: 50px;
+       --or-font-h1: 40px;
+       --or-font-h2: 30px;
+       --or-font-h3: 28px;
+       --or-font-h4: 25px;
+       --or-font-h5: 22px;
+       --or-font-h6: 20px;
+       --or-font-p-big: 18px;
+       --or-font-p: 16px;
+       --or-font-p-min: 14px;
+       --or-befont-big: 16px;
+       --or-befont: 14px;
+       --or-befont-min: 13px;
+       --or-width: 90%;
+       --or-fixed-margin: 20px;
+       --or-be-hometop: 70px;
+       --or-be-bgcolor: transparent;
+       --or-be-cornerradius: 0;
+       --or-menu-height: 60px;
+       --or-menu-height-mobile: 60px;
+       --or-menu-width-mobile: 60px;
+       
+   }
+    
+    /**** Estilos personalizados ****/
+   .home_header{ height: 584px; padding-bottom: 0px; }
+   h1 {
+      line-height: 1;
+      margin-bottom: 0;
+      text-align: left;
+   }
+   .home_header .or_blockwidth {
+        width: auto;
+        margin-left: 40px;
+        margin-right: 40px;
+   }
+   .or_home_class .or_navExtraBorras { display: none; }
+   .home_header .or_blockwidth {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      height: 100%;
+      margin-bottom: 35px;
+      flex-direction: column;
+   }
+   
+   .home_header div[class^="oricon-"], .home_header div[class*=" oricon-"]
+   {
+      font-size: 100px;
+      color: var(--or-menu-lang-txtcolor);
+      transform: rotate(180deg);
+      margin-left: -61px;
+      position: inherit;
+   }
+   
+   /*** Extras ***/
+   #or-modalExtras .or-modal-body .nav-extra-content { width: 100%; margin-bottom: 5%; }
+   #or-modalExtras .or-modal-body .nav-extra-content .nav-extra-icon { margin-bottom: -35px; }
+   /** VARIOS **/
+   .bg_fotoazul, .bg_fotonegro { padding: 60px 20px; }
+   .orimg_effect.fondo_mallorca { margin: 15px 0; }
+   
+    .orimg_effect.fondo_mallorca .orimg_effect_texto.hover .orimg_effect_title { text-align: center; justify-content: center; }
+    
+   .bg_imgtext {
+      width: 100%;
+      height: 330px;
+      margin: 20px auto 0;
+      max-width: 400px;
+    }
+    
+    
+   .orserv-item { text-align: center; }
+   .orserv-item:after { margin: 20px auto 0; }
+   .orserv-list { width: 90%; flex-direction: column; text-align: center; }
+   .orserv-list > div {
+      flex-grow: 1;
+      padding: 30px 0;
+      width: 90%;
+      margin-right: auto;
+      margin-left: auto;
+   }
+    
+   .home_bloques_vacaciones
+   {
+      display: flex;
+      flex-wrap: wrap;
+   }
+   .home_bloques_vacaciones > div {
+       width: 100%;
+       padding: 20px 0;
+       background-size: contain;
+       background-repeat: no-repeat;
+       margin: 10px 0;
+   }
+   .home_bloques_vacaciones > div.vacaciones_cicloturismo { background-position: bottom left; }
+   .home_bloques_vacaciones > div.vacaciones_montanya { background-position: bottom right; }
+   
+   .orimg_effect.full_sized {
+      max-width: 100%;
+      width: 100%;
+      max-height: 450px;
+      background-color: #000;
+   }
+   .orimg_effect.full_sized.hover, .orimg_effect.full_sized.hoverOut { background-color: #028EBC; }
+   .orimg_effect.full_sized .orimg_effect_image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      opacity: 0.6;
+   }
+   .orimg_effect.full_sized.hover .orimg_effect_image,
+   .orimg_effect.full_sized.hoverOut .orimg_effect_image {
+      opacity: 0.2;
+   }
+   .orimg_effect.full_sized .orimg_effect_image img {
+      width: auto;
+      height: 100%;
+      max-width: initial;
+   }
+   .orimg_effect.full_sized .orimg_effect_texto .orimg_effect_title {
+      width: 100%;
+      height: auto;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+   }
+   .orimg_effect.full_sized .orimg_effect_texto {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+   }
+   .orimg_effect.full_sized.hover .orimg_effect_texto .orimg_effect_title,
+   .orimg_effect.full_sized.hoverOut .orimg_effect_texto .orimg_effect_title {
+      /*animation-name: none;
+      -webkit-animation-name: none;*/
+      background-color: transparent !important;
+   }
+   .orimg_effect.full_sized.hover .orimg_effect_texto,
+   .orimg_effect.full_sized.hoverOut .orimg_effect_texto {
+      animation-name: none;
+      -webkit-animation-name: none;
+   }
+   .orimg_effect.full_sized h3{ color: #FFF; text-align: left; width: 100%; max-width: 280px; margin: 0 auto; }
+   .orimg_effect.full_sized a.btn {
+       color: var(--or-modal-altbgcolor);
+       background-color: var(--or-web-corp-altcolor);
+       width: 100%;
+   }
+   .orimg_effect.full_sized a.btn:hover
+   {
+      background-color: var(--or-web-corp-color);
+      color: var(--or-web-corp-altcolor);
+   }
+   .orimg_effect.full_sized .orimg_effect_texto .orimg_effect_title,
+   .orimg_effect.full_sized.hoverOut .orimg_effect_texto .orimg_effect_title
+   {
+      
+   }
+   .orimg_effect.full_sized.hover .orimg_effect_texto .orimg_effect_title
+   {
+      height: auto;
+      z-index: 1;
+   }
+   
+}
+
+@media (max-width: 991px)   /* Only MOBILE & TABLET    -----------*/
+{
+    :root	/* Introduce en :root las variables que NO afecten a escritorio ( ancho inferior a 992px )*/
+   {
+       
+   }
+    
+    /**** Estilos personalizados ****/
+	.or_home_class .or_navExtraBorras {
+      height: 0;
+      overflow: hidden;
+      padding: 0;
+  }
+}
+
+
+@media (max-width: 320px)    /* Mini Mobile devices (mini mobile vertical, 320px and up)         -----------*/
+{
+    
+    :root	/* Introduce en :root las variables que afecten a móviles con un ancho no superior a 320px */
+	{
+		
+	}
+    
+    /**** Estilos personalizados ****/
+    
+}   
+   
+@media (max-width: 767px) and (min-width: 321px) /*  NO MINI Mobile devices           -----------*/
+{
+    :root	/* Introduce en :root las variables que afecten a móviles con un ancho superior a 320px */
+	{
+		
+	}
+    
+    /**** Estilos personalizados ****/
+}
+
+@media (max-width: 767px) and (min-width: 321px) and (orientation:landscape)    /* Mobile devices Landscape (mobile landscape, 768px and up)   -----------*/
+{
+   
+    :root	/* Introduce en :root las variables que afecten a móviles en horizontal y con un ancho superior a 320px */
+	{
+		
+	}
+    
+    /**** Estilos personalizados ****/
+    
+}
+
+@media (min-width: 768px) { /* No mobile */ 
+	
+    :root	/* Introduce en :root las variables que NO afecten móviles (tablet y Desktop) */
+	{
+		
+	}
+    
+    /**** Estilos personalizados ****/
+	.orimg_effect.full_sized {
+      width: 100%;
+      height: auto;
+      flex-wrap: nowrap;
+   }
+   .orimg_effect.full_sized.invert { flex-direction: row-reverse; }
+   .orimg_effect.full_sized .orimg_effect_texto * { transition: none; }
+   .orimg_effect.full_sized .orimg_effect_image { width: 70%; overflow-x: hidden; display: flex; justify-content: center; }
+   .orimg_effect.full_sized .orimg_effect_image img { min-width: 990px; }
+   
+   .orimg_effect.full_sized .orimg_effect_texto .orimg_effect_title,
+   .orimg_effect.full_sized.hover .orimg_effect_texto .orimg_effect_title,
+   .orimg_effect.full_sized.hoverOut .orimg_effect_texto .orimg_effect_title
+   {
+      height: auto;
+      text-align: left;
+      width: 100%;
+      animation-name: none;
+      -webkit-animation-name: none;
+      justify-content: flex-start;
+   }
+   .orimg_effect.full_sized .orimg_effect_texto,
+   .orimg_effect.full_sized.hover .orimg_effect_texto,
+   .orimg_effect.full_sized.hoverOut .orimg_effect_texto {
+      flex-grow: 1;
+      animation-name: none;
+      -webkit-animation-name: none;
+      position: relative;
+      margin: 0;
+      height: auto;
+      background-color: #FFF;
+   }
+   .orimg_effect.full_sized .orimg_effect_texto .orimg_effect_hidden,
+   .orimg_effect.full_sized.hover .orimg_effect_texto .orimg_effect_hidden,
+   .orimg_effect.full_sized.hoverOut .orimg_effect_texto .orimg_effect_hidden {
+      width: 100%;
+      max-width: unset;
+      color: var(--or-web-text-color);
+      transform: scale(1);
+      opacity: 1;
+      position: inherit;
+      transform: none;
+      animation-name: none;
+      -webkit-animation-name: none;
+   }
+   
+}
+
+@media (min-width: 768px) and (max-width: 991px)    /* 4.4. Small devices (tablets, 768px and up)    -----------*/
+{
+    
+    :root	/* Introduce en :root las variables que SOLO afecten a tablets pequeñas (resolución entre 768 y 991) */
+	{
+       --or-font-icon-menu: 40px;
+       --or-font-mlink: 40px;
+       --or-font-h1-big: 70px;
+       --or-font-h1: 85px;
+       --or-font-h2: 40px;
+       --or-font-h3: 30px;
+       --or-font-h4: 25px;
+       --or-font-h5: 22px;
+       --or-font-h6: 20px;
+       --or-font-p-big: 18px;
+       --or-font-p: 16px;
+       --or-font-p-min: 14px;
+       --or-width: 740px;
+       --or-fixed-margin: 14px;
+       --or-menu-height: 75px;
+	}
+    
+    /**** Estilos personalizados ****/
+    h1{ line-height: 1; }
+	.orserv-list { width: 100%; }
+   .orserv-list > div { padding: 30px 2%; width: auto; }
+   .or-nav-container .or-nav-menu.or-nav-extras { padding: 0 25px; }
+   .orimg_effect.fondo_mallorca { margin: 10px; }
+   #or-modalExtras .or-modal-body .or_blockwidth { min-width: auto; }
+   #or-modalExtras .or-modal-body .nav-extra-content {
+      width: 100%;
+      margin-bottom: 20px;
+   }
+   #or-modalExtras.or-fullCover .or-modal-container .or-modal-body { padding: 0px 50px 40px; }
+   #or-modalExtras .or-modal-body .nav-extra-content .nav-extra-icon { margin-bottom: -30px; }
+   .orimg_effect.full_sized .orimg_effect_image img { min-width: 768px; }
+}
+    
+@media (min-width: 992px) /** All Desktops **/
+{
+    
+    :root	/* Introduce en :root las variables que afecten a visualización de escritorio */
+	{
+        --or-font-icon-menu: 40px;
+        --or-font-mlink: 40px;
+        --or-font-h1-big: 70px;
+        --or-font-h1: 85px;
+        --or-font-h2: 40px;
+        --or-font-h3: 30px;
+        --or-font-h4: 25px;
+        --or-font-h5: 22px;
+        --or-font-h6: 20px;
+        --or-font-p-big: 18px;
+        --or-font-p: 16px;
+        --or-font-p-min: 14px;
+        --or-width: 950px;
+        --or-fixed-margin: 80px;
+	}
+    
+    /**** Estilos personalizados ****/
+   
+}
+    
+@media (min-width: 992px) and (max-width: 1279px)  
+{
+    :root	/* Introduce en :root las variables que afecten a visualización de escritorio con una resolución inferior a 1280px */
+	{
+        --or-fixed-margin: 60px;
+	}
+    
+    /**** Estilos personalizados ****/
+	.orimg_effect.full_sized .orimg_effect_image img {
+        min-width: auto;
+        height: 100%;
+        max-width: inherit;
+        width: auto;
+    }
+    .orserv-list { width: 100%; }
+}
+    
+@media (min-width: 1280px)  /** Desktop minimo 1280px **/
+{
+    :root	/* Introduce en :root las variables que afecten a visualización de escritorio con una resolución mínima de 1280px */
+	{
+        --or-width: 1200px;
+        --or-fixed-margin: 80px;
+	}
+    
+    /**** Estilos personalizados ****/
+	
+}   
+@media (min-width: 1367px) /** Desktop mínimo 1368px **/
+{
+    
+    :root	/* Introduce en :root las variables que afecten a visualización de escritorio con una resolución mínima de 1368px */
+	{
+        --or-width: 1280px;
+        --or-fixed-margin: 100px;
+	}
+    
+    /**** Estilos personalizados ****/
+	
+    
+} 
+@media (min-width: 1680px)/** Desktop mínimo 1680px **/
+{
+    
+    :root	/* Introduce en :root las variables que afecten a visualización de escritorio con una resolución mínima de 1680px */
+	{
+        --or-fixed-margin: 140px;
+	}
+    
+    /**** Estilos personalizados ****/
+} 
+@media (min-width: 1920px)	/** Desktop mínimo 1920px (RESOLUCIÓN ALTA)**/
+{
+    
+    :root	/* Introduce en :root las variables que afecten a visualización de escritorio con una resolución mínima de 1920px */
+	{
+		
+	}
+    
+    /**** Estilos personalizados ****/
+} 

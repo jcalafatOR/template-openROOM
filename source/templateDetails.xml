@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9.20" type="template" client="site" method="upgrade">
+	<name>openROOM</name>
+	<creationDate>2019-12-16</creationDate>
+	<author>open ROOM</author>
+	<authorEmail>jaume.calafat@open-room.com</authorEmail>
+	<authorUrl>https://www.open-room.com</authorUrl>
+	<copyright>Copyright© 2019-2020</copyright>
+	<license>GNU/GPL</license>
+	<version>1.20.0</version>
+	<description>Template Base para Hoteles (v1.20.0) &lt;br /&gt;
+	=========================================================&lt;br /&gt;
+	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
+	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
+	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
+	=========================================================&lt;br /&gt;
+	1.20.0: - Joomla Update 3.9.20&lt;br /&gt;
+			- Traducción BE en Francés&lt;br /&gt;
+	1.18.x: - Minor fixes 1.18.x.&lt;br /&gt;
+	1.18.0: - Joomla Update 3.9.19.&lt;br /&gt;
+			- Corregido el bug cuando sólo hay 1 idioma.&lt;br /&gt;
+	1.17.x: - Minor fixes 1.17.x.&lt;br /&gt;
+	1.17.0: - Traduccción del cajetín al catalán.&lt;br /&gt;
+			- Integración del módulo del PopUp OR al scipt del template.&lt;br /&gt;
+	1.16.1: - New Video Module version (Pop Up).&lt;br /&gt;
+	1.16.0: - New Joomla Version.&lt;br /&gt;
+	1.15.1: - Minor fixes 1.15.x.&lt;br /&gt;
+	1.15.0: - Galeria de fotos.&lt;br /&gt;
+	1.14.2: - Instalaciones y Updates desde el Package.&lt;br /&gt;
+	1.14.0: - Creado el MOD_ORSLIDER: Slider foto grande de fondo con texto en el centro.&lt;br /&gt;
+	1.13.4: - Creado el MOD_CUSTOM: Carrousel. Con este módulo podemos construir automáticamente carrousels seleccionando la imagen de "portada"&lt;br /&gt;
+	          se cargarán todas las imágenes que haya en la misma carpeta. &lt;br /&gt;
+			  IMPORTANTE: No puede haber sub carpetas.&lt;br /&gt;
+	Older Versions: &lt;br /&gt;
+			- Nueva plantilla de contenido para Articles > Featured con contenido vacío. &lt;br /&gt;
+			- Traducciones Alemán. &lt;br /&gt;
+			- Favicon Files. &lt;br /&gt;
+			- Se ha añadido el Slide Scroller del Chevy para todos los sites y El autoajuste de cabecera. &lt;br /&gt;
+	</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>or_tpl_paramsDefinition.php</filename>
+		<filename>or_multilang_alternate.php</filename>
+		<filename>class_openroom_basics.php</filename>
+		<filename>or_tpl_favicon.php</filename>
+		<folder>_becontent</folder>
+		<folder>js</folder>
+		<folder>html</folder>
+		<folder>img</folder>
+		<folder>css</folder>
+		<folder>font</folder>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+	</files>
+	<positions>
+		<position>orhead</position>
+		<position>breadcrumb</position>
+		<position>left</position>
+		<position>right</position>
+		<position>top</position>
+		<position>user1</position>
+		<position>user2</position>
+		<position>user3</position>
+		<position>user4</position>
+		<position>user5</position>
+		<position>user6</position>
+		<position>user7</position>
+		<position>user8</position>
+		<position>footer1</position>
+		<position>footer2</position>
+		<position>footer3</position>
+		<position>modal</position>
+	</positions>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.tpl_openroom.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_openroom.sys.ini</language>
+		<language tag="es-ES">es-ES/es-ES.tpl_openroom.ini</language>
+		<language tag="es-ES">es-ES/es-ES.tpl_openroom.sys.ini</language>
+		<language tag="ca-ES">ca-ES/ca-ES.tpl_openroom.ini</language>
+		<language tag="ca-ES">ca-ES/ca-ES.tpl_openroom.sys.ini</language>
+		<language tag="pt-PT">pt-PT/pt-PT.tpl_openroom.ini</language>
+		<language tag="pt-PT">pt-PT/pt-PT.tpl_openroom.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.tpl_openroom.ini</language>
+		<language tag="de-DE">de-DE/de-DE.tpl_openroom.sys.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.tpl_openroom.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.tpl_openroom.sys.ini</language>
+		<language tag="it-IT">it-IT/it-IT.tpl_openroom.ini</language>
+		<language tag="it-IT">it-IT/it-IT.tpl_openroom.sys.ini</language>
+		<language tag="pt-PT">pt-PT/pt-PT.tpl_openroom.ini</language>
+		<language tag="pt-PT">pt-PT/pt-PT.tpl_openroom.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="advanced">
+				<field 
+					name="OR_LOGOFILE" 
+					type="media" 
+					label="TPL_OPENROOM_LOGO_LABEL"
+					description="TPL_OPENROOM_LOGO_DESC" 
+					class="" 
+					default=""
+				/>
+
+				<field 
+					name="OR_SITETITLE"  
+					type="text" 
+					label="JGLOBAL_TITLE"
+					description="JFIELD_ALT_PAGE_TITLE_LABEL"
+					default=""
+					filter="string" 
+				/>
+
+				<field 
+					name="OR_SITEDESCRIPTION"  
+					type="text" 
+					label="JGLOBAL_DESCRIPTION"
+					description="JGLOBAL_SUBHEADING_DESC"
+					default=""
+					filter="string" 
+				/>
+
+				<field 
+					name="OPENROOM_FONT"
+					type="radio"
+					label="TPL_OPENROOM_FONT_LABEL"
+					description="TPL_OPENROOM_FONT_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field 
+					name="OPENROOM_FONTNAME" 
+					type="text" 
+					label="TPL_OPENROOM_FONT_LABEL"
+					description="TPL_OPENROOM_FONT_NAME_DESC" 
+					class="" 
+					default="Open+Sans"
+					showon="googleFont:1" 
+				/>
+				<field 
+					name="BE_GOOGLE_TAGMANAGER" 
+					type="text" 
+					label="TPL_OPENROOM_GOOGLETAGMANAGER"
+					description="TPL_OPENROOM_GOOGLETAGMANAGER_DESC" 
+					class="" 
+					default=""
+				/>
+			</fieldset>
+			<fieldset name="bedata">
+				<field 
+					name="BE_ESCADENA"
+					type="radio"
+					label="TPL_OPENROOM_TIPOHOTEL_LABEL"
+					description="TPL_OPENROOM_TIPOHOTEL_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field 
+					name="BE_ID_PORTAL"  
+					type="number" 
+					label="TPL_OPENROOM_ID_PORTAL_LABEL"
+					description="TPL_OPENROOM_ID_PORTAL_DESC"
+					class="validate-numeric" 
+					default="0"
+					filter="integer"
+				 />
+				
+				<field 
+					name="BE_ID_HOTEL"  
+					type="number" 
+					label="TPL_OPENROOM_ID_HOTEL_LABEL"
+					description="TPL_OPENROOM_ID_HOTEL_DESC"
+					class="validate-numeric" 
+					default="0"
+					filter="integer"
+				 />
+				
+				<field 
+					name="BE_SUBDOMINIO" 
+					type="text" 
+					label="TPL_OPENROOM_BE_SUBDOMINIO_LABEL"
+					description="TPL_OPENROOM_BE_SUBDOMINIO_DESC" 
+					class="" 
+					default="bookings"
+				/>
+				
+				<field 
+					name="BE_MYBOOKINGS"
+					type="radio"
+					label="TPL_OPENROOM_BE_MYBOOKINGS_LABEL"
+					description="TPL_OPENROOM_BE_MYBOOKINGS_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				
+				<field 
+					name="BE_MAX_ROOMS"  
+					type="number" 
+					label="TPL_OPENROOM_BE_MAXROOMS_LABEL"
+					description="TPL_OPENROOM_BE_MAXROOMS_DESC"
+					class="validate-numeric" 
+					default="5"
+					filter="integer"
+				 />
+				
+				<field 
+					name="BE_MIN_ROOMS"  
+					type="number" 
+					label="TPL_OPENROOM_BE_MINROOMS_LABEL"
+					description="TPL_OPENROOM_BE_MINROOMS_DESC"
+					class="validate-numeric" 
+					default="1"
+					filter="integer"
+				 />
+				
+				<field 
+					name="BE_MAX_ADULTS"  
+					type="number" 
+					label="TPL_OPENROOM_BE_MAXADULTS_LABEL"
+					description="TPL_OPENROOM_BE_MAXADULTS_DESC"
+					class="validate-numeric" 
+					default="3"
+					filter="integer"
+				 />
+				
+				<field 
+					name="BE_MIN_ADULTS"  
+					type="number" 
+					label="TPL_OPENROOM_BE_MINADULTS_LABEL"
+					description="TPL_OPENROOM_BE_MINADULTS_DESC"
+					class="validate-numeric" 
+					default="1"
+					filter="integer"
+				 />
+				
+				<field 
+					name="BE_MAX_KIDS"  
+					type="number" 
+					label="TPL_OPENROOM_BE_MAXKIDS_LABEL"
+					description="TPL_OPENROOM_BE_MAXKIDS_DESC"
+					class="validate-numeric" 
+					default="1"
+					filter="integer"
+				 />
+				
+				<field 
+					name="BE_MIN_KIDS"  
+					type="number" 
+					label="TPL_OPENROOM_BE_MINKIDS_LABEL"
+					description="TPL_OPENROOM_BE_MINKIDS_DESC"
+					class="validate-numeric" 
+					default="0"
+					filter="integer"
+				 />
+				
+				<field 
+					name="BE_MIN_KIDS"  
+					type="number" 
+					label="TPL_OPENROOM_BE_MINKIDS_LABEL"
+					description="TPL_OPENROOM_BE_MINKIDS_DESC"
+					class="validate-numeric" 
+					default="0"
+					filter="integer"
+				 />
+				<field 
+					name="BE_LISTAHOTELES" 
+					type="textarea"
+					label="TPL_OPENROOM_BE_LISTAHOTELES_LABEL"
+					description="TPL_OPENROOM_BE_LISTAHOTELES_DESC"
+					rows="4" 
+					columns="30"
+					default=""
+				/>
+			</fieldset>
+			<fieldset name="bedataadvanced">
+				<field
+					name="BE_MAXDATE"
+					type="calendar"
+					default="31-12-2020"
+					label="TPL_OPENROOM_BE_MAXDATE_LABEL"
+					description="TPL_OPENROOM_BE_MAXDATE_DESC"
+					class="input-medium"
+					required="true"
+					showtime="false"
+					todaybutton="true"
+					filltable="false"
+					translateformat="false"
+					format="%Y-%m-%d"
+					minyear="0"
+					maxyear="5"
+					singleheader="true"
+				/>
+				<field
+					name="BE_CLOSINGDATE_1_INI"
+					type="calendar"
+					default=""
+					label="TPL_OPENROOM_BE_CLOSEDATE_START1_LABEL"
+					description="TPL_OPENROOM_BE_CLOSEDATE_START_DESC"
+					class="input-medium"
+					required="false"
+					showtime="false"
+					todaybutton="true"
+					filltable="false"
+					translateformat="false"
+					format="%Y-%m-%d"
+					minyear="0"
+					maxyear="5"
+					singleheader="true"
+				/>
+				<field
+					name="BE_CLOSINGDATE_1_END"
+					type="calendar"
+					default=""
+					label="TPL_OPENROOM_BE_CLOSEDATE_END1_LABEL"
+					description="TPL_OPENROOM_BE_CLOSEDATE_END_DESC"
+					class="input-medium"
+					required="false"
+					showtime="false"
+					todaybutton="true"
+					filltable="false"
+					translateformat="false"
+					format="%Y-%m-%d"
+					minyear="0"
+					maxyear="5"
+					singleheader="true"
+				/>
+				<field
+					name="BE_CLOSINGDATE_2_INI"
+					type="calendar"
+					default=""
+					label="TPL_OPENROOM_BE_CLOSEDATE_START2_LABEL"
+					description="TPL_OPENROOM_BE_CLOSEDATE_START_DESC"
+					class="input-medium"
+					required="false"
+					showtime="false"
+					todaybutton="true"
+					filltable="false"
+					translateformat="false"
+					format="%Y-%m-%d"
+					minyear="0"
+					maxyear="5"
+					singleheader="true"
+				/>
+				<field
+					name="BE_CLOSINGDATE_2_END"
+					type="calendar"
+					default=""
+					label="TPL_OPENROOM_BE_CLOSEDATE_END2_LABEL"
+					description="TPL_OPENROOM_BE_CLOSEDATE_END_DESC"
+					class="input-medium"
+					required="false"
+					showtime="false"
+					todaybutton="true"
+					filltable="false"
+					translateformat="false"
+					format="%Y-%m-%d"
+					minyear="0"
+					maxyear="5"
+					singleheader="true"
+				/>
+				<field
+					name="BE_CLOSINGDATE_3_INI"
+					type="calendar"
+					default=""
+					label="TPL_OPENROOM_BE_CLOSEDATE_START3_LABEL"
+					description="TPL_OPENROOM_BE_CLOSEDATE_START_DESC"
+					class="input-medium"
+					required="false"
+					showtime="false"
+					todaybutton="true"
+					filltable="false"
+					translateformat="false"
+					format="%Y-%m-%d"
+					minyear="0"
+					maxyear="5"
+					singleheader="true"
+				/>
+				<field
+					name="BE_CLOSINGDATE_3_END"
+					type="calendar"
+					default=""
+					label="TPL_OPENROOM_BE_CLOSEDATE_END3_LABEL"
+					description="TPL_OPENROOM_BE_CLOSEDATE_END_DESC"
+					class="input-medium"
+					required="false"
+					showtime="false"
+					todaybutton="true"
+					filltable="false"
+					translateformat="false"
+					format="%Y-%m-%d"
+					minyear="0"
+					maxyear="5"
+					singleheader="true"
+				/>
+			</fieldset>
+			<fieldset name="ormenunav">
+				<field 
+					name="OR_NAVEXTRA"
+					type="radio"
+					label="TPL_OPENROOM_NAVEXTRA_LABEL"
+					description="TPL_OPENROOM_NAVEXTRA_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field 
+					name="OR_NAVEXTRA_CSS" 
+					type="text" 
+					label="TPL_OPENROOM_NAVEXTRA_CSS_LABEL"
+					description="TPL_OPENROOM_NAVEXTRA_CSS_DESC" 
+					class="" 
+					default="or_navextra"
+				/>
+				<field
+					name="OR_NAVEXTRA_ICON" 
+					type="list" 
+					label="TPL_OPENROOM_NAVEXTRA_ICON_LABEL"
+					description="TPL_OPENROOM_NAVEXTRA_ICON_DESC"
+					default=""
+					filter="word"
+					>
+					<option value="">TPL_OPENROOM_NAVEXTRA_ICON_OPT0</option>
+					<option value="starempty">TPL_OPENROOM_NAVEXTRA_ICON_OPT1</option>
+					<option value="star">TPL_OPENROOM_NAVEXTRA_ICON_OPT2</option>
+					<option value="burger">TPL_OPENROOM_NAVEXTRA_ICON_OPT3</option>
+					<option value="voucher">TPL_OPENROOM_NAVEXTRA_ICON_OPT4</option>
+					<option value="openmail">TPL_OPENROOM_NAVEXTRA_ICON_OPT5</option>
+					<option value="profile">TPL_OPENROOM_NAVEXTRA_ICON_OPT6</option>
+					<option value="phone">TPL_OPENROOM_NAVEXTRA_ICON_OPT7</option>
+					<option value="mappointer">TPL_OPENROOM_NAVEXTRA_ICON_OPT8</option>
+					<option value="lightarrow">TPL_OPENROOM_NAVEXTRA_ICON_OPT9</option>
+					<option value="check">TPL_OPENROOM_NAVEXTRA_ICON_OPT10</option>
+					<option value="calendar">TPL_OPENROOM_NAVEXTRA_ICON_OPT11</option>
+				</field>
+				<field 
+					name="OR_NAVEXTRA_ICONPOSITION"
+					type="radio"
+					label="TPL_OPENROOM_NAVEXTRA_ICONPOSITION_LABEL"
+					description="TPL_OPENROOM_NAVEXTRA_ICONPOSITION_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					>
+					<option value="0">TPL_OPENROOM_NAVEXTRA_ICONPOSITION_OPT1</option>
+					<option value="1">TPL_OPENROOM_NAVEXTRA_ICONPOSITION_OPT2</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="template" name="OR Template">https://webprojects.open-room.com/updates/open_room/updates.xml</server>
+	</updateservers>
+</extension>
