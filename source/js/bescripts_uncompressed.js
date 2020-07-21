@@ -21,7 +21,7 @@ jQuery(document).ready(function()
   if(isSafari){ console.log("Safari2: "+isSafari); jQuery('body').addClass('isSafari'); }
   /**** LOPD CHECKER ****/
   if (typeof check_cookie === "function" && typeof getBaseURL === "function") { 
-    // safe to use the function
+    // safe to use the function 
     check_cookie(getBaseURL());
   }
   /** CLICK AND SCROLL LEFT **/
@@ -211,7 +211,7 @@ jQuery(document).ready(function()
 				modal.addClass('show');
 				modal.html("");
 				modal.append('<div class="orGallery_close" onclick="orGallery_close(this);">X</div>');
-				modal.append('<img class="orGallery_imgAmpli" src="'+maxi+'" alt="'+altTxt+'">');
+				modal.append('<img class="orGallery_imgAmpli" src="'+maxi+'" alt="'+altTxt+'" title="'+altTxt+'">');
 				if(xmlData)
 				{
 					modal.append('<div class="orGallery_xmlContent">'+altTxt+'</div>');

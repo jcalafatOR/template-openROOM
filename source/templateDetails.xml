@@ -7,13 +7,14 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.20.0</version>
+	<version>1.20.1</version>
 	<description>Template Base para Hoteles (v1.20.0) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
 	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
 	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
 	=========================================================&lt;br /&gt;
+	1.20.1: - Update JS for mod_orgallery&lt;br /&gt;
 	1.20.0: - Joomla Update 3.9.20&lt;br /&gt;
 			- Traducción BE en Francés&lt;br /&gt;
 	1.18.x: - Minor fixes 1.18.x.&lt;br /&gt;
@@ -459,6 +460,6 @@
 		</fields>
 	</config>
 	<updateservers>
-		<server type="template" name="OR Template">https://webprojects.open-room.com/updates/open_room/updates.xml</server>
+		<server type="extension" name="OR Template">https://webprojects.open-room.com/updates/open_room/updates.xml</server>
 	</updateservers>
 </extension>
