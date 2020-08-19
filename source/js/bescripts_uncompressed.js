@@ -311,6 +311,7 @@ jQuery(document).ready(function()
   {
       jQuery('.or_popup').each(function() {
           var orPop = jQuery(this);
+          var orPop_desk = orPop.attr('rel-desk');
           var orPop_mobile = orPop.attr('rel-mob');
           var orPop_cookieName = orPop.attr('rel-cookie');
           var orPop_cookieValue = orPop.attr('rel-cookieval');
