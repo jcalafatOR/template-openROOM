@@ -291,51 +291,65 @@ jQuery(document).ready(function()
   /*** -END- Mod Video PopUp OR ***/
   /*** Mod PopUp OR ***/
   jQuery('.or_popup').each(function() {
-    var orPop = jQuery(this);
-    var orPop_desk = orPop.attr('rel-desk');
-    var orPop_mobile = orPop.attr('rel-mob');
-    var orPop_cookieName = orPop.attr('rel-cookie');
-    var orPop_cookieValue = orPop.attr('rel-cookieval');
-    if(!orPopup_checkCookie(orPop_cookieName, orPop_cookieValue) && (orPop_mobile == 1 || orPop_mobile == 0 && !checkMobileSize()) && ( (orPop_desk == 1 || orPop_desk == undefined) || orPop_desk == 0 && checkMobileSize()) )
-    {
-      var orPop_cookieTime = orPop.attr('rel-cookietime');
-      var metodo = orPop.attr('mod-attr');
-      var metodoValor = orPop.attr('mod-attrval');
-      if(metodo == "time") // Time
-      {
-        setTimeout(function(){ orPopup_lanzar(orPop); orPopup_setCookie(orPop_cookieName, orPop_cookieValue, orPop_cookieTime); }, metodoValor);
-      }
-    }
-  });
-  jQuery( window ).scroll(function() 
-  {
-      jQuery('.or_popup').each(function() {
-          var orPop = jQuery(this);
-          var orPop_desk = orPop.attr('rel-desk');
-          var orPop_mobile = orPop.attr('rel-mob');
-          var orPop_cookieName = orPop.attr('rel-cookie');
-          var orPop_cookieValue = orPop.attr('rel-cookieval');
-          if(!orPopup_checkCookie(orPop_cookieName, orPop_cookieValue) && (orPop_mobile == 1 || orPop_mobile == 0 && !checkMobileSize()) && ( (orPop_desk == 1 || orPop_desk == undefined) || orPop_desk == 0 && checkMobileSize()) )
-          {
-              var orPop_cookieTime = orPop.attr('rel-cookietime');
-              var metodo = orPop.attr('mod-attr');
-              var metodoValor = orPop.attr('mod-attrval');
-              if(metodo != "time") //posicion
-              {
-                  var percent = metodoValor.includes("%");
-                  var valor = parseInt(metodoValor);
-                  lanzar = false;
-                  if( (percent && (jQuery(window).scrollTop() >= (jQuery(document).height() - jQuery(document).height()*(valor*0.01)))) ||
-                      (!percent && (jQuery(window).scrollTop() >= valor)) )
-                  {
-                      orPopup_lanzar(orPop);
-                      orPopup_setCookie(orPop_cookieName, orPop_cookieValue, orPop_cookieTime);
-                  }
-              }	
-          }
-          
-      });
-  });
+		var orPop = jQuery(this);
+		var orPop_desk = orPop.attr('rel-desk');
+		var orPop_mobile = orPop.attr('rel-mob');
+		var orPop_cookieName = orPop.attr('rel-cookie');
+		var orPop_cookieValue = orPop.attr('rel-cookieval');
+		if(!orPopup_checkCookie(orPop_cookieName, orPop_cookieValue)
+          && (orPop_mobile == 1 || orPop_mobile == 0 && !checkMobileSize())
+          && ( (orPop_desk == 1 || orPop_desk == undefined) || orPop_desk == 0 && checkMobileSize()) )
+		{
+			var orPop_cookieTime = orPop.attr('rel-cookietime');
+			var metodo = orPop.attr('mod-attr');
+			var metodoValor = orPop.attr('mod-attrval');
+      var cuentaAtras = parseInt(metodoValor - orPopup_checkCookieTime('orpopup_timeController', orPop_cookieTime));
+      var orpopup_timeController = setInterval(function(){
+          orPopup_setCookie('orpopup_timeController', orPopup_checkCookieTime('orpopup_timeController', orPop_cookieTime) + 1000, orPop_cookieTime);
+      }, 1000);
+			if(metodo == "time" && cuentaAtras >= 0) // Time
+			{
+				setTimeout(function()
+                { 
+                    orPopup_lanzar(orPop); 
+                    orPopup_setCookie(orPop_cookieName, orPop_cookieValue, orPop_cookieTime);
+                    clearInterval(orpopup_timeController);
+                    orPopup_setCookie('orpopup_timeController', 0, -1000);
+                }, cuentaAtras);
+                return false;
+			}
+		}
+	});
+	jQuery( window ).scroll(function() 
+	{
+        jQuery('.or_popup').each(function() {
+            var orPop = jQuery(this);
+            var orPop_mobile = orPop.attr('rel-mob');
+            var orPop_cookieName = orPop.attr('rel-cookie');
+            var orPop_cookieValue = orPop.attr('rel-cookieval');
+            if(!orPopup_checkCookie(orPop_cookieName, orPop_cookieValue)
+                && (orPop_mobile == 1 || orPop_mobile == 0 && !checkMobileSize())
+                && ( (orPop_desk == 1 || orPop_desk == undefined) || orPop_desk == 0 && checkMobileSize()) )
+            {
+                var orPop_cookieTime = orPop.attr('rel-cookietime');
+                var metodo = orPop.attr('mod-attr');
+                var metodoValor = orPop.attr('mod-attrval');
+                if(metodo != "time") //posicion
+                {
+                    var percent = metodoValor.includes("%");
+                    var valor = parseInt(metodoValor);
+                    lanzar = false;
+                    if( (percent && (jQuery(window).scrollTop() >= (jQuery(document).height() - jQuery(document).height()*(valor*0.01)))) ||
+                        (!percent && (jQuery(window).scrollTop() >= valor)) )
+                    {
+                        orPopup_lanzar(orPop);
+                        orPopup_setCookie(orPop_cookieName, orPop_cookieValue, orPop_cookieTime);
+                    }
+                }	
+            }
+            
+        });
+	});
   /*** -END- Mod PopUp OR ***/
   /**** RESIZE ****/
   jQuery( window ).resize(function()
@@ -429,7 +443,8 @@ if(typeof orPopup_getCookie === 'undefined' )
         }
         return "";
     }
-}
+} 
+ 
 if(typeof orPopup_checkCookie === 'undefined' )
 {  
     function orPopup_checkCookie(cname, valor)
@@ -438,7 +453,26 @@ if(typeof orPopup_checkCookie === 'undefined' )
         if(orPopup_getCookie(cname) == valor){ salida = true; }
         return salida;
     }
-}
+}    
+    
+if(typeof orPopup_checkCookieTime === 'undefined' )
+{  
+    function orPopup_checkCookieTime(cname, exdays)
+    {
+        var salida = false;
+        if(orPopup_getCookie(cname) !== "")
+        { 
+            salida = parseInt(orPopup_getCookie(cname)); 
+        }else
+        {
+            orPopup_setCookie(cname, 0, exdays);
+            salida = 0;
+        }
+
+        return salida;
+    }
+}    
+
 if(typeof orPopup_lanzar === 'undefined' )
 {  
     function orPopup_lanzar(target)
@@ -447,6 +481,7 @@ if(typeof orPopup_lanzar === 'undefined' )
 		jQuery(target).addClass('or-fullCover');
     }
 }    
+  
 if(typeof orPopupClose === 'undefined' ) { function orPopupClose(e) { be_closeCover(e); } }
 /*** -END- Mod Pop Up OR ***/
 /*** Mod Video Pop Up OR ***/
