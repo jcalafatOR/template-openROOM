@@ -347,9 +347,10 @@ jQuery(document).ready(function()
     }
     else
     {
-      if(!jQuery('.or-fullsize').hasClass('none'))
+      if(!jQuery('#mobileBuscador.or-fullsize').hasClass('none') && jQuery('#mobileBuscador.or-fullsize').length > 0)
       {
         be_closeBooking();
+        console.log("Trigger close Booking")
       }
       /** OR Content Flip **/
       or_cflip_reset();
@@ -958,10 +959,10 @@ function is_touch_device() {
 
 function be_openBooking()
 {
-  var modalExists = jQuery('.or-fullsize').length;
+  var modalExists = jQuery('#mobileBuscador.or-fullsize').length;
   if(modalExists == 0)  // No existe fullSize
   {
-    jQuery('body').append('<div class="or-fullsize none"></div>');
+    jQuery('body').append('<div id="mobileBuscador" class="or-fullsize none"></div>');
   }
   var modalContainer = jQuery('.or-fullsize');
   if( modalExists == 0)
@@ -986,7 +987,7 @@ jQuery('.or-fullsize .or-close').on('click', function(){
 });
 function be_closeBooking()
 {
-  var modalContainer = jQuery('.or-fullsize');
+  var modalContainer = jQuery('#mobileBuscador.or-fullsize');
   modalContainer.addClass('post-display');
   setTimeout(function(){
     modalContainer.removeClass('post-display');
