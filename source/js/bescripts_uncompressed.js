@@ -649,7 +649,7 @@ function resizeHeader()
 		var width = jQuery( window ).width();
 		if(width > height)
 		{
-			content = '.header_resize { heigth: '+width+'px !important; width: 100%; padding-bottom:0; }';
+			content = '.header_resize { height: '+width+'px !important; width: 100%; padding-bottom:0; }';
 		}
 	}
 	if(header_div != undefined)
