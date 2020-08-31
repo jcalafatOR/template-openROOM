@@ -3849,7 +3849,8 @@ a.orbtn.orbtn-inline {
         height: 100%;
     }
     .or-modal-body .header-search {
-        width: 300px;
+        max-width: 300px;
+        width: auto;
         margin: 0 auto;
     }
     .or-modal-body .sticky-buscador {
