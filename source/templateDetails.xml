@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.9.20" type="template" client="site" method="upgrade">
+<extension version="3.9.21" type="template" client="site" method="upgrade">
 	<name>openROOM</name>
 	<creationDate>2019-12-16</creationDate>
 	<author>open ROOM</author>
@@ -7,13 +7,17 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.20.5</version>
-	<description>Template Base para Hoteles (v1.20.5) &lt;br /&gt;
+	<version>1.21.1</version>
+	<description>Template Base para Hoteles (v1.21.1) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
 	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
 	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
 	=========================================================&lt;br /&gt;
+	1.21.1: - MOD Menu&lt;br /&gt;
+	          · Añadida alternativa en el menú: lang-in&lt;br /&gt;
+	          · Creados los estilos necesarios para la plantilla de menú (lang-in)&lt;br /&gt;
+	1.21.0: - Joomla Update 3.9.21&lt;br /&gt;
 	1.20.x: - Minor JS Fixes&lt;br /&gt;
 	          · Ajustes en el JS del Template asociados al MOD ORPOPUP para asignar correctamente el path de la cookie&lt;br /&gt;
 	          · Añadido MOD ORPOPUP Controlador de tiempo entre páginas&lt;br /&gt;
