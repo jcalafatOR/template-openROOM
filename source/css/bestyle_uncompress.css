@@ -731,8 +731,6 @@ iframe{ width: 100%; height: 690px; }
   animation-name: modalDeploy;
   -webkit-animation-name: modalDeploy;
 }
-.or-fullsize.pre-display, .or-fullCover.pre-display{
-}
 .or-fullsize.pre-display, .or-fullCover.pre-display{ animation-direction: normal; -webkit-animation-direction: normal; }
 .or-fullsize.post-display, .or-fullCover.post-display{ animation-direction: reverse; -webkit-animation-direction: reverse; }
 /** MODAL CONTENT **/
