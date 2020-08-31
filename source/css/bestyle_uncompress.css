@@ -34,7 +34,7 @@
   font-family: "or-icon-tpl";
   font-style: normal;
   font-weight: normal;
-  speak: none;
+  speak-as: none;
  
   display: inline-block;
   text-decoration: inherit;
@@ -499,7 +499,7 @@ iframe{ width: 100%; height: 690px; }
 .or-nav-container .or-nav-container-block { display: flex; }
 
 /*** - [MENU] - Items visibles del contenedor (generico) ***/
-.or-nav-container .or-nav-menu { height: var(--or-menu-height); display: inline; }
+.or-nav-container .or-nav-menu { min-height: var(--or-menu-height); display: inline; }
 .or-nav-container .or-nav-menu.or-nav-booking { display: none; }
 
 /*** - [MENU] - Item del contenedor (LOGO) ***/
@@ -730,8 +730,6 @@ iframe{ width: 100%; height: 690px; }
   -webkit-animation-fill-mode: forwards;
   animation-name: modalDeploy;
   -webkit-animation-name: modalDeploy;
-}
-.or-fullsize.pre-display, .or-fullCover.pre-display{
 }
 .or-fullsize.pre-display, .or-fullCover.pre-display{ animation-direction: normal; -webkit-animation-direction: normal; }
 .or-fullsize.post-display, .or-fullCover.post-display{ animation-direction: reverse; -webkit-animation-direction: reverse; }
@@ -2597,12 +2595,12 @@ body .ui-tooltip {
     .uk-form-div { border-radius: var(--or-be-cornerradius-min); background-color: var(--or-be-bginput); padding: 0; margin-left: 10px; }
     .uk-form-div:before {
         font-family: "or-icon-tpl";
-        width: 50px;
+        min-width: 50px;
         margin-right: -50px;
         color: var(--or-be-txtinput);
         position: relative;
         font-size: 30px;
-        float: left;
+        /*float: left;*/
         display: inline;
         text-align: center;
         line-height: 200%;
@@ -2845,10 +2843,10 @@ body .ui-tooltip {
  width: 400px;
  height: 400px;
 }
-.orimg_effect .orimg_effect_image
+/*.orimg_effect .orimg_effect_image
 {
  
-}
+}*/
 
 .orimg_effect .orimg_effect_texto
 {
@@ -3704,6 +3702,48 @@ a.orbtn.orbtn-inline {
   .orfooter ul li.nodash.mobiledash { border-bottom: 1px dashed; }
   .or-nav-menu.or-nav-extras.flex { display: none !important; }
   .or_home_class.or-float .or-nav-menu.or-nav-extras.flex { display: flex !important; }
+
+    /*** MENU lang-in ***/
+    .or-nav-container .or-nav-menu-display.mod-list.displayed > li.only_mobile.or_lang-in {
+      display: flex;
+      padding-left: 10%;
+      width: 90%;
+      font-size: var(--or-font-h3);
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+    
+    .or-nav-container .or-nav-menu-display.mod-list.displayed > li.only_mobile.or_lang-in > span,
+    .or-nav-container .or-nav-menu-display.mod-list.displayed > li.only_mobile.or_lang-in > a {
+      flex-grow: 1;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 50%;
+      font-size: var(--or-font-h3);
+      text-align: left;
+    }
+    
+    .or-nav-container .or-nav-menu-display.mod-list.displayed > li.only_mobile.or_lang-in > span::after,
+    .or-nav-container .or-nav-menu-display.mod-list.displayed > li.only_mobile.or_lang-in > a::after 
+    {
+      content: " ";
+      width: 1px;
+      height: 100%;
+      min-width: 30%;
+      min-height: 40px;
+      border-right: 1px solid var(--or-menu-lang-txtcolor);
+      display: block;
+    }
+    .or-nav-container .or-nav-menu-display.mod-list.displayed > li.only_mobile.or_lang-in > a:last-of-type::after { display: none; }
+    /*** -END- MENU lang-in ***/
+
+  /** -END- MENU **/
+  
   /** BUSCADOR OCULTO **/
     #buscador .sticky-buscador { display: none; }
     
