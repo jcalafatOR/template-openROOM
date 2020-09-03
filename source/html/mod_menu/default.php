@@ -139,7 +139,7 @@ if(JLanguageMultilang::isEnabled())
 	$current_lang_tag = JFactory::getLanguage()->getTag();	// Current LANG
   	$current_lang_tag_name = explode('-',$current_lang_tag);	// Contenido
 	
-	$or_temp_addingLangsdrop = '<div class="or-nav-menu or-drop-langlist no_mobile" rel-dep="0">'.$current_lang_tag_name[0].'</div>';
+	$or_temp_addingLangsdrop = '<div id="or_lang_id_'.$ascurrent_lang_tag_name[0].'_drop" class="or-nav-menu or-drop-langlist no_mobile" rel-dep="0">'.$current_lang_tag_name[0].'</div>';
   	/*** OR MENU LANG LIST ***/
     $or_temp_app  = JFactory::getApplication();	// Current data
     $or_temp_menu = $or_temp_app->getMenu()->getActive()->id;	// Current ID
@@ -204,13 +204,13 @@ if(JLanguageMultilang::isEnabled())
     {
         // Contenido Personalizado para Open ROOM Template...
      	$or_temp_addingLangs = '<ul class="or-nav-menu-display or_menu_lang_list">';
-		$or_temp_addingLangs .= '<li class="or_menu_lang_item only_mobile">'.$current_lang_tag_name[0].'</li>';
+		$or_temp_addingLangs .= '<li id="or_lang_id_'.$current_lang_tag_name[0].'" class="or_menu_lang_item only_mobile">'.$current_lang_tag_name[0].'</li>';
 		
      	//<ul class="or_menu_lang_list depth_0">
         foreach ($referal_assoc_rel as $assoc_id) 
         {
             $assoc_id->path = isset($assoc_id->path) ? $assoc_id->path : "";
-        	$or_temp_addingLangs .= '<li class="or_menu_lang_item"><a href="'.$assoc_id->sef.'/'.$assoc_id->path.'" title="'.$assoc_id->title.'" >'.$assoc_id->sef.'</a></li>';
+        	$or_temp_addingLangs .= '<li id="or_lang_id_'.$assoc_id->sef.'" class="or_menu_lang_item"><a href="'.$assoc_id->sef.'/'.$assoc_id->path.'" title="'.$assoc_id->title.'" >'.$assoc_id->sef.'</a></li>';
         }
         $or_temp_addingLangs .= '</ul>';
     } 

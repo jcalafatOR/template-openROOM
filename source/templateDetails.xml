@@ -7,14 +7,15 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.21.1</version>
-	<description>Template Base para Hoteles (v1.21.1) &lt;br /&gt;
+	<version>1.21.1.1</version>
+	<description>Template Base para Hoteles (v1.21.1.1) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
 	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
 	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	1.21.1: - MOD Menu&lt;br /&gt;
+	          · (v1.21.1.1): Se ha agregado ID a todos los botones y cuadros con el lang TAG para poder hacer referencia a ellos si fuera necesario&lt;br /&gt;
 	          · Añadida alternativa en el menú: lang-in&lt;br /&gt;
 	          · Creados los estilos necesarios para la plantilla de menú (lang-in)&lt;br /&gt;
 	1.21.0: - Joomla Update 3.9.21&lt;br /&gt;
