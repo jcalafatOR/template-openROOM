@@ -136,15 +136,14 @@ $or_temp_addingLangsdrop = "";
 $or_temp_addingLangs = "";
 if(JLanguageMultilang::isEnabled())
 {
-	$current_lang_tag = JFactory::getLanguage()->getTag();	// Current LANG
-  	$current_lang_tag_name = explode('-',$current_lang_tag);	// Contenido
 	
-	$or_temp_addingLangsdrop = '<div id="or_lang_id_'.$ascurrent_lang_tag_name[0].'_drop" class="or-nav-menu or-drop-langlist no_mobile" rel-dep="0">'.$current_lang_tag_name[0].'</div>';
   	/*** OR MENU LANG LIST ***/
     $or_temp_app  = JFactory::getApplication();	// Current data
     $or_temp_menu = $or_temp_app->getMenu()->getActive()->id;	// Current ID
     $current_lang_tag = JFactory::getLanguage()->getTag();	// Current LANG
+  	$current_lang_tag_name = explode('-',$current_lang_tag);	// Contenido
 
+	$or_temp_addingLangsdrop = '<div id="or_lang_id_'.$current_lang_tag_name[0].'_drop" class="or-nav-menu or-drop-langlist no_mobile" rel-dep="0">'.$current_lang_tag_name[0].'</div>';
     $or_currentID = JRoute::_($or_temp_menu);
     $referal_assoc_rel = array();
 	// Si es la HOME no indica idioma.
