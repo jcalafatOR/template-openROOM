@@ -7,13 +7,15 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.21.1.2</version>
-	<description>Template Base para Hoteles (v1.21.1.2) &lt;br /&gt;
+	<version>1.21.2</version>
+	<description>Template Base para Hoteles (v1.21.2) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
 	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
 	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
 	=========================================================&lt;br /&gt;
+	1.21.2: - OR CFlip function. &lt;br /&gt;
+	          · Fixed tablet scrollTo respecting menu &lt;br /&gt;
 	1.21.1: - MOD Menu&lt;br /&gt;
 	          · (v1.21.1.2): Minor fix (v1.21.1.1)&lt;br /&gt;
 	          · (v1.21.1.1): Se ha agregado ID a todos los botones y cuadros con el lang TAG para poder hacer referencia a ellos si fuera necesario&lt;br /&gt;
