@@ -260,7 +260,7 @@ jQuery(document).ready(function()
           },500);
       }
   });
-  jQuery('.ormodal ').on('click', function()  // Open
+  jQuery('.ormodal ').on('click', function()  //Open
   {
     var clicked = jQuery(this);
     //var target = clicked.attr('rel');
