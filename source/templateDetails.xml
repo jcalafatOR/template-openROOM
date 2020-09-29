@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.9.20" type="template" client="site" method="upgrade">
+<extension version="3.9.21" type="template" client="site" method="upgrade">
 	<name>openROOM</name>
 	<creationDate>2019-12-16</creationDate>
 	<author>open ROOM</author>
@@ -7,31 +7,37 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.20.0</version>
-	<description>Template Base para Hoteles (v1.20.0) &lt;br /&gt;
+	<version>1.21.2</version>
+	<description>Template Base para Hoteles (v1.21.2) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
 	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
 	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
 	=========================================================&lt;br /&gt;
+	1.21.2: - OR CFlip function.&lt;br /&gt;
+	          · Fixed tablet scrollTo respecting menu&lt;br /&gt;
+	1.21.1: - MOD Menu&lt;br /&gt;
+	          · (v1.21.1.2): Minor fix (v1.21.1.1)&lt;br /&gt;
+	          · (v1.21.1.1): Se ha agregado ID a todos los botones y cuadros con el lang TAG para poder hacer referencia a ellos si fuera necesario&lt;br /&gt;
+	          · Añadida alternativa en el menú: lang-in&lt;br /&gt;
+	          · Creados los estilos necesarios para la plantilla de menú (lang-in)&lt;br /&gt;
+	1.21.0: - Joomla Update 3.9.21&lt;br /&gt;
+	1.20.x: - Minor JS Fixes&lt;br /&gt;
+	          · Ajustes en el JS del Template asociados al MOD ORPOPUP para asignar correctamente el path de la cookie&lt;br /&gt;
+	          · Añadido MOD ORPOPUP Controlador de tiempo entre páginas&lt;br /&gt;
+	          · Menu resize overflow problems&lt;br /&gt;
+	1.20.1: - Update JS for mod_orgallery&lt;br /&gt;
 	1.20.0: - Joomla Update 3.9.20&lt;br /&gt;
 			- Traducción BE en Francés&lt;br /&gt;
-	1.18.x: - Minor fixes 1.18.x.&lt;br /&gt;
-	1.18.0: - Joomla Update 3.9.19.&lt;br /&gt;
 			- Corregido el bug cuando sólo hay 1 idioma.&lt;br /&gt;
-	1.17.x: - Minor fixes 1.17.x.&lt;br /&gt;
-	1.17.0: - Traduccción del cajetín al catalán.&lt;br /&gt;
-			- Integración del módulo del PopUp OR al scipt del template.&lt;br /&gt;
-	1.16.1: - New Video Module version (Pop Up).&lt;br /&gt;
-	1.16.0: - New Joomla Version.&lt;br /&gt;
-	1.15.1: - Minor fixes 1.15.x.&lt;br /&gt;
-	1.15.0: - Galeria de fotos.&lt;br /&gt;
-	1.14.2: - Instalaciones y Updates desde el Package.&lt;br /&gt;
-	1.14.0: - Creado el MOD_ORSLIDER: Slider foto grande de fondo con texto en el centro.&lt;br /&gt;
-	1.13.4: - Creado el MOD_CUSTOM: Carrousel. Con este módulo podemos construir automáticamente carrousels seleccionando la imagen de "portada"&lt;br /&gt;
-	          se cargarán todas las imágenes que haya en la misma carpeta. &lt;br /&gt;
-			  IMPORTANTE: No puede haber sub carpetas.&lt;br /&gt;
 	Older Versions: &lt;br /&gt;
+			- Traduccción del cajetín al catalán.&lt;br /&gt;
+			- Integración del módulo del PopUp OR al scipt del template.&lt;br /&gt;
+			- New Video Module version (Pop Up).&lt;br /&gt;
+			- New Joomla Version.&lt;br /&gt;
+			- Galeria de fotos.&lt;br /&gt;
+			- Creado el MOD_ORSLIDER: Slider foto grande de fondo con texto en el centro.&lt;br /&gt;
+			- Creado el MOD_CUSTOM.&lt;br /&gt;
 			- Nueva plantilla de contenido para Articles > Featured con contenido vacío. &lt;br /&gt;
 			- Traducciones Alemán. &lt;br /&gt;
 			- Favicon Files. &lt;br /&gt;
@@ -459,6 +465,6 @@
 		</fields>
 	</config>
 	<updateservers>
-		<server type="template" name="OR Template">https://webprojects.open-room.com/updates/open_room/updates.xml</server>
+		<server type="extension" name="OR Template">https://webprojects.open-room.com/updates/open_room/updates.xml</server>
 	</updateservers>
 </extension>

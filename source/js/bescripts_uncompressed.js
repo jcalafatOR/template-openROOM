@@ -21,7 +21,7 @@ jQuery(document).ready(function()
   if(isSafari){ console.log("Safari2: "+isSafari); jQuery('body').addClass('isSafari'); }
   /**** LOPD CHECKER ****/
   if (typeof check_cookie === "function" && typeof getBaseURL === "function") { 
-    // safe to use the function
+    // safe to use the function 
     check_cookie(getBaseURL());
   }
   /** CLICK AND SCROLL LEFT **/
@@ -211,7 +211,7 @@ jQuery(document).ready(function()
 				modal.addClass('show');
 				modal.html("");
 				modal.append('<div class="orGallery_close" onclick="orGallery_close(this);">X</div>');
-				modal.append('<img class="orGallery_imgAmpli" src="'+maxi+'" alt="'+altTxt+'">');
+				modal.append('<img class="orGallery_imgAmpli" src="'+maxi+'" alt="'+altTxt+'" title="'+altTxt+'">');
 				if(xmlData)
 				{
 					modal.append('<div class="orGallery_xmlContent">'+altTxt+'</div>');
@@ -260,7 +260,7 @@ jQuery(document).ready(function()
           },500);
       }
   });
-  jQuery('.ormodal ').on('click', function()  // Open
+  jQuery('.ormodal ').on('click', function()  //Open
   {
     var clicked = jQuery(this);
     //var target = clicked.attr('rel');
@@ -291,50 +291,65 @@ jQuery(document).ready(function()
   /*** -END- Mod Video PopUp OR ***/
   /*** Mod PopUp OR ***/
   jQuery('.or_popup').each(function() {
-    var orPop = jQuery(this);
-    var orPop_desk = orPop.attr('rel-desk');
-    var orPop_mobile = orPop.attr('rel-mob');
-    var orPop_cookieName = orPop.attr('rel-cookie');
-    var orPop_cookieValue = orPop.attr('rel-cookieval');
-    if(!orPopup_checkCookie(orPop_cookieName, orPop_cookieValue) && (orPop_mobile == 1 || orPop_mobile == 0 && !checkMobileSize()) && ( (orPop_desk == 1 || orPop_desk == undefined) || orPop_desk == 0 && checkMobileSize()) )
-    {
-      var orPop_cookieTime = orPop.attr('rel-cookietime');
-      var metodo = orPop.attr('mod-attr');
-      var metodoValor = orPop.attr('mod-attrval');
-      if(metodo == "time") // Time
-      {
-        setTimeout(function(){ orPopup_lanzar(orPop); orPopup_setCookie(orPop_cookieName, orPop_cookieValue, orPop_cookieTime); }, metodoValor);
-      }
-    }
-  });
-  jQuery( window ).scroll(function() 
-  {
-      jQuery('.or_popup').each(function() {
-          var orPop = jQuery(this);
-          var orPop_mobile = orPop.attr('rel-mob');
-          var orPop_cookieName = orPop.attr('rel-cookie');
-          var orPop_cookieValue = orPop.attr('rel-cookieval');
-          if(!orPopup_checkCookie(orPop_cookieName, orPop_cookieValue) && (orPop_mobile == 1 || orPop_mobile == 0 && !checkMobileSize()) && ( (orPop_desk == 1 || orPop_desk == undefined) || orPop_desk == 0 && checkMobileSize()) )
-          {
-              var orPop_cookieTime = orPop.attr('rel-cookietime');
-              var metodo = orPop.attr('mod-attr');
-              var metodoValor = orPop.attr('mod-attrval');
-              if(metodo != "time") //posicion
-              {
-                  var percent = metodoValor.includes("%");
-                  var valor = parseInt(metodoValor);
-                  lanzar = false;
-                  if( (percent && (jQuery(window).scrollTop() >= (jQuery(document).height() - jQuery(document).height()*(valor*0.01)))) ||
-                      (!percent && (jQuery(window).scrollTop() >= valor)) )
-                  {
-                      orPopup_lanzar(orPop);
-                      orPopup_setCookie(orPop_cookieName, orPop_cookieValue, orPop_cookieTime);
-                  }
-              }	
-          }
-          
-      });
-  });
+		var orPop = jQuery(this);
+		var orPop_desk = orPop.attr('rel-desk');
+		var orPop_mobile = orPop.attr('rel-mob');
+		var orPop_cookieName = orPop.attr('rel-cookie');
+		var orPop_cookieValue = orPop.attr('rel-cookieval');
+		if(!orPopup_checkCookie(orPop_cookieName, orPop_cookieValue)
+          && (orPop_mobile == 1 || orPop_mobile == 0 && !checkMobileSize())
+          && ( (orPop_desk == 1 || orPop_desk == undefined) || orPop_desk == 0 && checkMobileSize()) )
+		{
+			var orPop_cookieTime = orPop.attr('rel-cookietime');
+			var metodo = orPop.attr('mod-attr');
+			var metodoValor = orPop.attr('mod-attrval');
+      var cuentaAtras = parseInt(metodoValor - orPopup_checkCookieTime('orpopup_timeController', orPop_cookieTime));
+      var orpopup_timeController = setInterval(function(){
+          orPopup_setCookie('orpopup_timeController', orPopup_checkCookieTime('orpopup_timeController', orPop_cookieTime) + 1000, orPop_cookieTime);
+      }, 1000);
+			if(metodo == "time" && cuentaAtras >= 0) // Time
+			{
+				setTimeout(function()
+                { 
+                    orPopup_lanzar(orPop); 
+                    orPopup_setCookie(orPop_cookieName, orPop_cookieValue, orPop_cookieTime);
+                    clearInterval(orpopup_timeController);
+                    orPopup_setCookie('orpopup_timeController', 0, -1000);
+                }, cuentaAtras);
+                return false;
+			}
+		}
+	});
+	jQuery( window ).scroll(function() 
+	{
+        jQuery('.or_popup').each(function() {
+            var orPop = jQuery(this);
+            var orPop_mobile = orPop.attr('rel-mob');
+            var orPop_cookieName = orPop.attr('rel-cookie');
+            var orPop_cookieValue = orPop.attr('rel-cookieval');
+            if(!orPopup_checkCookie(orPop_cookieName, orPop_cookieValue)
+                && (orPop_mobile == 1 || orPop_mobile == 0 && !checkMobileSize())
+                && ( (orPop_desk == 1 || orPop_desk == undefined) || orPop_desk == 0 && checkMobileSize()) )
+            {
+                var orPop_cookieTime = orPop.attr('rel-cookietime');
+                var metodo = orPop.attr('mod-attr');
+                var metodoValor = orPop.attr('mod-attrval');
+                if(metodo != "time") //posicion
+                {
+                    var percent = metodoValor.includes("%");
+                    var valor = parseInt(metodoValor);
+                    lanzar = false;
+                    if( (percent && (jQuery(window).scrollTop() >= (jQuery(document).height() - jQuery(document).height()*(valor*0.01)))) ||
+                        (!percent && (jQuery(window).scrollTop() >= valor)) )
+                    {
+                        orPopup_lanzar(orPop);
+                        orPopup_setCookie(orPop_cookieName, orPop_cookieValue, orPop_cookieTime);
+                    }
+                }	
+            }
+            
+        });
+	});
   /*** -END- Mod PopUp OR ***/
   /**** RESIZE ****/
   jQuery( window ).resize(function()
@@ -346,9 +361,10 @@ jQuery(document).ready(function()
     }
     else
     {
-      if(!jQuery('.or-fullsize').hasClass('none'))
+      if(!jQuery('#mobileBuscador.or-fullsize').hasClass('none') && jQuery('#mobileBuscador.or-fullsize').length > 0)
       {
         be_closeBooking();
+        console.log("Trigger close Booking")
       }
       /** OR Content Flip **/
       or_cflip_reset();
@@ -403,11 +419,11 @@ if(typeof orPopup_setCookie === 'undefined' )
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
             var expires = "expires="+d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";";
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
         else
         {
-            document.cookie = cname + "=" + cvalue + ";";
+            document.cookie = cname + "=" + cvalue + ";path=/";
         }
     }
 }
@@ -427,7 +443,8 @@ if(typeof orPopup_getCookie === 'undefined' )
         }
         return "";
     }
-}
+} 
+ 
 if(typeof orPopup_checkCookie === 'undefined' )
 {  
     function orPopup_checkCookie(cname, valor)
@@ -436,7 +453,26 @@ if(typeof orPopup_checkCookie === 'undefined' )
         if(orPopup_getCookie(cname) == valor){ salida = true; }
         return salida;
     }
-}
+}    
+    
+if(typeof orPopup_checkCookieTime === 'undefined' )
+{  
+    function orPopup_checkCookieTime(cname, exdays)
+    {
+        var salida = false;
+        if(orPopup_getCookie(cname) !== "")
+        { 
+            salida = parseInt(orPopup_getCookie(cname)); 
+        }else
+        {
+            orPopup_setCookie(cname, 0, exdays);
+            salida = 0;
+        }
+
+        return salida;
+    }
+}    
+
 if(typeof orPopup_lanzar === 'undefined' )
 {  
     function orPopup_lanzar(target)
@@ -445,6 +481,7 @@ if(typeof orPopup_lanzar === 'undefined' )
 		jQuery(target).addClass('or-fullCover');
     }
 }    
+  
 if(typeof orPopupClose === 'undefined' ) { function orPopupClose(e) { be_closeCover(e); } }
 /*** -END- Mod Pop Up OR ***/
 /*** Mod Video Pop Up OR ***/
@@ -612,7 +649,7 @@ function resizeHeader()
 		var width = jQuery( window ).width();
 		if(width > height)
 		{
-			content = '.header_resize { heigth: '+width+'px !important; width: 100%; padding-bottom:0; }';
+			content = '.header_resize { height: '+width+'px !important; width: 100%; padding-bottom:0; }';
 		}
 	}
 	if(header_div != undefined)
@@ -628,8 +665,10 @@ function or_cflip(e)
   if(!parent.hasClass('activo'))   // si no estamos mostrando lo oculto calculamos la altura para darle "valor"
   {
     var altura = jQuery('.or_cflip_current', parent).height();
+    var elmenu = jQuery('.or-nav-container').height();
+    var cajetin = jQuery('.sticky-buscador').height();
     parent.css('height', altura);
-    if(checkTableSize()) { jQuery("html, body").animate({ scrollTop: parent.offset().top }, 1000); }
+    if(checkTableSize()) { jQuery("html, body").animate({ scrollTop: parent.offset().top - (elmenu + cajetin) }, 1000); }
   }
   parent.toggleClass('activo');
 }
@@ -957,10 +996,10 @@ function is_touch_device() {
 
 function be_openBooking()
 {
-  var modalExists = jQuery('.or-fullsize').length;
+  var modalExists = jQuery('#mobileBuscador.or-fullsize').length;
   if(modalExists == 0)  // No existe fullSize
   {
-    jQuery('body').append('<div class="or-fullsize none"></div>');
+    jQuery('body').append('<div id="mobileBuscador" class="or-fullsize none"></div>');
   }
   var modalContainer = jQuery('.or-fullsize');
   if( modalExists == 0)
@@ -985,7 +1024,7 @@ jQuery('.or-fullsize .or-close').on('click', function(){
 });
 function be_closeBooking()
 {
-  var modalContainer = jQuery('.or-fullsize');
+  var modalContainer = jQuery('#mobileBuscador.or-fullsize');
   modalContainer.addClass('post-display');
   setTimeout(function(){
     modalContainer.removeClass('post-display');
