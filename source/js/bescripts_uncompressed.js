@@ -260,7 +260,7 @@ jQuery(document).ready(function()
           },500);
       }
   });
-  jQuery('.ormodal ').on('click', function()  // Open
+  jQuery('.ormodal ').on('click', function()  //Open
   {
     var clicked = jQuery(this);
     //var target = clicked.attr('rel');
@@ -665,8 +665,10 @@ function or_cflip(e)
   if(!parent.hasClass('activo'))   // si no estamos mostrando lo oculto calculamos la altura para darle "valor"
   {
     var altura = jQuery('.or_cflip_current', parent).height();
+    var elmenu = jQuery('.or-nav-container').height();
+    var cajetin = jQuery('.sticky-buscador').height();
     parent.css('height', altura);
-    if(checkTableSize()) { jQuery("html, body").animate({ scrollTop: parent.offset().top }, 1000); }
+    if(checkTableSize()) { jQuery("html, body").animate({ scrollTop: parent.offset().top - (elmenu + cajetin) }, 1000); }
   }
   parent.toggleClass('activo');
 }
