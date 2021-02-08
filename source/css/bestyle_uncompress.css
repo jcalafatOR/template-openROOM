@@ -2733,7 +2733,7 @@ body .ui-tooltip {
 }
 .convertforms .color_blanco, .convertforms .color_blanco a { color: #fff; text-decoration: none; }
 .convertforms .color_blanco a { font-weight: 900; }
-.convertforms .cf-checkbox-group label { color: #FFF !important; }
+.convertforms .cf-checkbox-group label { color: #FFF; }
 /*** [START] CARROUSEL STYLES ***/
 .or-carrousel > .or_blockwidth
 {

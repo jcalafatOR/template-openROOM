@@ -7,6 +7,14 @@ if(file_exists(__DIR__ . '/or_tpl_paramsDefinition.php')) {
 }
 if(file_exists(__DIR__ . '/class_openroom_basics.php')) { require_once __DIR__ .'/class_openroom_basics.php'; $orBasic = new openroom_basics(); }
 $htmllang = explode('-',$this->language);
+if(isset($_GET['start']) && !isset($currentPage))
+{
+  $numItems = 8;
+  $currentPage = $_GET['start'] / $numItems;
+	$doc = JFactory::getDocument();
+	$doc->setTitle($doc->getTitle() . " p. ".$currentPage);
+	$doc->setDescription($doc->getDescription() . " p. ".$currentPage);
+}
 ?>
 <!DOCTYPE html>
 <html xml:lang="<?php echo $htmllang[0]; ?>" lang="<?php echo $htmllang[0]; ?>" >
@@ -56,7 +64,7 @@ var newChild = '<div style="<?php echo $or_unsuportedStyle; ?>"><?php echo JText
 <?php if(file_exists(__DIR__ . '/or_tpl_favicon.php')) { include __DIR__ .'/or_tpl_favicon.php'; } ?>
 <jdoc:include type="modules" name="orhead" />
 </head>
-<body class="<?php echo $or_bodyClass.$or_homeClass; ?>">
+<body class="<?php echo $or_bodyClass." ".$or_homeClass; ?>">
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo BE_GOOGLE_TAGMANAGER; ?>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.9.21" type="template" client="site" method="upgrade">
+<extension version="3.9.24" type="template" client="site" method="upgrade">
 	<name>openROOM</name>
 	<creationDate>2019-12-16</creationDate>
 	<author>open ROOM</author>
@@ -7,13 +7,19 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.21.2</version>
-	<description>Template Base para Hoteles (v1.21.2) &lt;br /&gt;
+	<version>1.22.1</version>
+	<description>Template Base para Hoteles (v1.22.1) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
 	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
 	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
 	=========================================================&lt;br /&gt;
+	1.22.1: - Minor fixes.&lt;br /&gt;
+	          · CAMBIO IDIOMA: [DE] Se ha cambiado el valor de la variable Ventajas exclusivas de: Einzigartige Vergünstigungen => Exklusive Vorteile.&lt;br /&gt;
+	          · index.php: Se ha añadido espacio entre clases.&lt;br /&gt;
+	          · Estilo: Ajustes CSS.&lt;br /&gt;
+	1.22: - CSS Módulo Formularios.&lt;br /&gt;
+	          · Estilo: .convertforms .cf-checkbox-group label -> Se ha quitado el important en el color de texto.&lt;br /&gt;
 	1.21.2: - OR CFlip function.&lt;br /&gt;
 	          · Fixed tablet scrollTo respecting menu&lt;br /&gt;
 	1.21.1: - MOD Menu&lt;br /&gt;
