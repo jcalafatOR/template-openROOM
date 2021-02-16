@@ -753,7 +753,7 @@ jQuery(window).on('scroll', function () {
       // Obtenemos la clase identificativa del navegador Extra
       var clase =  jQuery('.or-nav-menu.or-nav-extras').attr('rel');
       // si la altura actual es igual a la altura del bloque con el contenido mostramos el botón
-      if(jQuery(window).scrollTop() >= jQuery('.'+clase).offset().top + jQuery('.'+clase).height())
+      if(jQuery('.'+clase).offset() != undefined && jQuery(window).scrollTop() >= jQuery('.'+clase).offset().top + jQuery('.'+clase).height())
       {
           jQuery('.or-nav-menu.or-nav-extras').addClass('flex');
       }
@@ -777,7 +777,7 @@ function orCarrouselNext(i)
 {
     
   var target = jQuery('.or-carrousel-target[rel='+i+']');
-  var currentLeft = parseInt(jQuery('.or-carrousel-target-img', target).css('left'));  // Obtenemos el left actual
+  var currentLeft = parseFloat(jQuery('.or-carrousel-target-img', target).css('left'));  // Obtenemos el left actual
   var count = jQuery('.or-carrousel-target-img', target).length - 2;  // Contamos las imágenes (menos una que es la duplicada)
   var contenedor_w = jQuery('.or-carrousel-target-img', target).width();  // Obtenemos el ancho 
   orCarrouselBtnState(target, 'active', 'unactive'); // Deshabilitamos los botones: pasamos de active a unactive
@@ -792,7 +792,7 @@ function orCarrouselNext(i)
   {
     jQuery('.or-carrousel-target-img', target).css("left", (Math.round(currentLeft / contenedor_w) * contenedor_w) );
   }
-  currentLeft = parseInt(jQuery('.or-carrousel-target-img', target).css('left'));
+  currentLeft = parseFloat(jQuery('.or-carrousel-target-img', target).css('left'));
   jQuery('.or-carrousel-target-img', target).animate({"left": (currentLeft - contenedor_w)}, 500);
   
   setTimeout(function(){orCarrouselBtnState(target, 'unactive', 'active');},500);
@@ -802,7 +802,7 @@ function orCarrouselNext(i)
 function orCarrouselPrev(i)
 {
   var target = jQuery('.or-carrousel-target[rel='+i+']');
-  var currentLeft = parseInt(jQuery('.or-carrousel-target-img', target).css('left'));  // Obtenemos el left actual
+  var currentLeft = parseFloat(jQuery('.or-carrousel-target-img', target).css('left'));  // Obtenemos el left actual
   var count = jQuery('.or-carrousel-target-img', target).length - 2;  // Contamos las imágenes (menos una que es la duplicada)
   var contenedor_w = jQuery('.or-carrousel-target-img', target).width();  // Obtenemos el ancho 
   orCarrouselBtnState(target, 'active', 'unactive'); // Deshabilitamos los botones: pasamos de active a unactive
@@ -817,7 +817,7 @@ function orCarrouselPrev(i)
   {
     jQuery('.or-carrousel-target-img', target).css("left", 0 - (Math.round(currentLeft / contenedor_w) * contenedor_w));
   }
-  currentLeft = parseInt(jQuery('.or-carrousel-target-img', target).css('left'));
+  currentLeft = parseFloat(jQuery('.or-carrousel-target-img', target).css('left'));
   jQuery('.or-carrousel-target-img', target).animate({"left": (currentLeft + contenedor_w)}, 500);
   
   setTimeout(function(){orCarrouselBtnState(target, 'unactive', 'active');},500);

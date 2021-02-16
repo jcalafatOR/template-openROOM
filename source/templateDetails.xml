@@ -7,13 +7,16 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.22.1</version>
-	<description>Template Base para Hoteles (v1.22.1) &lt;br /&gt;
+	<version>1.22.2</version>
+	<description>Template Base para Hoteles (v1.22.2) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
 	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
 	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
 	=========================================================&lt;br /&gt;
+	1.22.2: - Minor fixes.&lt;br /&gt;
+	          · Cambio en el bescripts.js para evitar que el carrousel diera error si la ventana tenía decimales.&lt;br /&gt;
+	          · Cambio en el bescripts.js para evitar el error de JS al no detectar el navextra.&lt;br /&gt;
 	1.22.1: - Minor fixes.&lt;br /&gt;
 	          · CAMBIO IDIOMA: [DE] Se ha cambiado el valor de la variable Ventajas exclusivas de: Einzigartige Vergünstigungen => Exklusive Vorteile.&lt;br /&gt;
 	          · index.php: Se ha añadido espacio entre clases.&lt;br /&gt;
