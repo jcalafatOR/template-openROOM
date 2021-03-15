@@ -1678,6 +1678,178 @@ function randomString() {
 // **************** Function to get generate random number - End *****************
 // ************************ COOKIES JAVASCRPT CODE HERE (END HERE)***************************
 
+
+
+/*** Mod Slider2Posts OR ***/
+const orS2P_Items = document.querySelectorAll('.orS2P_slideItem');
+Array.from(orS2P_Items).forEach(link => {
+    link.addEventListener('click', function(event) {
+		event.preventDefault();
+		console.log(event.composedPath());
+		let dataPhoto = {
+			class: event.composedPath()[1].getAttribute('rel'),
+			mainID: event.composedPath()[3].getAttribute('id'),
+			item: event.composedPath()[1]
+		}
+	    or_S2P_Action(dataPhoto, 1); 
+
+		or_S2P_Action(dataArrow, 2);
+		clearInterval(orS2P_intervals[dataArrow['mainID']]);
+		hijo = document.querySelector('#'+dataArrow['mainID']+' .orS2P_slideMainBanner');
+		timer = hijo.getAttribute('rel-timer') ? hijo.getAttribute('rel-timer') : 1000;
+
+		orS2P_intervals[dataArrow['mainID']] = setInterval(
+			function(){ orS2P_intervalsLinks[dataArrow['mainID']].dispatchEvent(new Event('click')) },
+			timer);
+    });
+});
+const orS2P_NavArrows = document.querySelectorAll('.orS2P_navArrows > span');
+Array.from(orS2P_NavArrows).forEach(link => {
+    link.addEventListener('click', function(event) {
+		event.preventDefault();
+		let dataArrow = {
+			class: event.composedPath()[0].getAttribute('class'),
+			mainID: event.composedPath()[2].getAttribute('id')
+		}
+
+		or_S2P_Action(dataArrow, 2);
+		clearInterval(orS2P_intervals[dataArrow['mainID']]);
+		hijo = document.querySelector('#'+dataArrow['mainID']+' .orS2P_slideMainBanner');
+		timer = hijo.getAttribute('rel-timer') ? hijo.getAttribute('rel-timer') : 1000;
+
+		orS2P_intervals[dataArrow['mainID']] = setInterval(
+			function(){ orS2P_intervalsLinks[dataArrow['mainID']].dispatchEvent(new Event('click')) },
+			timer);
+
+    });
+});
+let orS2P_intervals = new Array();
+let orS2P_intervalsLinks = new Array();
+const orS2P_ItemsList = document.querySelectorAll('.orS2P_list.orS2P_Slider');
+Array.from(orS2P_ItemsList).forEach(items => {
+	if(items.getAttribute('rel-scroll') == "auto")
+	{
+		hijo = items.querySelector('.orS2P_slideMainBanner');
+		timer = hijo.getAttribute('rel-timer') ? hijo.getAttribute('rel-timer') : 1000;
+
+		const orS2P_NavArrowsNext = document.querySelectorAll('.orS2P_navArrows > span.or_next');
+		Array.from(orS2P_NavArrowsNext).forEach(link => {
+			start = new Event('start', {"cancelable":true});
+			click = new Event('click', {"cancelable":true});
+			link.addEventListener('start', function(event) {
+				console.log('Cargamos el Set Interval: ' + event + " -> " +link.classList);
+				orS2P_intervalsLinks[items.getAttribute('id')] = link;
+				orS2P_intervals[items.getAttribute('id')] = setInterval(function(){ link.dispatchEvent(click) }, timer);
+			});
+			link.dispatchEvent(start);
+		});
+	}
+});
+
+function or_S2P_Action(actual, tipo)
+{	
+	let aClass = 'class';
+	let mainID = 'mainID';
+	
+	let contenedor = document.getElementById(actual[mainID]);
+	let ampliacion = contenedor.children[0];
+	let listado = contenedor.children[1];
+	switch(tipo)
+	{
+		case 1:
+			if(!ampliacion.classList.contains('moving'))
+			{
+				for(let item of listado.childNodes)
+				{
+					if(item.getAttribute('rel') == actual[aClass] && !item.classList.contains('selected') && !ampliacion.classList.contains('moving'))
+					{
+						let aItem = 'item';
+						ampliacion.classList.add('moving');
+						
+						for(let item2 of listado.childNodes){
+							item2.classList.remove('selected');
+						}
+						item.classList.add('selected');
+						let toKill = ampliacion.children[0];
+						let reverse = toKill.getAttribute('rel') > actual[aClass] ? true : false; 
+						or_S2P_ChangeAction(item, contenedor, toKill, reverse);
+						//or_S2P_ChangePhoto(actual, ampliacion);//// <------ AQUI
+
+						break;
+					}
+				}
+			}
+			break;
+		case 2:
+			if(!ampliacion.classList.contains('moving'))
+			{
+				ampliacion.classList.add('moving');
+				let cRelNum = parseInt(ampliacion.children[0].getAttribute('rel'));	// Actual activo
+				let tNums = listado.childElementCount;	// Total
+				let reverse = actual[aClass] == 'or_prev' ? true : false; //'toKillprev' : 'toKill';
+				let nextRel = cRelNum + 1;
+				if(reverse){ nextRel = cRelNum - 1; }
+				
+				if(nextRel > tNums) { nextRel = 1; }
+				if(nextRel < 1) { nextRel = tNums; }
+				let newItem;
+				for(i=0; 1< tNums; i++)
+				{
+					var tmpItem = listado.children[i];
+					if(tmpItem.getAttribute('rel') == nextRel)
+					{
+						newItem = tmpItem;
+						break;
+					}
+				}
+				for(let hijo of listado.childNodes)
+				{
+					hijo.classList.remove('selected');
+				}
+				newItem.classList.add('selected');
+				
+				let toKill = ampliacion.children[0];
+				or_S2P_ChangeAction(newItem, contenedor, toKill, reverse);
+			}
+			break;
+	}
+}
+
+function or_S2P_ChangeAction(actual, contenedor, toKill, reverse)
+{
+	let ampliacion = contenedor.children[0];
+	let photoList = contenedor.children[1];
+	let desplazamiento = actual.offsetWidth*(actual.getAttribute('rel')-1);
+  // *** TEST
+  if(desplazamiento != 0){ desplazamiento = desplazamiento - (actual.offsetWidth/2);  }
+  // *** FIN TEST
+	photoList.animate({scrollLeft: desplazamiento}, parseInt(ampliacion.getAttribute('rel-speed')));
+	
+	let resetAll;
+	let tmpItem = document.createElement('div');
+	tmpItem.setAttribute('rel', actual.getAttribute('rel'));
+	tmpItem.innerHTML = actual.innerHTML;
+	if(!reverse){
+		ampliacion.appendChild(tmpItem);
+		toKill.classList.add('toKill');
+	}else{
+		ampliacion.classList.add('rk');
+		ampliacion.insertBefore(tmpItem, ampliacion.childNodes[0]);
+		toKill.classList.add('toKillprev');
+	}
+	resetAll = setTimeout(function(){toKill.remove(); ampliacion.classList.remove('moving'); ampliacion.classList.remove('rk');}, 1000);	
+}
+
+function or_S2P_ChangePhoto(actual, ampliacion)
+{
+	let relnum = actual.getAttribute('rel');
+	let toKill = jQuery('div', ampliacion);
+	let reverse = toKill.getAttribute('rel') > relnum ? true : false; 
+	or_S2P_ChangeAction(actual, contenedor, toKill, reverse);
+}
+/*** -END- Slider2Posts OR ***/
+
+
 } else {
 //var checkIEcompatible = document.getElementsByTagName('body')[0];
   document.body.innerHTML = newChild;

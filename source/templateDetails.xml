@@ -14,7 +14,7 @@
 	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
 	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
 	=========================================================&lt;br /&gt;
-	1.22.2: - Slider2Posts (Módulo).&lt;br /&gt;
+	1.23.0: - Slider2Posts (Módulo).&lt;br /&gt;
 	          · Cambio en el bestyle.js para agregar el Módulo.&lt;br /&gt;
 	          · Cambio en el bescripts.js para agregar el Módulo.&lt;br /&gt;
 	1.22.2: - Minor fixes.&lt;br /&gt;

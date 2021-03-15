@@ -5155,3 +5155,261 @@ a.orbtn.orbtn-inline {
      overflow-x: auto;
     }
 }
+
+/*** **************** ***
+ *  MOD_orSlides2Posts  *
+ ************************/
+.orS2P .orS2P_list {
+  max-width: var(--or-width);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+.or_nofix.orS2P .orS2P_list {
+  width: auto;
+  margin-left: var(--or-fixed-margin);
+  margin-right: var(--or-fixed-margin);
+  max-width: initial;
+}
+.or_nofix.full.orS2P .orS2P_list {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  justify-content: flex-start;
+  height: 586px;
+}
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner.rk {
+  justify-content: flex-end;
+}
+
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div {
+  min-width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div.toKill { transition: all 1s ease-in-out; margin-left: -100%; }
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div.toKillprev { transition: all 1s ease-in-out; margin-right: -100%; }
+
+
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_image {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_image > img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: none;
+  max-width: none;
+}
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_text {
+  width: var(--or-width);
+  margin-top: -586px;
+  height: 586px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_text h3 {
+  flex-grow: 1;
+  width: 90%;
+  margin: 20px auto 0;
+  font-size: 50px;
+  text-shadow: 0 0 5px var(--or-menu-extra-button);
+}
+
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_text > a {
+  padding: 10px;
+  width: 40%;
+  min-width: 250px;
+  font-size: 35px;
+  font-family: var(--or-alt-font);
+  height: 66px;
+  max-width: 464px;
+  background-color: var(--or-web-corp-altcolor);
+  color: var(--or-web-corp-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 90px;
+}
+.orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_text > a:hover {
+  background-color: var(--or-web-corp-color);
+  color: var(--or-web-corp-altcolor);
+}
+
+
+.orS2P .orS2P_list .orS2P_slideBannerList {
+   flex-direction: row;
+   flex-wrap: nowrap;
+   overflow: hidden;
+   display: flex;
+   justify-content: space-between;
+   margin-top: 10px;
+}
+.orS2P .orS2P_list .orS2P_slideBannerList .orS2P_slideItem  {
+   min-width: 180px;
+   max-width: 180px;
+   cursor: pointer;
+   margin-right: 10px;
+}
+.orS2P .orS2P_list .orS2P_slideBannerList .orS2P_slideItem:last-of-type  {
+   margin-right: 0px;
+}
+.orS2P .orS2P_list .orS2P_slideBannerList .orS2P_slideItem * { transition: all 1s ease-in-out; }
+.orS2P .orS2P_list .orS2P_slideBannerList .orS2P_slideItem.selected {
+   transition: all 1s ease-in-out;
+   background-color: var(--or-web-corp-color);
+   cursor: default;
+}
+.orS2P .orS2P_list .orS2P_slideBannerList .orS2P_slideItem.selected > .orS2P_slideBanner_image,
+.orS2P .orS2P_list .orS2P_slideBannerList.orS2P_bullets .orS2P_slideItem.selected > .orS2P_bullet { opacity: 0.5; }
+
+.orS2P .orS2P_list .orS2P_slideBannerList.orS2P_bullets .orS2P_slideItem .orS2P_slideBanner_image,
+.orS2P .orS2P_list .orS2P_slideBannerList .orS2P_slideItem .orS2P_slideBanner_text
+ { display: none; } 
+
+.orS2P .orS2P_list .orS2P_slideBannerList.orS2P_bullets {
+  justify-content: center;
+  margin-top: -60px;
+  height: 60px;
+}
+
+.orS2P .orS2P_list .orS2P_slideBannerList.orS2P_bullets .orS2P_slideItem, 
+.orS2P .orS2P_list .orS2P_slideBannerList.orS2P_bullets .orS2P_slideItem.selected {
+  background-color: transparent;
+  min-width: 10px;
+  max-width: 10px;
+}
+
+ .orS2P .orS2P_list .orS2P_slideBannerList.orS2P_bullets .orS2P_slideItem> .orS2P_bullet {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--or-web-corp-altcolor);
+}
+
+/** NAVEGACION **/
+
+.orS2P_navArrows {
+  display: flex;
+  width: 100%;
+  min-height: 0;
+  position: relative;
+  top: -320px;
+  justify-content: space-between;
+  margin-bottom: 0;
+  overflow: visible;
+  height: 0;
+}
+.orS2P_navArrows > span {
+  display: flex;
+  width: 70px;
+  justify-content: center;
+  height: 60px;
+}
+.orS2P_navArrows span:before {
+  content: '\e806';
+  display: block;
+  /*position: absolute;*/
+  width: 40px;
+  height: 40px;
+  font-family: or-icon-tpl;
+  font-size: 40px;
+  line-height: 28px;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 0 0 5px #222;
+}
+.orS2P_navArrows span.or_prev:before { transform: rotate(-90deg); }
+.orS2P_navArrows span.or_next:before { transform: rotate(90deg); }
+
+
+@media (max-width: 767px) {
+    /*** **************** ***
+    *  MOD_orSlides2Posts  *
+    *  ------------------  *
+    *  Mobile Styles       *
+    ************************/
+
+    .orS2P .orS2P_list {
+      max-width: 100%;
+      max-height: 100vw;
+    }
+
+    .orS2P_navArrows {
+      top: calc(-100vw / 2);
+    }
+
+    .orS2P_navArrows > span {
+      width: 40px;
+      height: 40px;
+    }
+
+    .orS2P_navArrows span:before {
+      font-size: 30px;
+    }
+
+    .orS2P .orS2P_list .orS2P_slideBannerList.orS2P_bullets {
+      height: 30px;
+      margin-top: -30px;
+    }
+
+
+    .orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_image {
+      width: auto;
+      max-width: none;
+    }
+
+    .orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_text {
+      margin-top: -100vw;
+      height: 100vw;
+    }
+
+    .orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_text h3 {
+      width: auto;
+      font-size: 27px;
+      color: #FFF;
+    }
+
+    .orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_text > a {
+      margin-bottom: 50px;
+      height: 50px;
+      font-size: 23px;
+      min-width: 200px;
+    }
+
+    .orS2P .orS2P_list.orS2P_Slider .orS2P_slideMainBanner > div > .orS2P_slideBanner_image > img {
+      width: auto;
+      max-height: 100%;
+    }
+}
+
+
+/*** **************** ***
+*  MOD_orSlides2Posts   *
+* --------------------- *
+* END of default styles *
+************************/
