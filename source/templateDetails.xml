@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.9.24" type="template" client="site" method="upgrade">
+<extension version="3.9.28" type="template" client="site" method="upgrade">
 	<name>openROOM</name>
 	<creationDate>2019-12-16</creationDate>
 	<author>open ROOM</author>
@@ -7,13 +7,22 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.23.0</version>
-	<description>Template Base para Hoteles (v1.23.0) &lt;br /&gt;
+	<version>1.25.0</version>
+	<description>Template Base para Hoteles (v1.25.0) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
 	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
 	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
 	=========================================================&lt;br /&gt;
+	1.25.0: - Slider2Posts (Módulo).&lt;br /&gt;
+	          · Se ha corregido un error en el JS (del template) que se producía en Safari.&lt;br /&gt;
+			- Cambios en bescripts (Template).&lt;br /&gt;
+	          · Se han modificado las funciones para detectar si el dispositivo es móvil o no.&lt;br /&gt;
+	          · Se han añadido controladores para onReady y onResize usando JS puro (sin jQuery).&lt;br /&gt;
+	1.24.0: - orVideo (Módulo).&lt;br /&gt;
+	          · Se ha ajustado el JS para quitar el jQuery.&lt;br /&gt;
+			- Activar Cajetín (Template).&lt;br /&gt;
+	          · Se ha añadido la opción de deshabilitar el cajetín cuando la web no sea un Hotel.&lt;br /&gt;
 	1.23.0: - Slider2Posts (Módulo).&lt;br /&gt;
 	          · Cambio en el bestyle.js para agregar el Módulo.&lt;br /&gt;
 	          · Cambio en el bescripts.js para agregar el Módulo.&lt;br /&gt;
@@ -169,6 +178,18 @@
 				/>
 			</fieldset>
 			<fieldset name="bedata">
+
+				<field 
+					name="BE_ACTIVAR"
+					type="radio"
+					label="TPL_OPENROOM_BEACTIVAR_LABEL"
+					description="TPL_OPENROOM_BEACTIVAR_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
 				<field 
 					name="BE_ESCADENA"
 					type="radio"

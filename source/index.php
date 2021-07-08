@@ -70,8 +70,11 @@ var newChild = '<div style="<?php echo $or_unsuportedStyle; ?>"><?php echo JText
 	<!-- End Google Tag Manager (noscript) -->
 <jdoc:include type="modules" name="top" />
 <?php
+if(!defined("BE_ACTIVAR") || BE_ACTIVAR == 1)
+{
 if(file_exists(__DIR__ .'/_becontent/buscador.php')) { include __DIR__ .'/_becontent/buscador.php'; }
 else{ echo '<div class="be_fatalerror">ERROR: No se ha cargado el contenedor del Motor de reservas</div>';}
+}
 ?>
 <div class="or-topend"></div>
 <jdoc:include type="modules" name="user1" />
@@ -89,6 +92,9 @@ else{ echo '<div class="be_fatalerror">ERROR: No se ha cargado el contenedor del
 <div id="ormodal_controller">
 <jdoc:include type="modules" name="modal" />
 </div>
+<?php 
+if(!defined("BE_ACTIVAR") || BE_ACTIVAR == 1)
+{ ?>
 <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/uikit.min.js<?php echo $orBasic->or_filemtime(__DIR__.'/js/uikit.min.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/jquery-ui.js<?php echo $orBasic->or_filemtime(__DIR__.'/js/jquery-ui.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/moment.min.js<?php echo $orBasic->or_filemtime(__DIR__.'/js/moment.min.js'); ?>" type="text/javascript"></script>
@@ -100,6 +106,7 @@ if(file_exists(__DIR__ . '/js/moment-local-'.$this->language.'.js')) { ?>
 	<script src="<?php echo $this->baseurl.'/templates/'.$this->template.'/js/moment-local-en-gb.js'.$orBasic->or_filemtime(__DIR__.'/js/moment-local-en-gb.js'); ?>" type="text/javascript"></script>
 <?php } //echo "IDIOMA: ".$this->baseurl.'/templates/'.$this->template.'/js/moment-local-'.$this->language.'.js'; ?>
 <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/daterangepicker.js<?php echo $orBasic->or_filemtime(__DIR__.'/js/daterangepicker.js'); ?>" type="text/javascript"></script>
+<?php } ?>
 <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/bescripts.js<?php echo $orBasic->or_filemtime(__DIR__.'/js/bescripts.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/or_template.js<?php echo $orBasic->or_filemtime(__DIR__.'/js/or_template.js'); ?>" type="text/javascript"></script>
 

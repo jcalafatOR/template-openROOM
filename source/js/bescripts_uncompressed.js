@@ -64,7 +64,7 @@ jQuery(document).ready(function()
     ordragnmove_down[1] = false;
   });
   
-  /** RESIZE HEADER **/
+  /** RESIZE HEADER *
   resizeHeader();
 	jQuery( window ).resize(function()
 	{
@@ -74,6 +74,9 @@ jQuery(document).ready(function()
 			resizeHeader();
 		}
 	});
+  */
+
+
   /**** OR CARROUSEL ****/
   window.addEventListener('orientationchange', function(){ setTimeout(orCarrouselRestart(), 500); });
   /** OR Content Flip **/ 
@@ -287,7 +290,7 @@ jQuery(document).ready(function()
   });
   
   /*** Mod Video PopUp OR ***/
-  jQuery('.openVideoPopUp').on('click', function() { console.log('click'); orVideo_openPopUp(this); });
+  //jQuery('.openVideoPopUp').on('click', function() { console.log('click'); orVideo_openPopUp(this); });
   /*** -END- Mod Video PopUp OR ***/
   /*** Mod PopUp OR ***/
   jQuery('.or_popup').each(function() {
@@ -376,6 +379,7 @@ jQuery(document).ready(function()
   });
   
 });
+
 
 // Abrimos el menú de navegación menu
 jQuery('.or-nav-menu.or-nav-burger').on('click', function(){
@@ -485,6 +489,85 @@ if(typeof orPopup_lanzar === 'undefined' )
 if(typeof orPopupClose === 'undefined' ) { function orPopupClose(e) { be_closeCover(e); } }
 /*** -END- Mod Pop Up OR ***/
 /*** Mod Video Pop Up OR ***/
+
+/*** MOD Video Pop Up OR (Update) ***/
+var or_videoPopUpItem;
+const or_videoPopUp = document.querySelector('.openVideoPopUp');
+if(or_videoPopUp != undefined) {
+	or_videoPopUp.addEventListener('click', (event) => {
+		event.preventDefault();
+		let eHasClass = event.target.classList.contains('or_video_popup');
+		let o = event.target
+		if(!eHasClass)
+		{
+			o = event.target.closest(".or_video_popup");
+		}
+		let params = o.getAttribute('rel-params')
+		let mp4_file = o.getAttribute('rel-mp4')
+		let ogg_file = o.getAttribute('rel-ogg')
+		let webm_file = o.getAttribute('rel-webm')
+		let video_id = o.getAttribute('id')
+		
+		or_videoPopUpItem = document.createElement("div");
+		or_videoPopUpItem.setAttribute('id', 'orVideoPopUp');
+		or_videoPopUpItem.setAttribute('class', 'or-fullCover')  
+		var modalItem = '<div class="or-modal-container">';
+			modalItem += '<div class="or-modal-header"><div class="or-close" rel="#orVideoPopUp" onclick="return or_VideoRemove(\'orVideoPopUp\');"><span class=""><i class="oricon-close"></i></span></div></div>';
+			modalItem += '<div class="or-modal-body">';
+
+			modalItem += '<video id="modal_'+video_id+'" class="or_video_tag" '+params+' preload="metadata" playsinline>';
+			modalItem += '<source src="'+mp4_file+'" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">';
+			modalItem += '<source src="'+ogg_file+'" type="video/ogg" codecs="theora, vorbis">';
+			modalItem += '<source src="'+webm_file+'" type="video/webm" codecs="vp8, vorbis">';
+			modalItem += 'HTML5 v&iacute;deo no es soportado por este navegador';
+			modalItem += '</video>';
+			
+			modalItem += '</div>';
+			modalItem += '<div class="or-modal-footer"></div>';
+		modalItem += '</div>';
+		
+		or_videoPopUpItem.innerHTML = modalItem
+		document.body.classList.add('overflow-hiden');
+		document.body.appendChild(or_videoPopUpItem);
+
+	});
+}
+function or_VideoRemove(id)
+{
+  if(or_videoPopUpItem.getAttribute('id') == id)
+  {
+    or_videoPopUpItem.parentNode.removeChild(or_videoPopUpItem);
+    be_orCloseCover(id);
+  }else{
+    console.log(or_videoPopUpItem.getAttribute('id'))
+  }
+}
+
+function be_orCloseCover(id)
+{
+  let modalCover = document.getElementById(id);
+  if(modalCover != null)
+  {
+    modalCover.classList.add('post-display');
+  }
+    setTimeout(function(){
+      if(modalCover != null)
+      {
+        modalCover.classList.remove('post-display');
+        modalCover.classList.add('none');
+      }
+      document.body.classList.remove('overflow-hiden');
+      if(document.getElementsByClassName('or-bgFade').length != 0)
+      {
+        console.log(document.getElementsByClassName('or-bgFade'))
+        document.getElementsByClassName('or-bgFade').parentNode.removeChild(document.getElementsByClassName('or-bgFade'));
+      }
+    },500);
+}
+
+/*** -END- MOD Video Pop Up OR (Update) ***/
+
+/*
 if(typeof orVideo_openPopUp === 'undefined' )
 {
  function orVideo_openPopUp(e)
@@ -522,7 +605,8 @@ if(typeof orVideo_openPopUp === 'undefined' )
    
  }
 }
-if(typeof orVideoRemove === 'undefined' ) { function orVideoRemove(e) { be_closeCover(e); jQuery(e).remove(); } }
+*/
+//if(typeof orVideoRemove === 'undefined' ) { function orVideoRemove(e) { be_closeCover(e); jQuery(e).remove(); } }
 /*** Mod Galeria OR ***/
 function orGallery_close(e)
 {
@@ -954,26 +1038,34 @@ function orCarrouselRestart()
 }
 
 /** MOBILE SCRIPTS **/
-function checkMobileSize()
+checkWindowSize = function(e)
 {
-  var mobile = false;
-  var ancho = jQuery(window).width();
-  if(ancho < 768) { mobile = true; }
-  return mobile;
+    var rs = false;
+    if(window.matchMedia(e).matches)
+    {
+        rs = true;
+    }
+    return rs;
 }
+
+function checkMobileSize(e)
+{
+    let query = '(max-width: 767px)';
+    var rs = checkWindowSize(query);
+    return rs;
+}
+
 function checkTableSize()
 {
-  var table = false;
-  var ancho = jQuery(window).width();
-  if(ancho < 992) { table = true; }
-  return table;
+    let query = '(max-width: 991px)';
+    var rs = checkWindowSize(query);
+    return rs;
 }
 function checkTabletSize()
 {
-  var tablet = false;
-  var ancho = screen.width;
-  if(ancho >= 768 && ancho < 990 ) { tablet = true; }
-  return tablet;
+    let query = '(min-width: 768px) and (max-width: 1024px)';
+    var rs = checkWindowSize(query);
+    return rs;
 }
 
 function is_touch_device() {
@@ -1205,35 +1297,38 @@ var checkDates = function(date) {
   }else{ return ""; }
 }
 // rangepicker
-jQuery(document).ready(function() {
-  //console.log(or_blockDate_in);
-  //console.log(or_blockDate_out);
-  jQuery('#rangepicker').daterangepicker({
-    "autoApply": true,
-    "locale": {
-        //"format": "ddd, DD MMM",
-        "format": "DD-MM-YYYY",
-        "separator": " - ",
-        "weekLabel": "W",
-        "daysOfWeek": [be_day_short(7), be_day_short(1), be_day_short(2), be_day_short(3), be_day_short(4), be_day_short(5), be_day_short(6)],
-        "dayNames": [be_day_long(7), be_day_long(1), be_day_long(2), be_day_long(3), be_day_long(4), be_day_long(5), be_day_long(6)],
-        "monthNames": [be_month_long(1), be_month_long(2), be_month_long(3), be_month_long(4), be_month_long(5), be_month_long(6), be_month_long(7), be_month_long(8), be_month_long(9), be_month_long(10), be_month_long(11), be_month_long(12)],
-        "monthNamesShort": [be_month_short(1), be_month_short(2), be_month_short(3), be_month_short(4), be_month_short(5), be_month_short(6), be_month_short(7), be_month_short(8), be_month_short(9), be_month_short(10), be_month_short(11), be_month_short(12)],
-        "firstDay": 1
-    },
-    "minDate": be_dame_hoy(),
-    "maxDate": be_dame_end(),
-    "opens": "center",
-    "linkedCalendars": false,
-    "isInvalidDate": checkDates
-    
-  }, function(start, end, label) {
-    jQuery('#day-ida-hidden').val(start.format('DD-MM-YYYY'));
-    jQuery('#day-vuelta-hidden').val(end.format('DD-MM-YYYY'));
-    jQuery('#rangepicker_title').css('display', 'none');
-    jQuery('#rangepicker').css('opacity', 1);
+if(typeof UIkit !== "undefined")
+{
+  jQuery(document).ready(function() {
+    //console.log(or_blockDate_in);
+    //console.log(or_blockDate_out);
+    jQuery('#rangepicker').daterangepicker({
+      "autoApply": true,
+      "locale": {
+          //"format": "ddd, DD MMM",
+          "format": "DD-MM-YYYY",
+          "separator": " - ",
+          "weekLabel": "W",
+          "daysOfWeek": [be_day_short(7), be_day_short(1), be_day_short(2), be_day_short(3), be_day_short(4), be_day_short(5), be_day_short(6)],
+          "dayNames": [be_day_long(7), be_day_long(1), be_day_long(2), be_day_long(3), be_day_long(4), be_day_long(5), be_day_long(6)],
+          "monthNames": [be_month_long(1), be_month_long(2), be_month_long(3), be_month_long(4), be_month_long(5), be_month_long(6), be_month_long(7), be_month_long(8), be_month_long(9), be_month_long(10), be_month_long(11), be_month_long(12)],
+          "monthNamesShort": [be_month_short(1), be_month_short(2), be_month_short(3), be_month_short(4), be_month_short(5), be_month_short(6), be_month_short(7), be_month_short(8), be_month_short(9), be_month_short(10), be_month_short(11), be_month_short(12)],
+          "firstDay": 1
+      },
+      "minDate": be_dame_hoy(),
+      "maxDate": be_dame_end(),
+      "opens": "center",
+      "linkedCalendars": false,
+      "isInvalidDate": checkDates
+      
+    }, function(start, end, label) {
+      jQuery('#day-ida-hidden').val(start.format('DD-MM-YYYY'));
+      jQuery('#day-vuelta-hidden').val(end.format('DD-MM-YYYY'));
+      jQuery('#rangepicker_title').css('display', 'none');
+      jQuery('#rangepicker').css('opacity', 1);
+    });
   });
-});
+}
 // rangepicker
 
 jQuery('#hotel-sel').on('change', function(){
@@ -1471,33 +1566,27 @@ function getLess(id){
 }
 
 // combo info occupancy
-UIkit.util.on('.b-beds', 'beforehide', function () {
-      var number_ac_items = 0;
-      var number_kc_items = 0;
-      jQuery('.ac-item').each(function(index) {
-          var number = jQuery(this).text();
-          number_ac_items = parseInt(number_ac_items) + parseInt(number);
-      });
-      jQuery('.kc-item').each(function(index) {
-          var number = jQuery(this).text();
-          number_kc_items = parseInt(number_kc_items) + parseInt(number);
-      });
-      if(number_kc_items == 0){
-        jQuery('.b-title.hab-num').html('<span class="ac-counter">'+number_ac_items+'</span> ' + be_search_text("4_2"));
-      } else {
-        jQuery('.b-title.hab-num').html('<span class="ac-counter">'+number_ac_items+'</span> ' + be_search_text("4_2")+', <span class="kc-counter">'+number_kc_items+'</span> ' + be_search_text("4_3"));
-      }
-});
-/*
-	jQuery(window).on('load', function () {
-  jQuery('.preloader').slideUp();
-  var svg_bottom = (jQuery('.svg-bottom').height()) - 1;
-  var svg_top = (jQuery('.svg-top').height()) - 1;
-  jQuery('.svg-bottom').css('bottom',"-" + svg_bottom + "px");
-  jQuery('.svg-top').css('top',"-" + svg_top + "px");
- });
-*/
-	jQuery(window).on('resize', function () {
+if(typeof UIkit !== "undefined")
+{
+  UIkit.util.on('.b-beds', 'beforehide', function () {
+        var number_ac_items = 0;
+        var number_kc_items = 0;
+        jQuery('.ac-item').each(function(index) {
+            var number = jQuery(this).text();
+            number_ac_items = parseInt(number_ac_items) + parseInt(number);
+        });
+        jQuery('.kc-item').each(function(index) {
+            var number = jQuery(this).text();
+            number_kc_items = parseInt(number_kc_items) + parseInt(number);
+        });
+        if(number_kc_items == 0){
+          jQuery('.b-title.hab-num').html('<span class="ac-counter">'+number_ac_items+'</span> ' + be_search_text("4_2"));
+        } else {
+          jQuery('.b-title.hab-num').html('<span class="ac-counter">'+number_ac_items+'</span> ' + be_search_text("4_2")+', <span class="kc-counter">'+number_kc_items+'</span> ' + be_search_text("4_3"));
+        }
+  });
+}
+jQuery(window).on('resize', function () {
   var svg_bottom = (jQuery('.svg-bottom').height()) - 1;
   var svg_top = (jQuery('.svg-top').height()) - 1;
   jQuery('.svg-bottom').css('bottom',"-" + svg_bottom + "px");
@@ -1818,14 +1907,17 @@ function or_S2P_Action(actual, tipo)
 function or_S2P_ChangeAction(actual, contenedor, toKill, reverse)
 {
 	let ampliacion = contenedor.children[0];
-	let photoList = contenedor.children[1];
+	let photoList = contenedor.children[1].classList.contains('orS2P_bullets') ? contenedor.children[2] : contenedor.children[1];
 	let desplazamiento = actual.offsetWidth*(actual.getAttribute('rel')-1);
-  // *** TEST
-  if(desplazamiento != 0){ desplazamiento = desplazamiento - (actual.offsetWidth/2);  }
-  // *** FIN TEST
-	photoList.animate({scrollLeft: desplazamiento}, parseInt(ampliacion.getAttribute('rel-speed')));
+    
+    if(desplazamiento != 0){ desplazamiento = desplazamiento - (actual.offsetWidth/2);  }
+  
+    if(typeof photoList.animate != "undefined")
+    { photoList.animate({scrollLeft: desplazamiento}, parseInt(ampliacion.getAttribute('rel-speed'))) }
+    else
+    { photoList.scroll(desplazamiento, 0); }
 	
-	let resetAll;
+	var resetAll;
 	let tmpItem = document.createElement('div');
 	tmpItem.setAttribute('rel', actual.getAttribute('rel'));
 	tmpItem.innerHTML = actual.innerHTML;
@@ -1848,6 +1940,54 @@ function or_S2P_ChangePhoto(actual, ampliacion)
 	or_S2P_ChangeAction(actual, contenedor, toKill, reverse);
 }
 /*** -END- Slider2Posts OR ***/
+
+/*** MÉTODO FAQs DISPLAYER ***/
+// Obtenemos todos los títulos/Preguntas de las FAQs
+// Importante: Las clases deben estar agregadas en CSS para que esto funcione, sinó lo único que hará será agregar/quitar la clase show
+const faqTitleObj = document.querySelectorAll(".faq-title");
+if (faqTitleObj != undefined) {
+    // Por cada Pregunta de FAQ que haya
+    faqTitleObj.forEach(function(e) {
+	// Añadimos un Listener de Click event.
+        e.addEventListener('click', (event) => {
+	    event.preventDefault();
+            let padre = event.target.closest(".faq-item");	// Obtenemos el faq-item que contiene la FAQ (pregunta + respuesta)
+            let allPadres = document.querySelectorAll('.faq-item');	//Obtenemos todos los faq-item que hay en la web
+            allPadres.forEach(bloques => bloques.classList.remove('show'));	// eliminamos la clase show de todos (para ocultar el que esté abierto
+            padre.classList.add('show');	// Agregamos al actual la clase show para que se muestre
+        });
+    });
+
+}
+
+/*** -END- MÉTODO FAQs DISPLAYER ***/
+
+/** ON READY RESIZE Listener **/
+
+/// Aqui agregamos cualquier función que queremos lanzar al realizar Resize
+OR_onResizeEvent = function()
+{
+  if(!checkMobileSize())
+  {
+    // ** Si no es mobile comprobamos el contenido del cajetin
+    resizeHeader();
+  }
+
+}
+/// On document Ready...
+let OR_stateCheck = setInterval(() => {
+    if (document.readyState === 'complete') {
+      // document ready: Agregamos la escucha para "resizeEvent"
+      // Algunos navegadores lanzan resize onLoad.
+      // Evitamos que se dispare el evento antes de tiempo.
+      resizeHeader(); // Si es necesario hacemos resizeHeader
+      window.addEventListener('resize', OR_onResizeEvent());
+      clearInterval(OR_stateCheck);
+    }
+}, 100);
+
+
+/** -END- ON READY RESIZE Listener **/
 
 
 } else {
