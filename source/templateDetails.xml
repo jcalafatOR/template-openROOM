@@ -16,6 +16,10 @@
 	=========================================================&lt;br /&gt;
 	1.25.0: - Slider2Posts (Módulo).&lt;br /&gt;
 	          · Se ha corregido un error en el JS (del template) que se producía en Safari.&lt;br /&gt;
+			- GDPR Coockies (Plugin).&lt;br /&gt;
+	          · Se han incorporado los textos en el template para no tener que hacer Override en (ES, CA, DE, EN).&lt;br /&gt;
+	          · No se ha incluido la URL de la política de cookies por lo que se tendrá que seguir introduciendo a mano.&lt;br /&gt;
+	          · Se ha incluido en el JS el Script que se incorpora a mano para cambiar el texto por idioma.&lt;br /&gt;
 			- Cambios en bescripts (Template).&lt;br /&gt;
 	          · Se han modificado las funciones para detectar si el dispositivo es móvil o no.&lt;br /&gt;
 	          · Se han añadido controladores para onReady y onResize usando JS puro (sin jQuery).&lt;br /&gt;

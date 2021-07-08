@@ -1961,7 +1961,18 @@ if (faqTitleObj != undefined) {
 }
 
 /*** -END- MÉTODO FAQs DISPLAYER ***/
+/*** GDPR COOKIE ADVICE ***/
+OR_GDPRCookieAdvice = function () {
+	const language = document.documentElement.lang;
+	const legalText = document.querySelector(".cc-message-text");
 
+	if (legalText != null) {
+		if (language === "en") legalText.innerHTML = "This website uses technical cookies that are required for the correct functioning of the website and its services, the statistical analysis of browsing statistics and the links to social networks.";
+		if (language === "de") legalText.innerHTML = "Diese Website verwendet technische Cookies, die für die einwandfreie Funktion der Seite und ihrer Dienste, statistische Auswertung der Nutzungsdaten und die Verlinkung mit sozialen Netzwerken notwendig sind.";
+	}
+};
+
+/*** -END- GDPR COOKIE ADVICE ***/
 /** ON READY RESIZE Listener **/
 
 /// Aqui agregamos cualquier función que queremos lanzar al realizar Resize
@@ -1981,6 +1992,7 @@ let OR_stateCheck = setInterval(() => {
       // Algunos navegadores lanzan resize onLoad.
       // Evitamos que se dispare el evento antes de tiempo.
       resizeHeader(); // Si es necesario hacemos resizeHeader
+      OR_GDPRCookieAdvice(); // Si tenemos el plugin GDPR para Cookies instalado.
       window.addEventListener('resize', OR_onResizeEvent());
       clearInterval(OR_stateCheck);
     }
