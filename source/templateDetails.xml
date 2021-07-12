@@ -7,13 +7,15 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.25.0</version>
-	<description>Template Base para Hoteles (v1.25.0) &lt;br /&gt;
+	<version>1.25.1</version>
+	<description>Template Base para Hoteles (v1.25.1) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
 	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
 	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
 	=========================================================&lt;br /&gt;
+	1.25.1: - Corrección idioma (EN).&lt;br /&gt;
+	          · Se ha modificado CHILDS por CHILDREN.&lt;br /&gt;
 	1.25.0: - Slider2Posts (Módulo).&lt;br /&gt;
 	          · Se ha corregido un error en el JS (del template) que se producía en Safari.&lt;br /&gt;
 			- GDPR Coockies (Plugin).&lt;br /&gt;
@@ -23,39 +25,37 @@
 			- Cambios en bescripts (Template).&lt;br /&gt;
 	          · Se han modificado las funciones para detectar si el dispositivo es móvil o no.&lt;br /&gt;
 	          · Se han añadido controladores para onReady y onResize usando JS puro (sin jQuery).&lt;br /&gt;
-	1.24.0: - orVideo (Módulo).&lt;br /&gt;
+	Older Versions: &lt;br /&gt;
+			- orVideo (Módulo).&lt;br /&gt;
 	          · Se ha ajustado el JS para quitar el jQuery.&lt;br /&gt;
 			- Activar Cajetín (Template).&lt;br /&gt;
 	          · Se ha añadido la opción de deshabilitar el cajetín cuando la web no sea un Hotel.&lt;br /&gt;
-	1.23.0: - Slider2Posts (Módulo).&lt;br /&gt;
+			- Slider2Posts (Módulo).&lt;br /&gt;
 	          · Cambio en el bestyle.js para agregar el Módulo.&lt;br /&gt;
 	          · Cambio en el bescripts.js para agregar el Módulo.&lt;br /&gt;
-	1.22.2: - Minor fixes.&lt;br /&gt;
+			- Minor fixes.&lt;br /&gt;
 	          · Cambio en el bescripts.js para evitar que el carrousel diera error si la ventana tenía decimales.&lt;br /&gt;
 	          · Cambio en el bescripts.js para evitar el error de JS al no detectar el navextra.&lt;br /&gt;
-	1.22.1: - Minor fixes.&lt;br /&gt;
 	          · CAMBIO IDIOMA: [DE] Se ha cambiado el valor de la variable Ventajas exclusivas de: Einzigartige Vergünstigungen => Exklusive Vorteile.&lt;br /&gt;
 	          · index.php: Se ha añadido espacio entre clases.&lt;br /&gt;
 	          · Estilo: Ajustes CSS.&lt;br /&gt;
-	1.22: - CSS Módulo Formularios.&lt;br /&gt;
+			- CSS Módulo Formularios.&lt;br /&gt;
 	          · Estilo: .convertforms .cf-checkbox-group label -> Se ha quitado el important en el color de texto.&lt;br /&gt;
-	1.21.2: - OR CFlip function.&lt;br /&gt;
+			- OR CFlip function.&lt;br /&gt;
 	          · Fixed tablet scrollTo respecting menu&lt;br /&gt;
-	1.21.1: - MOD Menu&lt;br /&gt;
+			- MOD Menu&lt;br /&gt;
 	          · (v1.21.1.2): Minor fix (v1.21.1.1)&lt;br /&gt;
 	          · (v1.21.1.1): Se ha agregado ID a todos los botones y cuadros con el lang TAG para poder hacer referencia a ellos si fuera necesario&lt;br /&gt;
 	          · Añadida alternativa en el menú: lang-in&lt;br /&gt;
 	          · Creados los estilos necesarios para la plantilla de menú (lang-in)&lt;br /&gt;
-	1.21.0: - Joomla Update 3.9.21&lt;br /&gt;
-	1.20.x: - Minor JS Fixes&lt;br /&gt;
+			- Minor JS Fixes&lt;br /&gt;
 	          · Ajustes en el JS del Template asociados al MOD ORPOPUP para asignar correctamente el path de la cookie&lt;br /&gt;
 	          · Añadido MOD ORPOPUP Controlador de tiempo entre páginas&lt;br /&gt;
 	          · Menu resize overflow problems&lt;br /&gt;
-	1.20.1: - Update JS for mod_orgallery&lt;br /&gt;
-	1.20.0: - Joomla Update 3.9.20&lt;br /&gt;
+			- Update JS for mod_orgallery&lt;br /&gt;
+			- Joomla Update 3.9.20&lt;br /&gt;
 			- Traducción BE en Francés&lt;br /&gt;
 			- Corregido el bug cuando sólo hay 1 idioma.&lt;br /&gt;
-	Older Versions: &lt;br /&gt;
 			- Traduccción del cajetín al catalán.&lt;br /&gt;
 			- Integración del módulo del PopUp OR al scipt del template.&lt;br /&gt;
 			- New Video Module version (Pop Up).&lt;br /&gt;

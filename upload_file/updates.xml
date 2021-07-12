@@ -5,10 +5,10 @@
 		<description>Template de OPEN ROOM</description>
 		<element>openroom</element>
 		<type>template</type>
-		<version>1.25.0</version>
+		<version>1.25.1</version>
 		<client>0</client>
 		<downloads>
-			<downloadurl type="update" format="zip">https://webprojects.open-room.com/updates/open_room/openroom_1-25-0.zip</downloadurl>
+			<downloadurl type="update" format="zip">https://webprojects.open-room.com/updates/open_room/openroom_1-25-1.zip</downloadurl>
 		</downloads>
 		<maintainer>Open ROOM</maintainer>
 		<maintainerurl>https://www.open-room.com/</maintainerurl>
