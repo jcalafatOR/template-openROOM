@@ -6,6 +6,23 @@
 $or_jsonlang_get = file_get_contents($or_jsonlang_url);
 $or_jsonlang_textos = json_decode($or_jsonlang_get, true);
 */
+
+$webapp_lang = explode('-',$this->language);
+
+switch($webapp_lang)
+{
+  case 'es': $webapp_langID = 1; break;
+  case 'en': $webapp_langID = 2; break;
+  case 'de': $webapp_langID = 3; break;
+  case 'ca': $webapp_langID = 4; break;
+  case 'fr': $webapp_langID = 5; break;
+  case 'it': $webapp_langID = 6; break;
+  case 'ru': $webapp_langID = 7; break;
+  case 'pt': $webapp_langID = 8; break;
+  default: $webapp_langID = 1; break;
+}
+
+$mobileappurl = "https://mobilebooking.open-room.com/intro.php?hotel_code=".BE_ID_HOTEL."&webportal_code=".BE_ID_PORTAL."&code_lang=".$webapp_langID;
 ?>
 <script>
 var portal = <?php echo BE_ID_PORTAL; ?>; //561; //ID portal
@@ -64,13 +81,28 @@ if(file_exists(__DIR__ . '/class_or_mobExtraButton.php'))
 ?>
  <div class="buscador <?php echo $is_home; ?>" id="buscador">
    <div class="be-mobile only_mobile">
+     <?php if(defined('BE_MOBILEWEBAPP') && BE_MOBILEWEBAPP == 1)
+     { 
+      $or_boton_reservar_mobile = BE_ESCADENA == 1 ? JText::_('TPL_OPENROOM_BE_SEARCH_MULTIHOTEL') : JText::_('TPL_OPENROOM_BE_SEARCH_HOTEL'); ?>
+      <a class="reservar" href="<?php echo $mobileappurl; ?>" title="<?php echo $or_boton_reservar_mobile; ?>" target="reservas"><?php // ENVIAR  ?>
+        <?php 
+          echo $or_boton_reservar_mobile;
+          $or_icon_reservar_mobile = BE_ESCADENA == 1 ? 'bed' : 'calendar'; 
+        ?>
+        <i class="oricon-<?php echo $or_icon_reservar_mobile; ?>"></i>
+     </a>
+     <?php }
+     else
+     { ?>
     <div class="reservar" onclick="return be_openBooking();"><?php // ENVIAR  ?>
         <?php $or_boton_reservar_mobile = BE_ESCADENA == 1 ? JText::_('TPL_OPENROOM_BE_SEARCH_MULTIHOTEL') : JText::_('TPL_OPENROOM_BE_SEARCH_HOTEL'); ?>
         <input type="button" id="mobile-reservar" class="uk-button uk-button-primary b-send" value="<?php echo $or_boton_reservar_mobile; ?>">
         <?php $or_icon_reservar_mobile = BE_ESCADENA == 1 ? 'bed' : 'calendar'; ?>
         <i class="oricon-<?php echo $or_icon_reservar_mobile; ?>"></i>
     </div>
-    <?php if($or_nav_extras_content != "") { ?>
+    <?php
+    } 
+    if($or_nav_extras_content != "") { ?>
       <div class="ventajas_exclusivas_mobile"><?php echo $or_nav_extras_content; ?></div>
     <?php } ?>
    </div>

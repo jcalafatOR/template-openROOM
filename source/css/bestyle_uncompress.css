@@ -3805,6 +3805,11 @@ a.orbtn.orbtn-inline {
         box-shadow: 0 0 10px rgba(0,0,0,0.5);
         height: 45px;
     }
+    .be-mobile a.reservar {
+      text-transform: capitalize;
+      text-decoration: none;
+      font-weight: 400;
+    }
     .be-mobile .ventajas_exclusivas_mobile {
         text-align: right !important;
         color: #FFFFFF !important;
