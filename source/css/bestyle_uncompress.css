@@ -3806,7 +3806,7 @@ a.orbtn.orbtn-inline {
         height: 45px;
     }
     .be-mobile a.reservar {
-      text-transform: capitalize;
+      text-transform: uppercase;
       text-decoration: none;
       font-weight: 400;
     }
