@@ -9,15 +9,15 @@ $or_jsonlang_textos = json_decode($or_jsonlang_get, true);
 
 $webapp_lang = explode('-',$this->language);
 
-switch($webapp_lang)
+switch($webapp_lang[0])
 {
   case 'es': $webapp_langID = 1; break;
   case 'en': $webapp_langID = 2; break;
   case 'de': $webapp_langID = 3; break;
-  case 'ca': $webapp_langID = 4; break;
-  case 'fr': $webapp_langID = 5; break;
+  case 'fr': $webapp_langID = 4; break;
+  case 'ru': $webapp_langID = 5; break;
   case 'it': $webapp_langID = 6; break;
-  case 'ru': $webapp_langID = 7; break;
+  case 'ca': $webapp_langID = 7; break;
   case 'pt': $webapp_langID = 8; break;
   default: $webapp_langID = 1; break;
 }

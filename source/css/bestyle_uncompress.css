@@ -3780,6 +3780,20 @@ a.orbtn.orbtn-inline {
        font-size: var(--or-font-p);
         -webkit-appearance: none;
     }
+    a#modal-reservas {
+      width: auto;
+      height: var(--or-menu-height-mobile);
+      margin: 0 auto;
+      display: flex;
+      background-color: var(--or-be-specialcolor);
+      padding: 0 20px;
+      border-radius: 0;
+      font-weight: 900;
+      font-size: var(--or-font-p);
+      -webkit-appearance: none;
+      justify-content: center;
+      align-items: center;
+    }
     input{ -webkit-appearance: none; }
     .or-nav-container.or-float .or-nav-menu.or-nav-booking > input
     {

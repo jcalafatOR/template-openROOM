@@ -41,12 +41,37 @@ if(isset($or_paramsGetParams['OR_LOGOFILE']))
 	<div class="or-nav-menu or-nav-logo"><a href="<?php echo $orLogo_languageCode . '/' ; ?>" title="<?php echo $or_paramsGetParams['OR_SITETITLE']; ?>"><img alt="<?php echo $or_paramsGetParams['OR_SITETITLE']; ?>" src="<?php echo $or_paramsGetParams['OR_LOGOFILE']; ?>" /></a></div>
 	<?php
 }//else{ echo print_r(or_tplParams::getParam('OR_LOGOFILE')) . ' <- OR_LOGOFILE'; }
+
+$webapp_lang_inst = JFactory::getLanguage();
+$webapp_lang = explode('-',$webapp_lang_inst->getTag());
+
+switch($webapp_lang[0])
+{
+  case 'es': $webapp_langID = 1; break;
+  case 'en': $webapp_langID = 2; break;
+  case 'de': $webapp_langID = 3; break;
+  case 'fr': $webapp_langID = 4; break;
+  case 'ru': $webapp_langID = 5; break;
+  case 'it': $webapp_langID = 6; break;
+  case 'ca': $webapp_langID = 7; break;
+  case 'pt': $webapp_langID = 8; break;
+  default: $webapp_langID = 1; break;
+}
+
+$mobileappurl = "https://mobilebooking.open-room.com/intro.php?hotel_code=".BE_ID_HOTEL."&webportal_code=".BE_ID_PORTAL."&code_lang=".$webapp_langID;
+
 ?>
 <div class="or-nav-container-block">
 <div class="or-nav-menu or-nav-burger"><i class="oricon-burger"></i></div>
 <div class="or-nav-menu or-nav-extras" rel="<?php echo $or_nav_extras_css; ?>"><?php echo $or_nav_extras_content; ?></div>
 <div class="or-nav-menu or-nav-booking none">
+<?php if(defined('BE_MOBILEWEBAPP') && BE_MOBILEWEBAPP == 1) { ?>
+      <a id="modal-reservas" class="uk-button uk-button-primary b-send" href="<?php echo $mobileappurl; ?>" title="<?php echo $or_boton_reservar_mobile; ?>" target="reservas"><?php // ENVIAR  ?>
+	  <?php echo JText::_('TPL_OPENROOM_BE_BUSCADOR_8'); ?>
+     </a>
+	<?php } else { ?>
 	<input type="button" id="modal-reservas" onclick="return be_openBooking();" class="uk-button uk-button-primary b-send" value="<?php echo JText::_('TPL_OPENROOM_BE_BUSCADOR_8'); ?>">
+	<?php } ?>
 </div>
 <ul class="or-nav-menu-display menu<?php echo $class_sfx; ?> mod-list"<?php echo $id; ?>>
 	<span class="nav-close"><i class="oricon-close"></i></span>
