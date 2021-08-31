@@ -21,13 +21,21 @@ switch($webapp_lang[0])
   case 'pt': $webapp_langID = 8; break;
   default: $webapp_langID = 1; break;
 }
+require __DIR__ . DS . 'class_or_multihotel.php';
+$multihotel = new or_multihotel();
 
 $mobileappurl = "https://mobilebooking.open-room.com/intro.php?hotel_code=".BE_ID_HOTEL."&webportal_code=".BE_ID_PORTAL."&code_lang=".$webapp_langID;
 ?>
 <script>
+var beMultiData = <?php echo $multihotel->getList(); ?>
+console.log(beMultiData);
 var portal = <?php echo BE_ID_PORTAL; ?>; //561; //ID portal
 var hotel = <?php echo '"'.BE_ID_HOTEL.'"'; ?>; //389; //ID hotel
 var subdominio = <?php echo '"'.BE_SUBDOMINIO.'"'; ?>; //; //default bookings
+<?php defined('BE_CHECKDISPO') or define('BE_CHECKDISPO', 0); ?>
+var checkDispo = <?php echo intval(BE_CHECKDISPO); ?>; //; //default bookings
+<?php defined('BE_NODSIPOREDIRECT') or define('BE_NODSIPOREDIRECT', 0); ?>
+var NoDispoRedirect = <?php echo intval(BE_NODSIPOREDIRECT); ?>; //; //default bookings
 
 // counter rooms + adults + kids
 var max_hab = <?php echo BE_MAX_ROOMS; ?>; //5;
@@ -81,7 +89,7 @@ if(file_exists(__DIR__ . '/class_or_mobExtraButton.php'))
 ?>
  <div class="buscador <?php echo $is_home; ?>" id="buscador">
    <div class="be-mobile only_mobile">
-     <?php if(defined('BE_MOBILEWEBAPP') && BE_MOBILEWEBAPP == 1)
+     <?php if(defined('BE_MOBILEWEBAPP') && BE_MOBILEWEBAPP == 1 && $multihotel->isMultihotel())
      { 
       $or_boton_reservar_mobile = BE_ESCADENA == 1 ? JText::_('TPL_OPENROOM_BE_SEARCH_MULTIHOTEL') : JText::_('TPL_OPENROOM_BE_SEARCH_HOTEL'); ?>
       <a class="reservar" href="<?php echo $mobileappurl; ?>" title="<?php echo $or_boton_reservar_mobile; ?>" target="reservas"><?php // ENVIAR  ?>
@@ -110,11 +118,11 @@ if(file_exists(__DIR__ . '/class_or_mobExtraButton.php'))
   <div class="sticky-buscador" <?php /*uk-sticky="top: 0; animation: uk-animation-slide-top; media: 639"*/ ?>>
 		<?php /*<form class="uk-form bh<?php echo $cadenaCSS; ?>" action="" id="buscador_reserva" onsubmit="return be_checkAction();" target="reservas" method="post">*/ ?>
     <form class="uk-form bh<?php echo $cadenaCSS; ?>" action="" id="buscador_reserva" target="reservas" method="post">
-      
       <?php
       if(BE_ESCADENA == 1)
       {
        ?>
+       <input type="hidden" name="frm_iscadena" value="1" />
        <div class="header-search uk-grid-small" uk-grid>
        <div class="uk-form-div hoteles uk-width-1-2@s hotel-sel-con uk-first-column">
           <div class="con">
@@ -122,11 +130,23 @@ if(file_exists(__DIR__ . '/class_or_mobExtraButton.php'))
             <select class="uk-select" id="hotel-sel">
               <option value="<?php echo BE_ID_PORTAL; ?>"><?php echo JText::_('TPL_OPENROOM_BE_BUSCADOR_0'); ?></option>
               <?php
-              $or_jsonHotelList = json_decode(BE_LISTAHOTELES, true);
-              foreach($or_jsonHotelList as $id => $nombre)
+              $or_jsonHotelList = $multihotel->getList();
+              foreach($or_jsonHotelList as $id => $array)
               {
+                $preText = is_array($array) ? $array['pre'] : "";
+                $nombre = !is_empty($array['nombre'][$webapp_lang[0]]) ? $array['nombre'][$webapp_lang[0]] : $array;
                ?>
-               <option value="<?php echo $id; ?>"><?php echo $nombre; ?></option>
+               <option 
+                  value="<?php echo $id; ?>"
+                  <?php
+                    echo ' data-portal="'.$tmp['portalweb'].'" ';
+                    echo ' data-id="'.$tmp['hotelid'].'" ';
+                    echo ' data-adult="'.$tmp['adult'].'" ';
+                    echo ' data-app="'.$tmp['app'].'" ';
+                    echo ' data-kids="'.$tmp['kids'].'" ';
+                    echo ' data-checkdispo="'.$tmp['checkdispo'].'" ';                    
+                  ?>
+                  ><?php echo $preText.$nombre; ?></option>
                <?php
               }
               ?>
@@ -137,7 +157,9 @@ if(file_exists(__DIR__ . '/class_or_mobExtraButton.php'))
       }
       else
       {
-       ?><input type="hidden" id="hotel-sel" name="hotel-sel" value="<?php echo BE_ID_PORTAL; ?>" />
+       ?>
+       <input type="hidden" name="frm_iscadena" value="0" />
+       <input type="hidden" id="hotel-sel" name="hotel-sel" value="<?php echo BE_ID_PORTAL; ?>" />
        <div class="header-search uk-grid-small" uk-grid><?php
       }
       

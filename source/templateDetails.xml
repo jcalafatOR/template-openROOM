@@ -7,13 +7,14 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.26.2</version>
-	<description>Template Base para Hoteles (v1.26.2) &lt;br /&gt;
+	<version>1.27.0</version>
+	<description>Template Base para Hoteles (v1.27.0) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
-	IMPORTANTE: La primera instalación incluye un archivo (template.css)&lt;br /&gt;
-	Aunque las posteriores actualizaciónes no incluirán este archivo, hay que realizar SIEMPRE una copia de seguridad.&lt;br /&gt;
-	En las Updates se incluirá un archivo template_default.css con la estructura básica del css.&lt;br /&gt;
+	IMPORTANTE: Se han incorporado constantes nuevas, actualizar los Styles del template&lt;br /&gt;
+	para agregar las nuevas constantes (Extensions > Templates > Styles).&lt;br /&gt;
 	=========================================================&lt;br /&gt;
+	1.27.0: - Cajetín para multihotel y WebApp.&lt;br /&gt;
+	          · Se lanza el cajetín en lugar de ir a WebApp en mobile cuando es multihotel.&lt;br /&gt;
 	1.26.2: - Acceso al WebApp (bug fix).&lt;br /&gt;
 	          · El boton de RESERVAR en la parte inferior no redireccionaba a la WebApp.&lt;br /&gt;
 	1.26.1: - Acceso al WebApp.&lt;br /&gt;
@@ -222,6 +223,32 @@
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
+
+				<field 
+					name="BE_CHECKDISPO"
+					type="radio"
+					label="TPL_OPENROOM_BECHECKDISPO_LABEL"
+					description="TPL_OPENROOM_BECHECKDISPO_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				
+				<field 
+					name="BE_NODSIPOREDIRECT"
+					type="radio"
+					label="TPL_OPENROOM_BENODSIPOREDIRECT_LABEL"
+					description="TPL_OPENROOM_BENODSIPOREDIRECT_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					showon="BE_CHECKDISPO:1[AND]BE_ESCADENA:1"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
 				<field 
 					name="BE_ID_PORTAL"  
 					type="number" 

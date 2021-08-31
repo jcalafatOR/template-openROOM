@@ -1631,7 +1631,7 @@ function detectIE() {
   // other browser
   return false;
 }
-
+/***** END BE JS */
 /* Cookies */
 
 jQuery(document).ready(function() {

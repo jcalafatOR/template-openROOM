@@ -1,0 +1,284 @@
+{
+    "0" : {
+        "nombre": 
+        {
+            "es" : "Todos los hoteles",
+            "en" : "All hotels",
+            "de" : "Alle Hotels"
+        },
+        "adult": 0,
+        "app": 0,
+        "fechas": [
+            {
+                "in": "04-03",
+                "out": "10-31"
+            }, 
+            {
+                "in": "11-01",
+                "out": "NN-01-02"
+            }
+        ],
+        "kids" : 5,
+        "checkdispo": 0,
+        "pre" : "",
+        "hotelid" : 0,
+        "portalweb" : 119
+    },
+    "1" : {
+        "nombre": 
+        {
+            "es" : "Costa Nord Deia",
+            "en" : "Costa Nord Deia",
+            "de" : "Costa Nord Deia"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " ",
+        "hotelid" : 5,
+        "portalweb" : 127
+    },
+    "2" : {
+        "nombre": 
+        {
+            "es" : "Hoposa Costa D'Or (Adults Only)",
+            "en" : "Hoposa Costa D'Or (Adults Only)",
+            "de" : "Hoposa Costa D'Or (Adults Only)"
+        },
+        "adult": 1,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 5,
+        "portalweb" : 127
+    },
+    "3" : {
+        "nombre": 
+        {
+            "es" : "Cala San Vicente",
+            "en" : "Cala San Vicente",
+            "de" : "Cala San Vicente"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " ",
+        "hotelid" : 6,
+        "portalweb" : 125
+    },
+    "4" : {
+        "nombre": 
+        {
+            "es" : "Hoposa Niu",
+            "en" : "Hoposa Niu",
+            "de" : "Hoposa Niu"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 6,
+        "portalweb" : 125
+    },
+    "5" : {
+        "nombre": 
+        {
+            "es" : "Puerto Pollensa",
+            "en" : "Puerto Pollensa",
+            "de" : "Puerto Pollensa"
+        },
+        "adult": 0,
+        "app": 0,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 0,
+        "pre" : " ",
+        "hotelid" : 0,
+        "portalweb" : 221
+    },
+    "6" : {
+        "nombre": 
+        {
+            "es" : "Sporthotel Hoposa Villaconcha",
+            "en" : "Sporthotel Hoposa Villaconcha",
+            "de" : "Sporthotel Hoposa Villaconcha"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 4,
+        "portalweb" : 124
+    },
+    "7" : {
+        "nombre": 
+        {
+            "es" : "Hotel Illa D'Or Superior",
+            "en" : "Hotel Illa D'Or Superior",
+            "de" : "Hotel Illa D'Or Superior"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 73,
+        "portalweb" : 72
+    },
+    "8" : {
+        "nombre": 
+        {
+            "es" : "Hoposa Daina",
+            "en" : "Hoposa Daina",
+            "de" : "Hoposa Daina"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 3,
+        "portalweb" : 128
+    },
+    "9" : {
+        "nombre": 
+        {
+            "es" : "Hoposa Uyal",
+            "en" : "Hoposa Uyal",
+            "de" : "Hoposa Uyal"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 10,
+        "portalweb" : 129
+    },
+    "10" : {
+        "nombre": 
+        {
+            "es" : "Hoposa Pollentia",
+            "en" : "Hoposa Pollentia",
+            "de" : "Hoposa Pollentia"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 11,
+        "portalweb" : 123
+    },
+    "11" : {
+        "nombre": 
+        {
+            "es" : "Hoposa Bahia",
+            "en" : "Hoposa Bahia",
+            "de" : "Hoposa Bahia"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 9,
+        "portalweb" : 121
+    },
+    "12" : {
+        "nombre": 
+        {
+            "es" : "Hotel & Apartments Hoposa Villaconcha",
+            "en" : "Hotel & Apartments Hoposa Villaconcha",
+            "de" : "Hotel & Apartments Hoposa Villaconcha"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 4,
+        "portalweb" : 124
+    },
+    "13" : {
+        "nombre": 
+        {
+            "es" : "Apartments Illa d'Or",
+            "en" : "Apartments Illa d'Or",
+            "de" : "Apartments Illa d'Or"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 73,
+        "portalweb" : 72
+    },
+    "14" : {
+        "nombre": 
+        {
+            "es" : "Apartments Hoposa Montelin",
+            "en" : "Apartments Hoposa Montelin",
+            "de" : "Apartments Hoposa Montelin"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 8,
+        "portalweb" : 126
+    },
+    "15" : {
+        "nombre": 
+        {
+            "es" : "Apartments Hoposa Daina",
+            "en" : "Apartments Hoposa Daina",
+            "de" : "Apartments Hoposa Daina"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 2,
+        "portalweb" : 120
+    },
+    "16" : {
+        "nombre": 
+        {
+            "es" : "Apartments Hoposa Pollensamar",
+            "en" : "Apartments Hoposa Pollensamar",
+            "de" : "Apartments Hoposa Pollensamar"
+        },
+        "adult": 0,
+        "app": 1,
+        "fechas": [],
+        "kids" : 5,
+        "checkdispo": 1,
+        "pre" : " - ",
+        "hotelid" : 7,
+        "portalweb" : 122
+    }
+
+}
