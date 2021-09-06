@@ -1,0 +1,81 @@
+/* -- BE: Multihotel Styles --[START]---------------------------- */
+.bh .hotel-sel-con .uk-select#hotel-sel {
+    text-align: left;
+    padding: 10px;
+}
+.scale-in-center {
+	-webkit-animation: scale-in-center 0.5s ease-in-out both;
+	        animation: scale-in-center 0.5s ease-in-out both;
+}
+.ormodal
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.ormodal .ormodal-content
+{
+    display: flex;
+    height: auto;
+    width: 40vw;
+    min-width: 280px;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FFF;
+    flex-direction: column;
+}
+.ormodal .ormodal-content .ormodal-body
+{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.ormodal .ormodal-content .ormodal-body p
+{
+    font-size: 14px;
+    text-align: center;
+}
+.ormodal .ormodal-content .ormodal-body p.bold
+{
+    font-size: 18px;
+}
+/**
+ * ----------------------------------------
+ * animation scale-in-center
+ * ----------------------------------------
+ */
+ @-webkit-keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+
+
+/* -- BE: Multihotel Styles --[END]------------------------------ */

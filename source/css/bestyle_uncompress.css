@@ -2649,6 +2649,13 @@ body .ui-tooltip {
     border-top-right-radius: var(--or-be-cornerradius);
 }
 
+
+
+
+
+
+/**** [END] CAJETÍN ****/
+
 .orbtn {
     align-items: center;
     border-radius: var(--or-be-cornerradius-min);
@@ -5432,3 +5439,126 @@ a.orbtn.orbtn-inline {
 * --------------------- *
 * END of default styles *
 ************************/
+
+
+/* -- BE: Multihotel Styles --[START]---------------------------- */
+.bh .hotel-sel-con .uk-select#hotel-sel {
+  text-align: left;
+  padding: 10px;
+}
+.scale-in-center {
+	-webkit-animation: scale-in-center 0.5s ease-in-out both;
+	        animation: scale-in-center 0.5s ease-in-out both;
+}
+.ormodal_cajetin
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+.ormodal_cajetin .ormodal-content
+{
+    display: flex;
+    height: auto;
+    width: 60vw;
+    min-width: 280px;
+    max-width: 450px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FFF;
+    flex-direction: column;
+}
+.ormodal_cajetin .ormodal-content .ormodal-body
+{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.ormodal_cajetin .ormodal-content .ormodal-body p
+{
+    font-size: 14px;
+    text-align: center;
+}
+.ormodal_cajetin .ormodal-content .ormodal-body p.bold
+{
+    font-size: 18px;
+}
+/**
+ * ----------------------------------------
+ * animation scale-in-center
+ * ----------------------------------------
+ */
+ @-webkit-keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+
+  .scale-out-center {
+    -webkit-animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  }
+
+  /**
+  * ----------------------------------------
+  * animation scale-out-center
+  * ----------------------------------------
+  */
+  @-webkit-keyframes scale-out-center {
+      0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+      }
+      100% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+      }
+  }
+  @keyframes scale-out-center {
+      0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+      }
+      100% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+      }
+  }
+
+
+
+/* -- BE: Multihotel Styles --[END]------------------------------ */

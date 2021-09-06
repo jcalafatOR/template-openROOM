@@ -7,13 +7,13 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.27.0</version>
-	<description>Template Base para Hoteles (v1.27.0) &lt;br /&gt;
+	<version>1.27.1</version>
+	<description>Template Base para Hoteles (v1.27.1) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: Se han incorporado constantes nuevas, actualizar los Styles del template&lt;br /&gt;
 	para agregar las nuevas constantes (Extensions > Templates > Styles).&lt;br /&gt;
 	=========================================================&lt;br /&gt;
-	1.27.0: - Cajetín para multihotel y WebApp.&lt;br /&gt;
+	1.27.x: - Cajetín para multihotel y WebApp.&lt;br /&gt;
 	          · Se lanza el cajetín en lugar de ir a WebApp en mobile cuando es multihotel.&lt;br /&gt;
 	1.26.2: - Acceso al WebApp (bug fix).&lt;br /&gt;
 	          · El boton de RESERVAR en la parte inferior no redireccionaba a la WebApp.&lt;br /&gt;
@@ -364,8 +364,17 @@
 					type="textarea"
 					label="TPL_OPENROOM_BE_LISTAHOTELES_LABEL"
 					description="TPL_OPENROOM_BE_LISTAHOTELES_DESC"
+					rows="8" 
+					columns="300"
+					default=""
+				/>
+				<field 
+					name="BE_TITLEINMOBILE" 
+					type="textarea"
+					label="TPL_OPENROOM_BE_TITLEINMOBILE_LABEL"
+					description="TPL_OPENROOM_BE_TITLEINMOBILE_DESC"
 					rows="4" 
-					columns="30"
+					columns="300"
 					default=""
 				/>
 			</fieldset>

@@ -10,19 +10,20 @@
         "app": 0,
         "fechas": [
             {
-                "in": "04-03",
-                "out": "10-31"
+                "in": "01-03",
+                "out": "03-31"
             }, 
             {
-                "in": "11-01",
-                "out": "NN-01-02"
+                "in": "10-01",
+                "out": "10-30"
             }
         ],
         "kids" : 5,
         "checkdispo": 0,
-        "pre" : "",
+        "pre" : 1,
         "hotelid" : 0,
-        "portalweb" : 119
+        "portalweb" : 119,
+        "default" : []
     },
     "1" : {
         "nombre": 
@@ -31,14 +32,24 @@
             "en" : "Costa Nord Deia",
             "de" : "Costa Nord Deia"
         },
-        "adult": 0,
+        "adult": 1,
         "app": 1,
-        "fechas": [],
+        "fechas": [
+            {
+                "in": "02-03",
+                "out": "05-31"
+            }, 
+            {
+                "in": "11-05",
+                "out": "12-20"
+            }
+        ],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " ",
+        "pre" : 1,
         "hotelid" : 5,
-        "portalweb" : 127
+        "portalweb" : 127,
+        "default" : []
     },
     "2" : {
         "nombre": 
@@ -52,9 +63,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 5,
-        "portalweb" : 127
+        "portalweb" : 127,
+        "default" : ["es/hoteles/costa-dor","hotels/costa-dor"]
     },
     "3" : {
         "nombre": 
@@ -68,9 +80,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " ",
+        "pre" : 1,
         "hotelid" : 6,
-        "portalweb" : 125
+        "portalweb" : 125,
+        "default" : []
     },
     "4" : {
         "nombre": 
@@ -84,9 +97,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 6,
-        "portalweb" : 125
+        "portalweb" : 125,
+        "default" : ["es/hoteles/niu","hotels/niu"]
     },
     "5" : {
         "nombre": 
@@ -100,9 +114,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 0,
-        "pre" : " ",
+        "pre" : 1,
         "hotelid" : 0,
-        "portalweb" : 221
+        "portalweb" : 221,
+        "default" : []
     },
     "6" : {
         "nombre": 
@@ -116,9 +131,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 4,
-        "portalweb" : 124
+        "portalweb" : 124,
+        "default" : ["es/hoteles/villaconcha","hotels/villaconcha"]
     },
     "7" : {
         "nombre": 
@@ -132,9 +148,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 73,
-        "portalweb" : 72
+        "portalweb" : 72,
+        "default" : ["es/hoteles/illa-dor","hotels/illa-dor"]
     },
     "8" : {
         "nombre": 
@@ -148,9 +165,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 3,
-        "portalweb" : 128
+        "portalweb" : 128,
+        "default" : ["es/hoteles/daina","hotels/daina"]
     },
     "9" : {
         "nombre": 
@@ -164,9 +182,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 10,
-        "portalweb" : 129
+        "portalweb" : 129,
+        "default" : ["es/hoteles/uyal","hotels/uyal"]
     },
     "10" : {
         "nombre": 
@@ -180,9 +199,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 11,
-        "portalweb" : 123
+        "portalweb" : 123,
+        "default" : ["es/hoteles/pollentia","hotels/pollentia"]
     },
     "11" : {
         "nombre": 
@@ -196,9 +216,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 9,
-        "portalweb" : 121
+        "portalweb" : 121,
+        "default" : ["es/hoteles/bahia","hotels/bahia"]
     },
     "12" : {
         "nombre": 
@@ -212,9 +233,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 4,
-        "portalweb" : 124
+        "portalweb" : 124,
+        "default" : []
     },
     "13" : {
         "nombre": 
@@ -228,9 +250,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 73,
-        "portalweb" : 72
+        "portalweb" : 72,
+        "default" : ["es/hoteles/apartamentos-illador","hotels/apartments-illador"]
     },
     "14" : {
         "nombre": 
@@ -244,9 +267,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 8,
-        "portalweb" : 126
+        "portalweb" : 126,
+        "default" : ["es/hoteles/apartamentos-montelin","hotels/apartments-montelin"]
     },
     "15" : {
         "nombre": 
@@ -260,9 +284,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 2,
-        "portalweb" : 120
+        "portalweb" : 120,
+        "default" : ["es/hoteles/apartamentos-daina","hotels/apartments-daina"]
     },
     "16" : {
         "nombre": 
@@ -276,9 +301,10 @@
         "fechas": [],
         "kids" : 5,
         "checkdispo": 1,
-        "pre" : " - ",
+        "pre" : 0,
         "hotelid" : 7,
-        "portalweb" : 122
+        "portalweb" : 122,
+        "default" : ["es/hoteles/apartamentos-pollensamar","hotels/apartments-pollensamar"]
     }
 
 }

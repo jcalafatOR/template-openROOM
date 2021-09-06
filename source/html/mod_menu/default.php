@@ -65,11 +65,11 @@ $mobileappurl = "https://mobilebooking.open-room.com/intro.php?hotel_code=".BE_I
 <div class="or-nav-menu or-nav-burger"><i class="oricon-burger"></i></div>
 <div class="or-nav-menu or-nav-extras" rel="<?php echo $or_nav_extras_css; ?>"><?php echo $or_nav_extras_content; ?></div>
 <div class="or-nav-menu or-nav-booking none">
-<?php if(defined('BE_MOBILEWEBAPP') && BE_MOBILEWEBAPP == 1) { ?>
-      <a id="modal-reservas" class="uk-button uk-button-primary b-send" href="<?php echo $mobileappurl; ?>" title="<?php echo $or_boton_reservar_mobile; ?>" target="reservas"><?php // ENVIAR  ?>
+<?php if(defined('BE_MOBILEWEBAPP') && BE_MOBILEWEBAPP == 1 && BE_ESCADENA == 0) { ?>
+    <a id="modal-reservas" class="uk-button uk-button-primary b-send" href="<?php echo $mobileappurl; ?>" title="<?php echo $or_boton_reservar_mobile; ?>" target="reservas"><?php // ENVIAR  ?>
 	  <?php echo JText::_('TPL_OPENROOM_BE_BUSCADOR_8'); ?>
-     </a>
-	<?php } else { ?>
+    </a>
+<?php } else { ?>
 	<input type="button" id="modal-reservas" onclick="return be_openBooking();" class="uk-button uk-button-primary b-send" value="<?php echo JText::_('TPL_OPENROOM_BE_BUSCADOR_8'); ?>">
 	<?php } ?>
 </div>

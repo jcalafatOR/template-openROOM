@@ -21,14 +21,21 @@ switch($webapp_lang[0])
   case 'pt': $webapp_langID = 8; break;
   default: $webapp_langID = 1; break;
 }
-require __DIR__ . DS . 'class_or_multihotel.php';
+require __DIR__ . '/class_or_multihotel.php';
 $multihotel = new or_multihotel();
+//$tmp = $multihotel->getList();
 
 $mobileappurl = "https://mobilebooking.open-room.com/intro.php?hotel_code=".BE_ID_HOTEL."&webportal_code=".BE_ID_PORTAL."&code_lang=".$webapp_langID;
 ?>
 <script>
-var beMultiData = <?php echo $multihotel->getList(); ?>
-console.log(beMultiData);
+<?php if(BE_ESCADENA == 1) {
+  $or_jsonHotelList = $multihotel->getList(); ?>
+  var beMultiData = JSON.parse(<?php echo $multihotel->returnDates(); ?>);
+  //console.log(beMultiData);
+  
+<?php }else{ ?>
+  var beMultiData = JSON.parse('[]');
+<?php } ?>
 var portal = <?php echo BE_ID_PORTAL; ?>; //561; //ID portal
 var hotel = <?php echo '"'.BE_ID_HOTEL.'"'; ?>; //389; //ID hotel
 var subdominio = <?php echo '"'.BE_SUBDOMINIO.'"'; ?>; //; //default bookings
@@ -89,7 +96,7 @@ if(file_exists(__DIR__ . '/class_or_mobExtraButton.php'))
 ?>
  <div class="buscador <?php echo $is_home; ?>" id="buscador">
    <div class="be-mobile only_mobile">
-     <?php if(defined('BE_MOBILEWEBAPP') && BE_MOBILEWEBAPP == 1 && $multihotel->isMultihotel())
+     <?php if(defined('BE_MOBILEWEBAPP') && BE_MOBILEWEBAPP == 1 && BE_ESCADENA == 0)
      { 
       $or_boton_reservar_mobile = BE_ESCADENA == 1 ? JText::_('TPL_OPENROOM_BE_SEARCH_MULTIHOTEL') : JText::_('TPL_OPENROOM_BE_SEARCH_HOTEL'); ?>
       <a class="reservar" href="<?php echo $mobileappurl; ?>" title="<?php echo $or_boton_reservar_mobile; ?>" target="reservas"><?php // ENVIAR  ?>
@@ -117,6 +124,24 @@ if(file_exists(__DIR__ . '/class_or_mobExtraButton.php'))
    <?php $cadenaCSS = BE_ESCADENA == 1 ? " esCadena" : ""; ?>
   <div class="sticky-buscador" <?php /*uk-sticky="top: 0; animation: uk-animation-slide-top; media: 639"*/ ?>>
 		<?php /*<form class="uk-form bh<?php echo $cadenaCSS; ?>" action="" id="buscador_reserva" onsubmit="return be_checkAction();" target="reservas" method="post">*/ ?>
+    <?php
+    //echo "Multihotel: " . print_r($multihotel->returnTitles());
+    if(!empty($multihotel->returnTitles()[$webapp_lang[0]]) 
+      && count($multihotel->returnTitles()[$webapp_lang[0]]) > 0)
+    {
+      echo '<div class="only_mobile">';
+      foreach($multihotel->returnTitles()[$webapp_lang[0]] as $tag => $content)
+      {
+        echo '<'.$tag.'>';
+          echo $content;
+        echo '</'.$tag.'>';
+      }
+      echo '</div>';
+    }
+      //echo (count($multihotel->returnTitles()) > 0) && !empty($multihotel->returnTitles()[$webapp_lang[0]]) 
+       // ? '<div class="only_mobile">'.$multihotel->returnTitles()[$webapp_lang[0]].'</div>'
+       // : '';
+    ?>
     <form class="uk-form bh<?php echo $cadenaCSS; ?>" action="" id="buscador_reserva" target="reservas" method="post">
       <?php
       if(BE_ESCADENA == 1)
@@ -128,25 +153,38 @@ if(file_exists(__DIR__ . '/class_or_mobExtraButton.php'))
           <div class="con">
             <span><?php echo JText::_('TPL_OPENROOM_BE_BUSCADOR_0'); ?></span>
             <select class="uk-select" id="hotel-sel">
-              <option value="<?php echo BE_ID_PORTAL; ?>"><?php echo JText::_('TPL_OPENROOM_BE_BUSCADOR_0'); ?></option>
-              <?php
-              $or_jsonHotelList = $multihotel->getList();
+              <?php /*<option value="<?php echo BE_ID_PORTAL; ?>"><?php echo JText::_('TPL_OPENROOM_BE_BUSCADOR_0'); ?></option>*/
+             
+              //$or_jsonHotelList = $multihotel->getList();
               foreach($or_jsonHotelList as $id => $array)
               {
-                $preText = is_array($array) ? $array['pre'] : "";
-                $nombre = !is_empty($array['nombre'][$webapp_lang[0]]) ? $array['nombre'][$webapp_lang[0]] : $array;
+                $preText = is_array($array) ? $array['pre'] : 0;
+                $optionclass = $preText == 1 ? ' class="parentOption" ' : ' class="childOption" ';
+                $espaciar = $preText == 1 ? '&nbsp;&nbsp;' : '&nbsp;&nbsp;&nbsp;&nbsp;';
+                $nombre = !empty($array['nombre'][$webapp_lang[0]]) ? $array['nombre'][$webapp_lang[0]] : $array;
+
+                $optionSeleceted = "";
+                if(count($array['default'])>0)
+                {
+                    foreach($array['default'] as $a)
+                    {
+                      $optionSeleceted = strpos($_SERVER['REQUEST_URI'], $a) !== false ? ' selected="selected" ' : $optionSeleceted;
+                    }
+                }
+
                ?>
                <option 
-                  value="<?php echo $id; ?>"
+                  value="<?php echo $id; ?>" <?php echo $optionSeleceted . $optionclass; ?> 
                   <?php
-                    echo ' data-portal="'.$tmp['portalweb'].'" ';
-                    echo ' data-id="'.$tmp['hotelid'].'" ';
-                    echo ' data-adult="'.$tmp['adult'].'" ';
-                    echo ' data-app="'.$tmp['app'].'" ';
-                    echo ' data-kids="'.$tmp['kids'].'" ';
-                    echo ' data-checkdispo="'.$tmp['checkdispo'].'" ';                    
+                    echo ' data-pre="'.$preText.'" ';
+                    echo ' data-portal="'.$array['portalweb'].'" ';
+                    echo ' data-id="'.$array['hotelid'].'" ';
+                    echo ' data-adult="'.$array['adult'].'" ';
+                    echo ' data-app="'.$array['app'].'" ';
+                    echo ' data-kids="'.$array['kids'].'" ';
+                    echo ' data-checkdispo="'.$array['checkdispo'].'" ';                    
                   ?>
-                  ><?php echo $preText.$nombre; ?></option>
+                  ><?php echo $espaciar.$nombre; ?>&nbsp;&nbsp;</option>
                <?php
               }
               ?>
@@ -240,3 +278,20 @@ if(file_exists(__DIR__ . '/class_or_mobExtraButton.php'))
     </form>
   </div>
 </div> <!-- /buscador -->
+
+<?php 
+if(BE_CHECKDISPO == 1)
+{
+  echo '<div id="noDispoPopUp" class="ormodal_cajetin none" rel-portal="'.BE_ID_PORTAL.'" rel-hotel="'.BE_ID_HOTEL.'" rel-redirect="'.BE_NODSIPOREDIRECT.'">';
+    echo '<div class="ormodal-content">';
+    echo '<div class="ormodal-body">';
+      echo '<p class="bold">'. JText::_('TPL_OPENROOM_BE_NODISPO').'</p>';
+      if(BE_NODSIPOREDIRECT == 1) { echo '<p>'.JText::_('TPL_OPENROOM_BE_NODISPO_REDIRECT').'</p>'; }
+    echo '</div>';
+    echo '<div class="ormodal-footer">';
+    
+    echo '</div>';
+    echo '</div>';
+  echo '</div>';
+}
+?>
