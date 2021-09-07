@@ -2147,7 +2147,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
       // ** Si no es mobile comprobamos el contenido del cajetin
       resizeHeader();
     }
-
+    removeWhiteSpaces()
   }
   /// On document Ready...
   let OR_stateCheck = setInterval(() => {
@@ -2158,7 +2158,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
       resizeHeader(); // Si es necesario hacemos resizeHeader
       OR_GDPRCookieAdvice(); // Si tenemos el plugin GDPR para Cookies instalado.
       window.addEventListener('resize', OR_onResizeEvent());
-
+      removeWhiteSpaces();
       const selectorDeHoteles = document.getElementById('hotel-sel');
       if (selectorDeHoteles != undefined) {
         const loadHotelSelected = () => {
@@ -2198,6 +2198,19 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
     }
   }, 100);
 
+  function removeWhiteSpaces()
+  {
+    if (checkMobileSize()) {
+      const selectorDeHoteles = document.getElementById('hotel-sel');
+      const opcionesHoteles = selectorDeHoteles.querySelectorAll('option');
+
+      for (let i = 0; i < opcionesHoteles.length; i++) {
+        const element = opcionesHoteles[i];
+        let correctivo = element.innerHTML.replaceAll('&nbsp;', '')
+        element.innerHTML = correctivo
+      }
+    }
+  }
 
   /** -END- ON READY RESIZE Listener **/
 
