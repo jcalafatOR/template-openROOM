@@ -5,7 +5,8 @@
             "es": "Nombre para mostrar en español",
             "xx": "[Por cada idioma ir añadiendo]"
         },
-        "adult" : "[0|1] Definir si es sólo adultos: 0=>No | 1=> Si (NOTA: Si es una Zona con 1 solo hotel, aplicar los mismos valores que al hotel)",
+        "rooms" : "[0|X] Define el máximo de habitaciones por consulta: (NOTA: Si es una Zona con 1 solo hotel, aplicar los mismos valores que al hotel)",
+        "adult" : "[0|X] Define el máximo de adultos por habitación: (NOTA: Si es una Zona con 1 solo hotel, aplicar los mismos valores que al hotel)",
         "app" : "[0|1] Acceso a Web App o no: 0=>No | 1=> Si (NOTA: Si es una Zona con 1 solo hotel, aplicar los mismos valores que al hotel)",
         "fechas": [
             {
@@ -17,7 +18,8 @@
                 "out": "Siguiendo la misma lógica"
             }
         ],
-        "kids" : "[0|12] Edad inicial niños: (NOTA: Si es una Zona con 1 solo hotel, aplicar los mismos valores que al hotel)",
+        "kids" : "[0|X] Niños máximos por habitación (0 para solo adultos): (NOTA: Si es una Zona con 1 solo hotel, aplicar los mismos valores que al hotel)",
+        "age" : "[0|12] Edad inicial niños: (NOTA: Si es una Zona con 1 solo hotel, aplicar los mismos valores que al hotel)",
         "checkdispo": "[0|1] Comprobar si hay disponibilidad antes de lanzar el BE: 0=>No | 1=> Si",
         "pre" : "[0|1] Es una Zona o no: 0=>No | 1=> Si (Le agrega una clase padre/hijo para poder editar el color y el grosor de letra)",
         "hotelid" : "[0|x] Número correspondiente al Hotel ID. Las zonas llevarán 0 excepto que sólo tengan un hotel, si sólo tienen un hotel se pone el ID del Hotel.",
@@ -31,7 +33,8 @@
             "en" : "All hotels",
             "de" : "Alle Hotels"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 4,
         "app": 0,
         "fechas": [
             {
@@ -39,7 +42,8 @@
                 "out": "NN-03-11"
             }
         ],
-        "kids" : 5,
+        "kids" : 2,
+        "age" : 5,
         "checkdispo": 0,
         "pre" : 1,
         "hotelid" : 0,
@@ -53,7 +57,8 @@
             "en" : "Cala San Vicente",
             "de" : "Cala San Vicente"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 2,
         "app": 1,
         "fechas": [
             {
@@ -61,7 +66,8 @@
                 "out": "NN-03-25"
             }
         ],
-        "kids" : 5,
+        "kids" : 1,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 1,
         "hotelid" : 6,
@@ -75,7 +81,8 @@
             "en" : "Hoposa Niu",
             "de" : "Hoposa Niu"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 2,
         "app": 1,
         "fechas": [
             {
@@ -83,7 +90,8 @@
                 "out": "NN-03-25"
             }
         ],
-        "kids" : 5,
+        "kids" : 1,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 6,
@@ -97,7 +105,8 @@
             "en" : "Deià",
             "de" : "Deià"
         },
-        "adult": 1,
+        "rooms" : 4,
+        "adult": 3,
         "app": 1,
         "fechas": [
             {
@@ -105,7 +114,8 @@
                 "out": "NN-03-25"
             }
         ],
-        "kids" : 5,
+        "kids" : 0,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 1,
         "hotelid" : 5,
@@ -119,7 +129,8 @@
             "en" : "Hoposa Costa D'Or",
             "de" : "Hoposa Costa D'Or"
         },
-        "adult": 1,
+        "rooms" : 4,
+        "adult": 3,
         "app": 1,
         "fechas": [
             {
@@ -127,7 +138,8 @@
                 "out": "NN-03-25"
             }
         ],
-        "kids" : 5,
+        "kids" : 0,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 5,
@@ -141,7 +153,8 @@
             "en" : "Puerto Pollensa",
             "de" : "Puerto Pollensa"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 4,
         "app": 0,
         "fechas": [
             {
@@ -149,7 +162,8 @@
                 "out": "NN-03-11"
             }
         ],
-        "kids" : 5,
+        "kids" : 3,
+        "age" : 5,
         "checkdispo": 0,
         "pre" : 1,
         "hotelid" : 0,
@@ -163,7 +177,8 @@
             "en" : "Hoposa Bahía",
             "de" : "Hoposa Bahía"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 3,
         "app": 1,
         "fechas": [
             {
@@ -171,7 +186,8 @@
                 "out": "NN-03-25"
             }
         ],
-        "kids" : 5,
+        "kids" : 2,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 9,
@@ -185,7 +201,8 @@
             "en" : "Hoposa Daina",
             "de" : "Hoposa Daina"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 3,
         "app": 1,
         "fechas": [
             {
@@ -193,7 +210,8 @@
                 "out": "NN-03-25"
             }
         ],
-        "kids" : 5,
+        "kids" : 2,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 3,
@@ -207,7 +225,8 @@
             "en" : "Hoposa Illa d'Or",
             "de" : "Hoposa Illa d'Or"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 4,
         "app": 1,
         "fechas": [
             {
@@ -215,7 +234,8 @@
                 "out": "NN-03-11"
             }
         ],
-        "kids" : 5,
+        "kids" : 2,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 73,
@@ -229,7 +249,8 @@
             "en" : "Hoposa Pollentia",
             "de" : "Hoposa Pollentia"
         },
-        "adult": 1,
+        "rooms" : 4,
+        "adult": 2,
         "app": 1,
         "fechas": [
             {
@@ -237,7 +258,8 @@
                 "out": "NN-03-25"
             }
         ],
-        "kids" : 5,
+        "kids" : 0,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 11,
@@ -251,7 +273,8 @@
             "en" : "Hoposa Uyal",
             "de" : "Hoposa Uyal"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 4,
         "app": 1,
         "fechas": [
             {
@@ -259,7 +282,8 @@
                 "out": "NN-03-25"
             }
         ],
-        "kids" : 5,
+        "kids" : 3,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 10,
@@ -273,7 +297,8 @@
             "en" : "Hoposa Villaconcha Family & Sport",
             "de" : "Hoposa Villaconcha Family & Sport"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 4,
         "app": 1,
         "fechas": [
             {
@@ -281,7 +306,8 @@
                 "out": "NN-03-11"
             }
         ],
-        "kids" : 5,
+        "kids" : 3,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 4,
@@ -295,7 +321,8 @@
             "en" : "Apartments Hoposa Daina",
             "de" : "Apartments Hoposa Daina"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 4,
         "app": 1,
         "fechas": [
             {
@@ -303,7 +330,8 @@
                 "out": "NN-03-25"
             }
         ],
-        "kids" : 5,
+        "kids" : 3,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 2,
@@ -317,7 +345,8 @@
             "en" : "Apartments Hoposa Illa d'Or",
             "de" : "Apartments Hoposa Illa d'Or"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 4,
         "app": 1,
         "fechas": [
             {
@@ -325,7 +354,8 @@
                 "out": "NN-03-11"
             }
         ],
-        "kids" : 5,
+        "kids" : 3,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 73,
@@ -339,7 +369,8 @@
             "en" : "Apartments Hoposa Montelin",
             "de" : "Apartments Hoposa Montelin"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 4,
         "app": 1,
         "fechas": [
             {
@@ -347,7 +378,8 @@
                 "out": "NN-03-11"
             }
         ],
-        "kids" : 5,
+        "kids" : 3,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 8,
@@ -361,7 +393,8 @@
             "en" : "Apartments Hoposa Pollensamar",
             "de" : "Apartments Hoposa Pollensamar"
         },
-        "adult": 0,
+        "rooms" : 4,
+        "adult": 4,
         "app": 1,
         "fechas": [
             {
@@ -369,7 +402,8 @@
                 "out": "NN-03-25"
             }
         ],
-        "kids" : 5,
+        "kids" : 3,
+        "age" : 5,
         "checkdispo": 1,
         "pre" : 0,
         "hotelid" : 7,

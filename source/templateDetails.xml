@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.9.28" type="template" client="site" method="upgrade">
+<extension version="3.10.2" type="template" client="site" method="upgrade">
 	<name>openROOM</name>
 	<creationDate>2019-12-16</creationDate>
 	<author>open ROOM</author>
@@ -7,13 +7,19 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.27.3</version>
-	<description>Template Base para Hoteles (v1.27.3) &lt;br /&gt;
+	<version>1.28.0</version>
+	<description>Template Base para Hoteles (v1.28.0) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: Se han incorporado constantes nuevas, actualizar los Styles del template&lt;br /&gt;
 	para agregar las nuevas constantes (Extensions > Templates > Styles).&lt;br /&gt;
 	=========================================================&lt;br /&gt;
+	1.28.x: - Change parámetro HotelID en la URL al BE desde desk.&lt;br /&gt;
 	1.27.x: - Cajetín para multihotel y WebApp.&lt;br /&gt;
+	          · (v1.27.7) Agregado errores de JS cuando no es multihotel.&lt;br /&gt;
+	          · (v1.27.6) Agregado errores de JS cuando no es multihotel.&lt;br /&gt;
+	          · (v1.27.5) Agregado texto TEXTO_COOKIES_POLITICA_COOKIES_LINK en los idiomas EN, ES, DE.&lt;br /&gt;
+	          · (v1.27.5) Eliminado estilos uiit que daban conflictos.&lt;br /&gt;
+	          · (v1.27.4) Ahora se puede especificar max rooms, max adults y max kids por hotel.&lt;br /&gt;
 	          · Se lanza el cajetín en lugar de ir a WebApp en mobile cuando es multihotel.&lt;br /&gt;
 	1.26.2: - Acceso al WebApp (bug fix).&lt;br /&gt;
 	          · El boton de RESERVAR en la parte inferior no redireccionaba a la WebApp.&lt;br /&gt;

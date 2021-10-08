@@ -341,7 +341,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
       else {
         if (!jQuery('#mobileBuscador.or-fullsize').hasClass('none') && jQuery('#mobileBuscador.or-fullsize').length > 0) {
           be_closeBooking();
-          console.log("Trigger close Booking")
+          //console.log("Trigger close Booking")
         }
         /** OR Content Flip **/
         or_cflip_reset();
@@ -494,9 +494,9 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
     if (or_videoPopUpItem.getAttribute('id') == id) {
       or_videoPopUpItem.parentNode.removeChild(or_videoPopUpItem);
       be_orCloseCover(id);
-    } else {
+    } /*else {
       console.log(or_videoPopUpItem.getAttribute('id'))
-    }
+    }*/
   }
 
   function be_orCloseCover(id) {
@@ -511,7 +511,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
       }
       document.body.classList.remove('overflow-hiden');
       if (document.getElementsByClassName('or-bgFade').length != 0) {
-        console.log(document.getElementsByClassName('or-bgFade'))
+        //console.log(document.getElementsByClassName('or-bgFade'))
         document.getElementsByClassName('or-bgFade').parentNode.removeChild(document.getElementsByClassName('or-bgFade'));
       }
     }, 500);
@@ -1156,13 +1156,13 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
         {
           var reverse_date_in = dateIn.split('-');
           fechaIn = reverse_date_in[2]+'-'+reverse_date_in[1]+'-'+reverse_date_in[0];
-          console.log(fechaIn);
+          //console.log(fechaIn);
         }
         if(/[0-9]{2}\-[0-9]{2}\-[0-9]{4}/.test(dateOut))
         {
           var reverse_date_out = dateOut.split('-');
           fechaOut = reverse_date_out[2]+'-'+reverse_date_out[1]+'-'+reverse_date_out[0];
-          console.log(fechaOut);
+          //console.log(fechaOut);
         }
 
 
@@ -1193,7 +1193,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
         url = buildUrl;
 
       } else {
-        url = 'https://' + subdominio + '.open-room.com/BookingEngine/Landing?Request.Action=nueva&Request.PortalCodeOPR=' + portal + '&Request.Hotel=' + hotel + '&Request.Language=' + lang + '&Request.CheckinDate=' + dateIn + '&Request.CheckoutDate=' + dateOut + '&Request.Occupation=' + rooms + '&Request.PromotionalCode=' + codigoProm + '&adParams=1';
+        url = 'https://' + subdominio + '.open-room.com/BookingEngine/Landing?Request.Action=nueva&Request.PortalCodeOPR=' + portal + '&Request.HotelCodeOPR=' + hotel + '&Request.Language=' + lang + '&Request.CheckinDate=' + dateIn + '&Request.CheckoutDate=' + dateOut + '&Request.Occupation=' + rooms + '&Request.PromotionalCode=' + codigoProm + '&adParams=1';
       }
 
       if (checkDispo > 0 && hotel != '') {
@@ -1211,10 +1211,10 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
           if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
             if (this.responseText == "True") {
               form.setAttribute('action', url);
-              console.log(url);
+              //console.log(url);
               form.submit();
             } else { msgNoDispo(form); }
           }
@@ -1225,7 +1225,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
       }
       else {
         form.setAttribute('action', url);
-        console.log(url);
+        //console.log(url);
         return true;
       }
 
@@ -1258,7 +1258,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
         if (hotel == 0) { hotel = ''; }
         const newUrl = 'https://' + subdominio + '.open-room.com/BookingEngine/Landing?Request.Action=nueva&' +
           'Request.PortalCodeOPR=' + portal +
-          '&Request.Hotel=' + hotel +
+          '&Request.HotelCodeOPR=' + hotel +
           '&Request.Language=' + lang +
           '&Request.CheckinDate=' + dateIn +
           '&Request.CheckoutDate=' + dateOut +
@@ -1323,7 +1323,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
   var checkDates = function (date) {
 
     const selectorDeHoteles1 = document.getElementById('hotel-sel');
-    if (Object.keys(beMultiData[selectorDeHoteles1.selectedIndex]).length > 0) {
+    if (selectorDeHoteles1.selectedIndex != undefined && Object.keys(beMultiData[selectorDeHoteles1.selectedIndex]).length > 0) {
       var today = new Date();
       var yyyy = today.getFullYear();
 
@@ -1430,6 +1430,77 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
     jQuery('.hotel-sel-con span').html(hotel_sel_val);
   });*/
 
+  function be_roomIconCounterChange(target)
+  {
+    var more = target.classList.contains("more");
+    var less = target.classList.contains("less");
+    var value;
+    if (more) {
+      value = getMore('habitaciones');
+    } else if (less) {
+      value = getLess('habitaciones');
+    }
+
+    var number = parseInt(value) + 1;
+    jQuery('.hab-value').html(value);
+    jQuery('.b-more-beds').empty();
+
+    var form = document.getElementById('buscador_reserva');
+    var isCadena = document.getElementsByName('frm_iscadena')[0].value;
+    var kidsDisplay = '';
+
+    if (isCadena == 1) {
+      var hotelFormSelect = document.getElementById('hotel-sel');
+      var hotelSelected = hotelFormSelect.selectedIndex;
+      var adultsOnly = parseInt(hotelFormSelect.options[hotelSelected].getAttribute('data-kids'));
+
+      if (adultsOnly == 0) { kidsDisplay = ' none '; }
+    }
+    //console.log("disparado: - " + kidsDisplay + " - " + isCadena);
+
+    for (var i = 1; i < number; i++) {
+
+      var appendData = '<div uk-grid class="mt-0 uk-grid-collapse">' +
+        '<span class="bmb-title uk-width-1-1">' + be_search_text("4_1") + ' ' + i.toString() + '</span>' +
+        '<div class="uk-width-expand">' +
+        '<span>' + be_search_text("4_2") + '</span>' +
+        '<div class="counter-container" id="adultos_hab_' + value + '_' + i.toString() + '">' +
+        '<i class="icon less"></i>' +
+        '<div class="counter ac-item">2</div> ' +
+        '<i class="icon more"></i>' +
+        '</div>' +
+        '</div>' +
+        '<div class="uk-width-expand' + kidsDisplay + '">' +
+        '<span>' + be_search_text("4_3") + '</span>' +
+        '<div class="counter-container kids-counter" data-ninos-sel="' + value + '_' + i.toString() + '" id="ninos_hab_' + value + '_' + i.toString() + '">' +
+        '<i class="icon less"></i>' +
+        '<div class="counter kc-item">0</div>' +
+        '<i class="icon more"></i>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div uk-grid class="uk-grid-collapse">' +
+        '<div class="uk-width-1-1 mt-0"><div class="bmb-kids-cont-' + value + '_' + i.toString() + ' bmb-kids-cont uk-grid-collapse" uk-grid></div></div>' +
+        '</div>';
+      jQuery('.b-more-beds').append(appendData);
+    }
+  }
+
+
+
+
+  const be_roomsIconSelect = document.querySelectorAll('#habitaciones .icon')
+  if(be_roomsIconSelect.length > 0)
+  {
+    be_roomsIconSelect.forEach(function(element) {
+      element.addEventListener('click', (e) => {
+        e.preventDefault()
+        var target = e.target
+        be_roomIconCounterChange(target)
+      })
+    })
+  }
+  /*
   jQuery('#habitaciones .icon').on("click", function () {
     var more = jQuery(this).hasClass("more");
     var less = jQuery(this).hasClass("less");
@@ -1451,11 +1522,11 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
     if (isCadena == 1) {
       var hotelFormSelect = document.getElementById('hotel-sel');
       var hotelSelected = hotelFormSelect.selectedIndex;
-      var adultsOnly = hotelFormSelect.options[hotelSelected].getAttribute('data-adult');
+      var adultsOnly = parseInt(hotelFormSelect.options[hotelSelected].getAttribute('data-kids'));
 
-      if (adultsOnly == 1) { kidsDisplay = ' none '; }
+      if (adultsOnly == 0) { kidsDisplay = ' none '; }
     }
-    console.log("disparado: - " + kidsDisplay + " - " + isCadena);
+    //console.log("disparado: - " + kidsDisplay + " - " + isCadena);
 
     for (var i = 1; i < number; i++) {
 
@@ -1484,7 +1555,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
       jQuery('.b-more-beds').append(appendData);
     }
   });
-
+*/
   jQuery(document).on('click', '.kids-counter .icon', function (event) {
     var parent = jQuery(this).parent();
     var data_ninos_sel = parent.data('ninos-sel');
@@ -1497,7 +1568,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
     if (isCadena == 1) {
       var hotelFormSelect = document.getElementById('hotel-sel');
       var hotelSelected = hotelFormSelect.selectedIndex;
-      var kidsAge = hotelFormSelect.options[hotelSelected].getAttribute('data-kids');
+      var kidsAge = hotelFormSelect.options[hotelSelected].getAttribute('data-age');
       hotelSelect[kidsAge] = " selected ";
     } else {
       hotelSelect[5] = " selected ";
@@ -1686,7 +1757,82 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
   });
 
   // sumar un pax
-  function getMore(id) {
+  function getMore(id) 
+  {
+    //let counter = parseInt(document.querySelector("#" + id + " .counter").innerHTML)
+    //counter = counter + 1
+    var isCadena = document.querySelectorAll('#buscador_reserva input[name=frm_iscadena]')[0].value
+    if(isCadena == 1)
+    {
+      var hotelSelect = document.getElementById('hotel-sel');
+      var hotelSelected = hotelSelect.selectedIndex;
+
+      max_adul = hotelSelect.options[hotelSelected].getAttribute('data-adult');
+      max_kids = hotelSelect.options[hotelSelected].getAttribute('data-kids');
+      max_hab = hotelSelect.options[hotelSelected].getAttribute('data-rooms');
+    }
+    var counter = parseInt(jQuery("#" + id + " .counter").text());
+    counter = parseInt(counter) + 1;
+    if (id.indexOf("adultos") >= 0) { //if adultos
+      if (counter >= max_adul) {
+        counter = max_adul;
+        jQuery('#' + id + ' .icon.more').addClass('disabled');
+      } 
+      if (counter > min_adul){
+        jQuery('#' + id + ' .icon.less').removeClass('disabled');
+      }
+    } else if (id.indexOf("ninos") >= 0) { //if kids
+      if (counter >= max_kids) {
+        counter = max_kids;
+        jQuery('#' + id + ' .icon.more').addClass('disabled');
+      } 
+      if (counter > min_kids){
+        jQuery('#' + id + ' .icon.less').removeClass('disabled');
+      }
+    } else if (id.indexOf("habitaciones") >= 0) { //if hab
+      if (counter >= max_hab) {
+        counter = max_hab;
+        jQuery('#' + id + ' .icon.more').addClass('disabled');
+      } 
+      if (counter > 1) {
+        jQuery('#' + id + ' .icon.less').removeClass('disabled');
+      }
+    }
+    jQuery("#" + id + " .counter").text(counter);
+    return counter;
+
+/*
+    let isMax = false
+    if(id.indexOf("adultos") >= 0) {
+      if (counter >= max_adul) {
+        counter = max_adul
+        isMax = true
+      }
+    } else if (id.indexOf("ninos") >= 0) { //if kids
+      if (counter >= max_kids) {
+        counter = max_kids
+        isMax = true
+      }
+    } else if (id.indexOf("habitaciones") >= 0) { //if hab
+      if (counter >= max_hab) {
+        counter = max_hab
+        isMax = true
+      }
+    }
+    if(isMax)
+    {
+      document.querySelector("#" + id + " .icon.more").classList.add('disabled')
+    }else{ 
+      document.querySelector("#" + id + " .icon.less").classList.remove('disabled')
+    }
+    document.querySelector("#" + id + " .counter").innerText = counter
+
+    return counter
+
+
+
+
+/*
     var counter = parseInt(jQuery("#" + id + " .counter").text());
     counter = parseInt(counter) + 1;
     if (id.indexOf("adultos") >= 0) { //if adultos
@@ -1712,7 +1858,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
       }
     }
     jQuery("#" + id + " .counter").text(counter);
-    return counter;
+    return counter;*/
   }
 
   jQuery("body").on("click", ".b-more-beds .icon.less", function () {
@@ -1720,8 +1866,95 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
     getLess(counter_id);
   });
 
+
   // restar un pax
   function getLess(id) {
+
+    //let counter = parseInt(document.querySelector("#" + id + " .counter").innerHTML)
+    //counter = counter + 1
+
+
+    var isCadena = document.querySelectorAll('#buscador_reserva input[name=frm_iscadena]')[0].value
+    if(isCadena == 1)
+    {
+      var hotelSelect = document.getElementById('hotel-sel');
+      var hotelSelected = hotelSelect.selectedIndex;
+
+      max_adul = hotelSelect.options[hotelSelected].getAttribute('data-adult');
+      max_kids = hotelSelect.options[hotelSelected].getAttribute('data-kids');
+      max_hab = hotelSelect.options[hotelSelected].getAttribute('data-rooms');
+    }
+
+
+    var counter = parseInt(jQuery("#" + id + " .counter").text());
+    counter = parseInt(counter) - 1;
+    if (id.indexOf("adultos") >= 0) { //if adultos
+      if (counter <= min_adul) {
+        counter = min_adul;
+        jQuery('#' + id + ' .icon.less').addClass('disabled');
+      } 
+      if (counter < max_adul) {
+        jQuery('#' + id + ' .icon.more').removeClass('disabled');
+      }
+    } else if (id.indexOf("ninos") >= 0) { //if kids
+      if (counter <= min_kids) {
+        counter = min_kids;
+        jQuery('#' + id + ' .icon.less').addClass('disabled');
+      } 
+      if (counter < max_kids)  {
+        jQuery('#' + id + ' .icon.more').removeClass('disabled');
+      }
+    } else if (id.indexOf("habitaciones") >= 0) { //if hab
+      if (counter <= min_hab) {
+        counter = min_hab;
+        jQuery('#' + id + ' .icon.less').addClass('disabled');
+      } 
+      if (counter < max_hab)  {
+        jQuery('#' + id + ' .icon.more').removeClass('disabled');
+      }
+    }
+    jQuery("#" + id + " .counter").text(counter);
+    return counter;
+
+
+/*
+    let isMax = false
+    if(id.indexOf("adultos") >= 0) {
+      if (counter >= max_adul) {
+        counter = max_adul
+        isMax = true
+      }
+    } else if (id.indexOf("ninos") >= 0) { //if kids
+      if (counter >= max_kids) {
+        counter = max_kids
+        isMax = true
+      }
+    } else if (id.indexOf("habitaciones") >= 0) { //if hab
+      if (counter >= max_hab) {
+        counter = max_hab
+        isMax = true
+      }
+    }
+
+
+    if(isMax)
+    {
+      document.querySelector("#" + id + " .icon.less").classList.add('disabled')
+    }else{ 
+      document.querySelector("#" + id + " .icon.more").classList.remove('disabled')
+    }
+    document.querySelector("#" + id + " .counter").innerText = counter
+
+    return counter
+
+
+
+
+
+
+
+/*
+
     var counter = parseInt(jQuery("#" + id + " .counter").text());
     counter = parseInt(counter) - 1;
     if (id.indexOf("adultos") >= 0) { //if adultos
@@ -1747,8 +1980,29 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
       }
     }
     jQuery("#" + id + " .counter").text(counter);
-    return counter;
+    return counter;*/
   }
+
+  function updateStringOccupacy()
+  {
+    var number_ac_items = 0;
+    var number_kc_items = 0;
+    document.querySelectorAll('.ac-item').forEach(function (index) {
+      var number = index.innerText;
+      number_ac_items = parseInt(number_ac_items) + parseInt(number);
+    })
+    document.querySelectorAll('.kc-item').forEach(function (index) {
+      var number = index.innerText;
+      number_kc_items = parseInt(number_kc_items) + parseInt(number);
+    })
+    
+    if (number_kc_items == 0) {
+      document.querySelector('.b-title.hab-num').innerHTML = '<span class="ac-counter">' + number_ac_items + '</span> ' + be_search_text("4_2");
+    } else {
+      document.querySelector('.b-title.hab-num').innerHTML = '<span class="ac-counter">' + number_ac_items + '</span> ' + be_search_text("4_2") + ',&nbsp;<span class="kc-counter">' + number_kc_items + '</span> ' + be_search_text("4_3");
+    }
+  }
+
 
   // combo info occupancy
   if (typeof UIkit !== "undefined") {
@@ -1954,7 +2208,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
   Array.from(orS2P_Items).forEach(link => {
     link.addEventListener('click', function (event) {
       event.preventDefault();
-      console.log(event.composedPath());
+      //console.log(event.composedPath());
       let dataPhoto = {
         class: event.composedPath()[1].getAttribute('rel'),
         mainID: event.composedPath()[3].getAttribute('id'),
@@ -2005,7 +2259,7 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
         start = new Event('start', { "cancelable": true });
         click = new Event('click', { "cancelable": true });
         link.addEventListener('start', function (event) {
-          console.log('Cargamos el Set Interval: ' + event + " -> " + link.classList);
+          //console.log('Cargamos el Set Interval: ' + event + " -> " + link.classList);
           orS2P_intervalsLinks[items.getAttribute('id')] = link;
           orS2P_intervals[items.getAttribute('id')] = setInterval(function () { link.dispatchEvent(click) }, timer);
         });
@@ -2160,18 +2414,18 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
       window.addEventListener('resize', OR_onResizeEvent());
       removeWhiteSpaces();
       const selectorDeHoteles = document.getElementById('hotel-sel');
-      if (selectorDeHoteles != undefined) {
+      if (selectorDeHoteles != undefined && selectorDeHoteles.selectedIndex != undefined && selectorDeHoteles.tagName == "SELECT") {
         const loadHotelSelected = () => {
           var spanOption = selectorDeHoteles.options[selectorDeHoteles.selectedIndex];
           //var attrSelect = spanOption.getAttribute('data-remove');
           var spanContent = /*attrSelect == 1 ? spanOption.innerHTML.replace(spanOption.getAttribute('data-pre'), '') : */spanOption.innerHTML;
           spanContent = spanContent.replace('(', ' <small>(').replace(')', ')</small>').replaceAll('&nbsp;', '')
           document.querySelector('.hotel-sel-con span').innerHTML = spanContent.trim();
-          var adults = selectorDeHoteles.options[selectorDeHoteles.selectedIndex].getAttribute('data-adult');
+          var adults = selectorDeHoteles.options[selectorDeHoteles.selectedIndex].getAttribute('data-kids');
           const listaRooms = document.querySelectorAll('.b-more-beds > div > div.uk-width-expand:last-of-type');
           for (let a = 0; a < listaRooms.length; a++) {
 
-            if (adults > 0) { listaRooms[a].classList.add('none'); }
+            if (adults == 0) { listaRooms[a].classList.add('none'); }
             else { listaRooms[a].classList.remove('none'); }
           }
           ajustarRangepicker();
@@ -2179,6 +2433,11 @@ if (window.CSS && CSS.supports('color', 'var(--fake-var)')) {
         loadHotelSelected()
         selectorDeHoteles.addEventListener('change', (e) => {
           loadHotelSelected()
+          while(parseInt(document.querySelector('#habitaciones .counter').innerHTML) > 1)
+          {
+            be_roomIconCounterChange(document.querySelector('#habitaciones .icon.less'))
+            updateStringOccupacy()
+          }
           /*var spanOption = selectorDeHoteles.options[selectorDeHoteles.selectedIndex];
           var attrSelect = spanOption.getAttribute('data-remove');
           var spanContent = attrSelect == 1 ? spanOption.innerHTML.replace(spanOption.getAttribute('data-pre'), '') : spanOption.innerHTML;

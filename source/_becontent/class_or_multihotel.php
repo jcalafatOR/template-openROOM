@@ -44,10 +44,12 @@ class or_multihotel
             $tmp['portalweb'] = is_array($array) ? intval($array['portalweb']) : $id;
             $tmp['nombre'] = is_array($array) ? $array['nombre'] : $array;
             /*** HASTA AQUÍ PRINCIPAL */
-            $tmp['adult'] = is_array($array) ? intval($array['adult']) : 0;
+            $tmp['rooms'] = is_array($array) ? intval($array['rooms']) : BE_MAX_ROOMS;
+            $tmp['adult'] = is_array($array) ? intval($array['adult']) : BE_MAX_ADULTS;
             $tmp['app'] = is_array($array) ? intval($array['app']) : 0;
             $tmp['fechas'] = is_array($array) ? $array['fechas'] : [];
-            $tmp['kids'] = is_array($array) ? intval($array['kids']) : 5;
+            $tmp['kids'] = is_array($array) ? intval($array['kids']) : BE_MAX_KIDS;
+            $tmp['age'] = is_array($array) ? intval($array['age']) : 5;
             $tmp['checkdispo'] = is_array($array) ? intval($array['checkdispo']) : 0;
             $tmp['pre'] = is_array($array) ? $array['pre'] : "";
             $tmp['hotelid'] = is_array($array) ? intval($array['hotelid']) : 0;

@@ -182,6 +182,8 @@ if(file_exists(__DIR__ . '/class_or_mobExtraButton.php'))
                     echo ' data-adult="'.$array['adult'].'" ';
                     echo ' data-app="'.$array['app'].'" ';
                     echo ' data-kids="'.$array['kids'].'" ';
+                    echo ' data-age="'.$array['age'].'" ';
+                    echo ' data-rooms="'.$array['rooms'].'" ';
                     echo ' data-checkdispo="'.$array['checkdispo'].'" ';                    
                   ?>
                   ><?php echo $espaciar.$nombre; ?>&nbsp;&nbsp;</option>
