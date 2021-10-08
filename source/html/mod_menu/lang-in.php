@@ -128,7 +128,7 @@ if(isset($or_paramsGetParams['OR_LOGOFILE']))
 	$orLogo_languages = JLanguageHelper::getLanguages('lang_code');
 	$orLogo_languageCode = $orLogo_languages[ $orLogo_lang->getTag() ]->sef;
    ?>
-	<div class="or-nav-menu or-nav-logo"><a href="<?php echo $orLogo_languageCode . '/' ; ?>" title="<?php echo $or_paramsGetParams['OR_SITETITLE']; ?>"><img alt="<?php echo $or_paramsGetParams['OR_SITETITLE']; ?>" src="<?php echo $or_paramsGetParams['OR_LOGOFILE']; ?>" /></a></div>
+	<div class="or-nav-menu or-nav-logo"><a href="<?php echo $orLogo_languageCode . '/' ; ?>" title="<?php echo $or_paramsGetParams['OR_SITETITLE']; ?>"><img loading="lazy" alt="<?php echo $or_paramsGetParams['OR_SITETITLE']; ?>" src="<?php echo $or_paramsGetParams['OR_LOGOFILE']; ?>" /></a></div>
 	<?php
 }//else{ echo print_r(or_tplParams::getParam('OR_LOGOFILE')) . ' <- OR_LOGOFILE'; }
 

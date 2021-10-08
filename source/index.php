@@ -20,10 +20,41 @@ if(isset($_GET['start']) && !isset($currentPage))
 <html xml:lang="<?php echo $htmllang[0]; ?>" lang="<?php echo $htmllang[0]; ?>" >
 <head>
 <jdoc:include type="head" />
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/uikit.min.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/uikit.min.css'); ?>" type="text/css" />
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/bestyle.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/bestyle.css'); ?>" type="text/css" />
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/template.css'); ?>" type="text/css" />
+
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=5.0">
+
+<link 
+  rel="preload" 
+  href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/uikit.min.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/uikit.min.css'); ?>" 
+  as="style" 
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" 
+    href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/uikit.min.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/uikit.min.css'); ?>">
+</noscript>
+  
+<link 
+  rel="preload" 
+  href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/bestyle.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/bestyle.css'); ?>"
+  as="style" 
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link 
+    rel="stylesheet" 
+    href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/bestyle.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/bestyle.css'); ?>">
+</noscript>
+
+<link 
+  rel="preload" 
+  href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/template.css'); ?>" 
+  as="style" 
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link 
+    rel="stylesheet" 
+    href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/template.css'); ?>">
+</noscript>
+
 <!--[if ie]><meta http-equiv="X-UA-Compatible" content="IE=Edge"/><![endif]-->
 <!-- Google Tag Manager -->
 <script>

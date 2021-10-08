@@ -8,5 +8,7 @@
  */
 
 defined('_JEXEC') or die;
-JHtml::script(Juri::base() . 'templates/openroom/js/jquery.min.js');
+// ***** DESCOMENTAR SIGUIENTE LÍNEA SI JQUERY NO SE CARGA ***** //
+// JHtml::script(Juri::base() . 'templates/openroom/js/jquery.min.js');
+
 ?>
