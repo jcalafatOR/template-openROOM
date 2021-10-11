@@ -7,13 +7,14 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.28.1</version>
-	<description>Template Base para Hoteles (v1.28.1) &lt;br /&gt;
+	<version>1.28.2</version>
+	<description>Template Base para Hoteles (v1.28.2) &lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	IMPORTANTE: Se han incorporado constantes nuevas, actualizar los Styles del template&lt;br /&gt;
 	para agregar las nuevas constantes (Extensions > Templates > Styles).&lt;br /&gt;
 	=========================================================&lt;br /&gt;
 	1.28.x: - Change parámetro HotelID en la URL al BE desde desk.&lt;br /&gt;
+	          · (v1.28.2) Remove lazyload of template.css on index.php.&lt;br /&gt;
 	          · (v1.28.1) Change Add lazyload en index.php y logo menu.&lt;br /&gt;
 	          · (v1.28.1) Remove jQuery from orempty.php (media/jui/ loads by default).&lt;br /&gt;
 	1.27.x: - Cajetín para multihotel y WebApp.&lt;br /&gt;

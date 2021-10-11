@@ -45,15 +45,8 @@ if(isset($_GET['start']) && !isset($currentPage))
 </noscript>
 
 <link 
-  rel="preload" 
-  href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/template.css'); ?>" 
-  as="style" 
-  onload="this.onload=null;this.rel='stylesheet'">
-<noscript>
-  <link 
     rel="stylesheet" 
     href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css<?php echo $orBasic->or_filemtime(__DIR__.'/css/template.css'); ?>">
-</noscript>
 
 <!--[if ie]><meta http-equiv="X-UA-Compatible" content="IE=Edge"/><![endif]-->
 <!-- Google Tag Manager -->
